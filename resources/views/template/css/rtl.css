@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+html,body
+{
+direction:rtl;
+}
+nav {direction: rtl !important;}
+.lSSlideOuter
+{
+direction:ltr;
+}
+.search_form .btn,.search_form #search_text
+{
+border-radius:0px;
+}
+.product-hider
+{
+float:right;
+}
+.fancybox-is-open .fancybox-inner
+{
+direction:ltr;
+}
+
+

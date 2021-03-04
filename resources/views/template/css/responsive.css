@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* CSS Document */
+@media (max-width: 767px)
+{
+#logo img
+{
+height:80%;
+}
+}
+@media (max-width: 768px){
+#nav-menu-container {
+    display: none;
+}
+
+#mobile-nav-toggle {
+    display: inline;
+}
+}
+@media (max-width: 767.98px) {
+
+.profile-head
+{
+position:absolute;
+top:150px;
+left:50px;
+}
+.profile-head h4
+{
+font-size:22px;
+}
+.profile-head p
+{
+font-size:14px;
+}
+
+}
+@media (min-width: 768px) {
+
+.profile-head
+{
+position:absolute;
+top:180px;
+left:50px;
+}
+.profile-head h4
+{
+font-size:22px;
+}
+.profile-head p
+{
+font-size:14px;
+}
+
+}
+@media (min-width: 1200px) {
+
+.profile-head
+{
+position:absolute;
+top:190px;
+left:50px;
+}
+.profile-head h4
+{
+font-size:25px;
+}
+.profile-head p
+{
+font-size:16px;
+}
+.container
+{
+overflow-x:hidden;
+}
+}
