@@ -6,6 +6,8 @@
 @include('style')
 </head>
 <body>
+
+
 @include('header')
     <section class="headerbg" style="background-image: url('{{ url('/') }}/public/storage/settings/{{ $allsettings->site_header_background }}');">
       <div class="container text-left">
@@ -62,9 +64,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                @php 
+                @php
                 $subtotal = 0;
-                $coupon_code = ""; 
+                $coupon_code = "";
                 $new_price = 0;
                 @endphp
                 @foreach($cart['product'] as $cart)
@@ -87,13 +89,13 @@
                             $price = $cart->discount_price;
                             $new_price += $cart->quantity * $cart->discount_price;
                             $coupon_code = $cart->coupon_code;
-                            
+
                           }
                           else
                           {
                             $price = $cart->price;
                             $new_price += $cart->quantity * $cart->price;
-                            
+
                           }
                         @endphp
                         @php
@@ -123,9 +125,9 @@
                         <td class="text-right"><h5><strong>{{ $allsettings->site_currency_symbol }}{{ $subtotal }}</strong></h5></td>
                     </tr>
                     @if($coupon_code != "")
-                    @php 
+                    @php
                     $coupon_discount = $subtotal - $new_price;
-                    $final = $new_price+$allsettings->site_processing_fee; 
+                    $final = $new_price+$allsettings->site_processing_fee;
                     @endphp
                     <tr>
                         <td></td>
@@ -153,7 +155,7 @@
                         <td><h3>{{ Helper::translation(1986,$translate) }}</h3></td>
                         <td class="text-right"><h3><strong>{{ $allsettings->site_currency_symbol }}{{ $final }}</strong></h3></td>
                     </tr>
-                    
+
                     <tr>
                         <td></td>
                         <td></td>
@@ -170,7 +172,7 @@
                   <div align="center">
                   {{ Helper::translation(1996,$translate) }}
                   </div>
-                </div>    
+                </div>
            @endif
          </div>
       </div>

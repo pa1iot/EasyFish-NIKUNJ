@@ -24,7 +24,7 @@
             </div>
             <div class="col-sm-8">
                 <div class="page-header float-right">
-                    
+
                 </div>
             </div>
         </div>
@@ -74,12 +74,13 @@
                                             <td>{{ str_replace("-"," ",$order->payment_type) }}</td>
                                             <td>@if($order->payment_token != ""){{ $order->payment_token }}@else <span>---</span> @endif</td>
                                             <td>@if(($order->payment_type == 'localbank' or  $order->payment_type == 'cash-on-delivery') && $order->payment_status == 'pending') <a href="orders/{{ base64_encode($order->purchase_token) }}/{{ base64_encode($order->payment_type) }}" class="blue-color"onClick="return confirm('Are you sure click to complete payment?');">{{ Helper::translation(3627,$translate) }}</a> @else <span>---</span> @endif</td>
-                                            
+
                                             <td><a href="order-details/{{ $order->purchase_token }}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>&nbsp; {{ Helper::translation(3477,$translate) }}</a></td>
                                         </tr>
                                         @php $no++; @endphp
-                                   @endforeach     
+                                   @endforeach
                                     </tbody>
+
                                 </table>
                                 </div>
                             </div>
@@ -91,7 +92,7 @@
     </div>
     @else
     @include('admin.denied')
-    @endif 
+    @endif
    @include('admin.javascript')
 </body>
 </html>

@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ChangeListManager">
-    <list default="true" id="6b472460-0c50-461c-bd85-9e0416642cf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ecomm_multi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ecomm_multi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/add-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/add-product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/edit-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/edit-product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/orders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/102d57af3943eb3064dd73e6ae616d76400f1c62.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/102d57af3943eb3064dd73e6ae616d76400f1c62.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/76eb3448582f418568e30cb35b29a51a5295dc68.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/76eb3448582f418568e30cb35b29a51a5295dc68.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/ca0afed76b60bff2789b0f3c93934f8544fc0d40.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/ca0afed76b60bff2789b0f3c93934f8544fc0d40.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-07-22.log" beforeDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
@@ -190,53 +158,10 @@
       <path value="$PROJECT_DIR$/vendor/league/flysystem-aws-s3-v3" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1pJ0A89upmGmBwSRpm305mL7znp" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
-  <component name="RunManager">
-    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
-      <method v="2" />
-    </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="6b472460-0c50-461c-bd85-9e0416642cf5" name="Default Changelist" comment="" />
-      <created>1614925649980</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1614925649980</updated>
-      <workItem from="1614925656763" duration="2041000" />
-      <workItem from="1614934139070" duration="7004000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/phpunit.xml" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />
+    </phpunit_settings>
   </component>
 </project>

@@ -13,6 +13,7 @@
         <p class="mb-0"><a href="{{ URL::to('/') }}">{{ Helper::translation(1913,$translate) }}</a> <span class="split">&gt;</span> <span>{{ Helper::translation(1995,$translate) }}</span></p>
       </div>
     </section>
+
    <main role="main">
       <div class="container page-white-box mt-3">
       <div>
@@ -58,7 +59,7 @@
                   <input type="text" class="form-control" id="bill_firstname" name="bill_firstname" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(1999,$translate) }}<span class="red">*</span></label> 
+                  <label>{{ Helper::translation(1999,$translate) }}<span class="red">*</span></label>
                   <input type="text" class="form-control" id="bill_lastname" name="bill_lastname" data-bvalidator="required">
                 </div>
               </div>
@@ -68,7 +69,7 @@
                   <input type="text" class="form-control" id="bill_companyname" name="bill_companyname">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(2001,$translate) }}<span class="red">*</span></label> 
+                  <label>{{ Helper::translation(2001,$translate) }}<span class="red">*</span></label>
                   <input type="text" class="form-control" id="bill_email" name="bill_email" data-bvalidator="email,required">
                 </div>
               </div>
@@ -78,7 +79,7 @@
                   <input type="text" class="form-control" id="bill_phone" name="bill_phone" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(2003,$translate) }}<span class="red">*</span></label> 
+                  <label>{{ Helper::translation(2003,$translate) }}<span class="red">*</span></label>
                   <input type="text" class="form-control" id="bill_address" name="bill_address" data-bvalidator="required">
                 </div>
               </div>
@@ -88,7 +89,7 @@
                   <input type="text" class="form-control" id="bill_city" name="bill_city" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(2005,$translate) }} <span class="red">*</span></label> 
+                  <label>{{ Helper::translation(2005,$translate) }} <span class="red">*</span></label>
                   <input type="text" class="form-control" id="bill_state" name="bill_state" data-bvalidator="required">
                 </div>
               </div>
@@ -98,7 +99,7 @@
                   <input type="text" class="form-control" id="bill_postcode" name="bill_postcode" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(2007,$translate) }} <span class="red">*</span></label> 
+                  <label>{{ Helper::translation(2007,$translate) }} <span class="red">*</span></label>
                   <select class="form-control" name="bill_country" data-bvalidator="required">
                   <option value=""></option>
                   @foreach($allcountry as $country)
@@ -117,7 +118,7 @@
                   <input type="text" class="form-control" id="ship_firstname" name="ship_firstname" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(1999,$translate) }} <span class="red">*</span></label> 
+                  <label>{{ Helper::translation(1999,$translate) }} <span class="red">*</span></label>
                   <input type="text" class="form-control" id="ship_lastname" name="ship_lastname" data-bvalidator="required">
                 </div>
               </div>
@@ -127,7 +128,7 @@
                   <input type="text" class="form-control" id="ship_companyname" name="ship_companyname">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(2001,$translate) }} <span class="red">*</span></label> 
+                  <label>{{ Helper::translation(2001,$translate) }} <span class="red">*</span></label>
                   <input type="text" class="form-control" id="ship_email" name="ship_email" data-bvalidator="email,required">
                 </div>
               </div>
@@ -137,7 +138,7 @@
                   <input type="text" class="form-control" id="ship_phone" name="ship_phone" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(2003,$translate) }} <span class="red">*</span></label> 
+                  <label>{{ Helper::translation(2003,$translate) }} <span class="red">*</span></label>
                   <input type="text" class="form-control" id="ship_address" name="ship_address" data-bvalidator="required">
                 </div>
               </div>
@@ -147,7 +148,7 @@
                   <input type="text" class="form-control" id="ship_city" name="ship_city" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(2005,$translate) }} <span class="red">*</span></label> 
+                  <label>{{ Helper::translation(2005,$translate) }} <span class="red">*</span></label>
                   <input type="text" class="form-control" id="ship_state" name="ship_state" data-bvalidator="required">
                 </div>
               </div>
@@ -157,7 +158,7 @@
                   <input type="text" class="form-control" id="ship_postcode" name="ship_postcode" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label>{{ Helper::translation(2007,$translate) }} <span class="red">*</span></label> 
+                  <label>{{ Helper::translation(2007,$translate) }} <span class="red">*</span></label>
                   <select class="form-control" name="ship_country" data-bvalidator="required">
                   <option value=""></option>
                   @foreach($allcountry as $country)
@@ -245,8 +246,8 @@
            <div align="center">
            {{ Helper::translation(1996,$translate) }}
            </div>
-        </div>    
-       @endif  
+        </div>
+       @endif
       </div>
     </main>
 @include('footer')

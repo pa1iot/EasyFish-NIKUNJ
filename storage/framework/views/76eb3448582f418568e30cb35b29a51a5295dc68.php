@@ -43,6 +43,7 @@
         </a>
       </div>
       <?php endif; ?>
+
      <?php if(count($categorybox['view']) != 0): ?>
       <div class="container white-box">
         <h4 class="black mb-2 pb-2"><?php echo e(Helper::translation(2056,$translate)); ?></h4>
@@ -74,7 +75,7 @@
         </div><!-- /.row -->
       </div>
       <?php endif; ?>
-     <?php if($allsettings->site_home_top_banner == 1): ?> 
+     <?php if($allsettings->site_home_top_banner == 1): ?>
      <div class="container pt-3 mt-3 pb-3 mb-3 p-0">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
@@ -110,14 +111,14 @@
       </div>
       </div>
       <?php endif; ?>
-      <?php if(count($physical['product']) != 0): ?> 
+      <?php if(count($physical['product']) != 0): ?>
        <div class="container pt-3 mt-3 pb-3 mb-3">
          <div class="row">
          <h4 class="black mb-2 pb-2"><?php echo e(Helper::translation(2059,$translate)); ?></h4>
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                             <?php $z = 1; ?>
-                              <?php $__currentLoopData = $physical['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                              <?php $__currentLoopData = $physical['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="swiper-slide">
                                     <div class="product-grid2">
                                     <div class="product-image2">
@@ -141,7 +142,8 @@
             <?php if($product->product_condition != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1950,$translate)); ?> : <span class="<?php echo e($badg); ?>"><?php echo e($product->product_condition); ?></span></div><?php endif; ?>
                                     <div class="mt-3"><?php if($product->product_price != 0): ?><span <?php if($product->product_offer_price != 0): ?> class="fs16 offer-price red-color" <?php else: ?> class="fs32" <?php endif; ?>><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_price); ?></span><?php endif; ?> <?php if($product->product_offer_price != 0): ?><span class="fs32"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_offer_price); ?></span><?php endif; ?></div>
                                     <p class="mt-3">
-                                    <?php echo e($product->product_short_desc); ?> 
+                                    <?php echo e($product->product_short_desc); ?>
+
                                     </p>
                                     <p><a href="<?php echo e(URL::to('/product')); ?>/<?php echo e($product->product_slug); ?>" class="btn button-color"><?php echo e(Helper::translation(2065,$translate)); ?></a></p>
                                     </div>
@@ -183,23 +185,23 @@
                                         </div>
                                     </div>
                                     </div>
-                                   <?php $z++; ?>      
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+                                   <?php $z++; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                             <div class="swiper-button-next swiper-button-white"></div>
                     <div class="swiper-button-prev swiper-button-white"></div>
                 </div>
-               </div> 
+               </div>
         </div>
         <?php endif; ?>
-        <?php if(count($external['product']) != 0): ?> 
+        <?php if(count($external['product']) != 0): ?>
         <div class="container mt-4 mb-4 pt-4 pb-4">
          <div class="row">
          <h4 class="black mb-2 pb-2"><?php echo e(Helper::translation(2068,$translate)); ?></h4>
          <div class="swiper-container">
                             <div class="swiper-wrapper">
                             <?php $y = 1; ?>
-                              <?php $__currentLoopData = $external['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                              <?php $__currentLoopData = $external['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="swiper-slide">
                                     <div class="product-grid2">
                                     <div class="product-image2">
@@ -223,7 +225,8 @@
             <?php if($product->product_condition != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1950,$translate)); ?> : <span class="<?php echo e($badg); ?>"><?php echo e($product->product_condition); ?></span></div><?php endif; ?>
                                     <div class="mt-3"><?php if($product->product_price != 0): ?><span <?php if($product->product_offer_price != 0): ?> class="fs16 offer-price red-color" <?php else: ?> class="fs32" <?php endif; ?>><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_price); ?></span><?php endif; ?> <?php if($product->product_offer_price != 0): ?><span class="fs32"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_offer_price); ?></span><?php endif; ?></div>
                                     <p class="mt-3">
-                                    <?php echo e($product->product_short_desc); ?> 
+                                    <?php echo e($product->product_short_desc); ?>
+
                                     </p>
                                     <p><a href="<?php echo e(URL::to('/product')); ?>/<?php echo e($product->product_slug); ?>" class="btn button-color"><?php echo e(Helper::translation(2065,$translate)); ?></a></p>
                                     </div>
@@ -265,23 +268,23 @@
                                         </div>
                                     </div>
                                     </div>
-                                   <?php $y++; ?>      
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+                                   <?php $y++; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                             <div class="swiper-button-next swiper-button-white"></div>
                     <div class="swiper-button-prev swiper-button-white"></div>
                 </div>
-               </div> 
+               </div>
         </div>
         <?php endif; ?>
-        <?php if(count($digital['product']) != 0): ?> 
+        <?php if(count($digital['product']) != 0): ?>
         <div class="container mt-4 mb-4 pt-4 pb-4">
          <div class="row">
          <h4 class="black mb-2 pb-2"><?php echo e(Helper::translation(2069,$translate)); ?></h4>
          <div class="swiper-container">
                             <div class="swiper-wrapper">
                             <?php $x = 1; ?>
-                              <?php $__currentLoopData = $digital['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                              <?php $__currentLoopData = $digital['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="swiper-slide">
                                     <div class="product-grid2">
                                     <div class="product-image2">
@@ -305,7 +308,8 @@
             <?php if($product->product_condition != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1950,$translate)); ?> : <span class="<?php echo e($badg); ?>"><?php echo e($product->product_condition); ?></span></div><?php endif; ?>
                                     <div class="mt-3"><?php if($product->product_price != 0): ?><span <?php if($product->product_offer_price != 0): ?> class="fs16 offer-price red-color" <?php else: ?> class="fs32" <?php endif; ?>><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_price); ?></span><?php endif; ?> <?php if($product->product_offer_price != 0): ?><span class="fs32"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_offer_price); ?></span><?php endif; ?></div>
                                     <p class="mt-3">
-                                    <?php echo e($product->product_short_desc); ?> 
+                                    <?php echo e($product->product_short_desc); ?>
+
                                     </p>
                                     <p><a href="<?php echo e(URL::to('/product')); ?>/<?php echo e($product->product_slug); ?>" class="btn button-color"><?php echo e(Helper::translation(2065,$translate)); ?></a></p>
                                     </div>
@@ -347,16 +351,16 @@
                                         </div>
                                     </div>
                                     </div>
-                                   <?php $x++; ?>      
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+                                   <?php $x++; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                             <div class="swiper-button-next swiper-button-white"></div>
                     <div class="swiper-button-prev swiper-button-white"></div>
                 </div>
-            </div> 
+            </div>
         </div>
         <?php endif; ?>
-        <?php if($allsettings->site_home_bottom_banner == 1): ?> 
+        <?php if($allsettings->site_home_bottom_banner == 1): ?>
        <div class="container pt-3 mt-3 pb-3 mb-3 p-0">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
@@ -377,14 +381,14 @@
       </div>
       </div>
       <?php endif; ?>
-      <?php if(count($deal['product']) != 0): ?> 
+      <?php if(count($deal['product']) != 0): ?>
        <div class="container">
          <div class="row">
          <h4 class="black mb-2 pb-2"><?php echo e(Helper::translation(2070,$translate)); ?></h4>
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                             <?php $cj = 1; ?>
-                              <?php $__currentLoopData = $deal['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                              <?php $__currentLoopData = $deal['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="swiper-slide">
                                     <div class="product-grid2">
                                     <div class="product-image2">
@@ -408,7 +412,8 @@
             <?php if($product->product_condition != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1950,$translate)); ?> : <span class="<?php echo e($badg); ?>"><?php echo e($product->product_condition); ?></span></div><?php endif; ?>
                                     <div class="mt-3"><?php if($product->product_price != 0): ?><span <?php if($product->product_offer_price != 0): ?> class="fs16 offer-price red-color" <?php else: ?> class="fs32" <?php endif; ?>><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_price); ?></span><?php endif; ?> <?php if($product->product_offer_price != 0): ?><span class="fs32"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_offer_price); ?></span><?php endif; ?></div>
                                     <p class="mt-3">
-                                    <?php echo e($product->product_short_desc); ?> 
+                                    <?php echo e($product->product_short_desc); ?>
+
                                     </p>
                                     <p><a href="<?php echo e(URL::to('/product')); ?>/<?php echo e($product->product_slug); ?>" class="btn button-color"><?php echo e(Helper::translation(2065,$translate)); ?></a></p>
                                     </div>
@@ -468,23 +473,23 @@
                                         </div>
                                     </div>
                                     </div>
-                                    <?php $cj++; ?>      
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+                                    <?php $cj++; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                             <div class="swiper-button-next swiper-button-white"></div>
                     <div class="swiper-button-prev swiper-button-white"></div>
                 </div>
-               </div> 
+               </div>
         </div>
         <?php endif; ?>
-        <?php if(count($featured['product']) != 0): ?> 
+        <?php if(count($featured['product']) != 0): ?>
         <div class="container mt-4 mb-4 pt-4 pb-4">
          <div class="row">
          <h4 class="black mb-2 pb-2"><?php echo e(Helper::translation(3060,$translate)); ?> <?php echo e(Helper::translation(1975,$translate)); ?></h4>
          <div class="swiper-container">
                             <div class="swiper-wrapper">
                             <?php $y = 1; ?>
-                              <?php $__currentLoopData = $external['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                              <?php $__currentLoopData = $external['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="swiper-slide">
                                     <div class="product-grid2">
                                     <div class="product-image2">
@@ -508,7 +513,8 @@
             <?php if($product->product_condition != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1950,$translate)); ?> : <span class="<?php echo e($badg); ?>"><?php echo e($product->product_condition); ?></span></div><?php endif; ?>
                                     <div class="mt-3"><?php if($product->product_price != 0): ?><span <?php if($product->product_offer_price != 0): ?> class="fs16 offer-price red-color" <?php else: ?> class="fs32" <?php endif; ?>><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_price); ?></span><?php endif; ?> <?php if($product->product_offer_price != 0): ?><span class="fs32"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_offer_price); ?></span><?php endif; ?></div>
                                     <p class="mt-3">
-                                    <?php echo e($product->product_short_desc); ?> 
+                                    <?php echo e($product->product_short_desc); ?>
+
                                     </p>
                                     <p><a href="<?php echo e(URL::to('/product')); ?>/<?php echo e($product->product_slug); ?>" class="btn button-color"><?php echo e(Helper::translation(2065,$translate)); ?></a></p>
                                     </div>
@@ -550,13 +556,13 @@
                                         </div>
                                     </div>
                                     </div>
-                                   <?php $y++; ?>      
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+                                   <?php $y++; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                             <div class="swiper-button-next swiper-button-white"></div>
                     <div class="swiper-button-prev swiper-button-white"></div>
                 </div>
-               </div> 
+               </div>
         </div>
         <?php endif; ?>
         <?php if(count($brand['view']) != 0): ?>
@@ -573,8 +579,8 @@
                     </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
-                    </div>      
-               </div> 
+                    </div>
+               </div>
         </div>
         <?php endif; ?>
     </main>
@@ -584,4 +590,5 @@
 </html>
 <?php else: ?>
 <?php echo $__env->make('503', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php endif; ?><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/index.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/index.blade.php ENDPATH**/ ?>
