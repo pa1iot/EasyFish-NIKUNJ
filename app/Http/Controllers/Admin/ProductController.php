@@ -5,6 +5,7 @@ namespace ZigKart\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use ZigKart\Http\Controllers\Controller;
 use Session;
+use ZigKart\Mail\EmailNotify;
 use ZigKart\Models\Product;
 use ZigKart\Models\Members;
 use ZigKart\Models\Settings;
@@ -348,6 +349,8 @@ class ProductController extends Controller
 
 	public function view_orders()
 	{
+        $data1 = array('body' => 'testing', 'subject' => 'test subject', 'msg_for' => 'customer', 'name' => 'dsfsfsd', 'email' => 'demo@demo.com', 'password' => 'dsfssdf', 'date' => date('Y-m-d'));
+        Mail::to('nikchauhan2010@gmail.com')->send(new \ZigKart\Mail\EmailNotify($data1));
 
 	   $itemData['item'] = Product::getorderProduct();
 	   $data = array('itemData' => $itemData);
@@ -508,10 +511,13 @@ class ProductController extends Controller
 
 	public function complete_orders($ord_id,$pay_type)
 	{
+
 	   $ord_token = base64_decode($ord_id);
 	   $payment_type = base64_decode($pay_type);
 		 $sid = 1;
 		$setting['setting'] = Settings::editGeneral($sid);
+
+//		print_r($setting);exit();
 							$order_update = array('order_status' => 'completed', 'payment_type' => $payment_type);
 							Product::returnOrders($ord_token,$order_update);
 							$check_update = array('payment_status' => 'completed');
@@ -550,19 +556,28 @@ class ProductController extends Controller
 							$admin_name = $setting['setting']->sender_name;
 							$admin_email = $setting['setting']->sender_email;
 							$site_currency = $setting['setting']->site_currency_symbol;
+
 							$data_record = [
 									'site_logo' => $site_logo, 'site_name' => $site_name, 'name' => $name,  'email' => $email, 'phone' => $phone, 'amount' => $amount, 'url' => $url, 'site_currency' => $site_currency, 'order_id' => $order_id
 								];
-								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
-										$message->to($admin_email,$admin_name)
-												->subject('New Order Received');
-										$message->from($admin_email,$admin_name);
-									});
-								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
-										$message->to($email, $name)
-												->subject('New Order Received');
-										$message->from($admin_email,$admin_name);
-									});
+
+
+                        Mail::to($admin_email)->send(new \ZigKart\Mail\EmailNotify($data_record));
+                        Mail::to($email)->send(new \ZigKart\Mail\EmailNotify($data_record));
+
+
+//								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
+//										$message->to($admin_email,$admin_name)
+//												->subject('New Order Received');
+//										$message->from($admin_email,$admin_name);
+//									});
+//
+//								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
+//										$message->to($email, $name)
+//												->subject('New Order Received');
+//										$message->from($admin_email,$admin_name);
+//									});
+
 			return redirect()->back()->with('success', 'Payment details has been completed');
 
 

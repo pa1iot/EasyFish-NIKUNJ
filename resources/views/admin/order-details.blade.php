@@ -95,13 +95,13 @@
                                             </select>
                                             <input type="hidden" name="order_id[]" value="{{ $order->ord_id }}">
                                             <input type="submit" class="btn btn-success btn-sm" value="Update">
-                                            </form>  
+                                            </form>
                                             @endif
                                             </td>
                                             <td>@if($order->order_status == 'completed') <span class="badge badge-success">Completed</span> @else <span class="badge badge-danger">Pending</span> @endif</td>
                                             <td>
                                             @if($order->payment_status == '' && $order->order_status == 'completed')
-                                            <a href="{{ URL::to('/admin/order-details') }}/{{ $order->ord_id }}/vendor" class="btn btn-success btn-sm" title="payment released to vendor" onClick="return confirm('Are you sure you will payment released to vendor?');"><i class="fa fa-money"></i>&nbsp; {{ Helper::translation(3600,$translate) }}</a> 
+                                            <a href="{{ URL::to('/admin/order-details') }}/{{ $order->ord_id }}/vendor" class="btn btn-success btn-sm" title="payment released to vendor" onClick="return confirm('Are you sure you will payment released to vendor?');"><i class="fa fa-money"></i>&nbsp; {{ Helper::translation(3600,$translate) }}</a>
                                             <a href="{{ URL::to('/admin/order-details') }}/{{ $order->ord_id }}/buyer" class="btn btn-danger btn-sm" title="payment released to buyer" onClick="return confirm('Are you sure you will payment released to buyer?');"><i class="fa fa-close"></i>&nbsp; {{ Helper::translation(3606,$translate) }}</a>
                                             @else
                                             {{ $order->payment_status }}
@@ -109,7 +109,7 @@
                                             </td>
                                          </tr>
                                         @php $no++; @endphp
-                                   @endforeach  
+                                   @endforeach
                                     </tbody>
                                 </table>
                                 </div>
@@ -123,22 +123,22 @@
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-hover table-striped table-align-middle mb-0">
-                                
+
                                 <tbody>
                                     <tr>
                                         <td>
-                                            {{ Helper::translation(2077,$translate) }} 
+                                            {{ Helper::translation(2077,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->purchase_token }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            {{ Helper::translation(3609,$translate) }} 
+                                            {{ Helper::translation(3609,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->payment_token }}
                                         </td>
@@ -147,7 +147,7 @@
                                         <td>
                                             {{ Helper::translation(2080,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ str_replace("-"," ",$single_data->payment_type) }}
                                         </td>
@@ -156,7 +156,7 @@
                                         <td>
                                             {{ Helper::translation(2091,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->payment_date }}
                                         </td>
@@ -165,7 +165,7 @@
                                         <td>
                                             {{ Helper::translation(2090,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $allsettings->site_currency_symbol }}{{ $single_data->shipping_price }}
                                         </td>
@@ -174,7 +174,7 @@
                                         <td>
                                             {{ Helper::translation(3612,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $allsettings->site_currency_symbol }}{{ $single_data->processing_fee }}
                                         </td>
@@ -183,7 +183,7 @@
                                         <td>
                                             {{ Helper::translation(3615,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $allsettings->site_currency_symbol }}{{ $single_data->subtotal }}
                                         </td>
@@ -192,7 +192,7 @@
                                         <td>
                                             {{ Helper::translation(2093,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $allsettings->site_currency_symbol }}{{ $single_data->total }}
                                         </td>
@@ -209,13 +209,13 @@
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-hover table-striped table-align-middle mb-0">
-                                
+
                                 <tbody>
                                     <tr>
                                         <td>
                                             {{ Helper::translation(1998,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->bill_firstname }}
                                         </td>
@@ -224,7 +224,7 @@
                                         <td>
                                             {{ Helper::translation(1999,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->bill_lastname }}
                                         </td>
@@ -233,7 +233,7 @@
                                         <td>
                                             {{ Helper::translation(2000,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->bill_companyname }}
                                         </td>
@@ -242,7 +242,7 @@
                                         <td>
                                             {{ Helper::translation(2014,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->bill_email }}
                                         </td>
@@ -251,7 +251,7 @@
                                         <td>
                                             {{ Helper::translation(2002,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->bill_phone }}
                                         </td>
@@ -260,7 +260,7 @@
                                         <td>
                                             {{ Helper::translation(2007,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $billcountry_name }}
                                         </td>
@@ -269,7 +269,7 @@
                                         <td>
                                             {{ Helper::translation(2003,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->bill_address }}
                                         </td>
@@ -278,7 +278,7 @@
                                         <td>
                                             {{ Helper::translation(2096,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->bill_city }}
                                         </td>
@@ -287,7 +287,7 @@
                                         <td>
                                             {{ Helper::translation(2005,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->bill_state }}
                                         </td>
@@ -296,7 +296,7 @@
                                         <td>
                                             {{ Helper::translation(2006,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->bill_postcode }}
                                         </td>
@@ -313,13 +313,13 @@
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-hover table-striped table-align-middle mb-0">
-                                
+
                                 <tbody>
                                     <tr>
                                         <td>
                                             {{ Helper::translation(1998,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->ship_firstname }}
                                         </td>
@@ -328,7 +328,7 @@
                                         <td>
                                             {{ Helper::translation(1999,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->ship_lastname }}
                                         </td>
@@ -337,7 +337,7 @@
                                         <td>
                                             {{ Helper::translation(1999,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->ship_companyname }}
                                         </td>
@@ -346,7 +346,7 @@
                                         <td>
                                             {{ Helper::translation(2014,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->ship_email }}
                                         </td>
@@ -355,7 +355,7 @@
                                         <td>
                                             {{ Helper::translation(2002,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->ship_phone }}
                                         </td>
@@ -364,7 +364,7 @@
                                         <td>
                                             {{ Helper::translation(2007,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $shipcountry_name }}
                                         </td>
@@ -373,7 +373,7 @@
                                         <td>
                                             {{ Helper::translation(2003,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->ship_address }}
                                         </td>
@@ -382,7 +382,7 @@
                                         <td>
                                             {{ Helper::translation(2096,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->ship_city }}
                                         </td>
@@ -391,7 +391,7 @@
                                         <td>
                                             {{ Helper::translation(2005,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->ship_state }}
                                         </td>
@@ -400,7 +400,7 @@
                                         <td>
                                             {{ Helper::translation(2006,$translate) }}
                                         </td>
-                                        
+
                                         <td>
                                             {{ $single_data->ship_postcode }}
                                         </td>
@@ -417,20 +417,20 @@
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-hover table-striped table-align-middle mb-0">
-                                
+
                                 <tbody>
                                     <tr>
                                         <td>
                                            	@php echo nl2br($single_data->other_notes); @endphp
                                         </td>
                                     </tr>
-                                    
+
                                   </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                
+
                 </div>
             </div>
         </div>

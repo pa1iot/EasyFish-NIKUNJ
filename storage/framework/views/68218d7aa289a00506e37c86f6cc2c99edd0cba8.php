@@ -13,6 +13,7 @@
         <p class="mb-0"><a href="<?php echo e(URL::to('/')); ?>"><?php echo e(Helper::translation(1913,$translate)); ?></a> <span class="split">&gt;</span> <span><?php echo e(Helper::translation(1995,$translate)); ?></span></p>
       </div>
     </section>
+
    <main role="main">
       <div class="container page-white-box mt-3">
       <div>
@@ -53,115 +54,117 @@
       <form action="<?php echo e(route('checkout')); ?>" class="setting_form" id="checkout_form" method="post" enctype="multipart/form-data">
       <?php echo e(csrf_field()); ?>
 
+
+          <?php $addressbooks = DB::table('address_books')->where('user_id',Auth::user()->id)->orderBy('id','desc')->first(); ?>
          <div class="row">
            <div class="col-md-6 mt-1 mb-1 pt-1 pb-1">
                <h3><?php echo e(Helper::translation(1997,$translate)); ?></h3>
          	   <div class="form-row mt-4 mb-4">
                 <div class="col">
                   <label><?php echo e(Helper::translation(1998,$translate)); ?><span class="red">*</span></label>
-                  <input type="text" class="form-control" id="bill_firstname" name="bill_firstname" data-bvalidator="required">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="bill_firstname" name="bill_firstname" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(1999,$translate)); ?><span class="red">*</span></label> 
-                  <input type="text" class="form-control" id="bill_lastname" name="bill_lastname" data-bvalidator="required">
+                  <label><?php echo e(Helper::translation(1999,$translate)); ?><span class="red">*</span></label>
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="bill_lastname" name="bill_lastname" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label><?php echo e(Helper::translation(2000,$translate)); ?></label>
-                  <input type="text" class="form-control" id="bill_companyname" name="bill_companyname">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="bill_companyname" name="bill_companyname">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(2001,$translate)); ?><span class="red">*</span></label> 
-                  <input type="text" class="form-control" id="bill_email" name="bill_email" data-bvalidator="email,required">
+                  <label><?php echo e(Helper::translation(2001,$translate)); ?><span class="red">*</span></label>
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="bill_email" name="bill_email" data-bvalidator="email,required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label><?php echo e(Helper::translation(2002,$translate)); ?><span class="red">*</span></label>
-                  <input type="text" class="form-control" id="bill_phone" name="bill_phone" data-bvalidator="required">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="bill_phone" name="bill_phone" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(2003,$translate)); ?><span class="red">*</span></label> 
-                  <input type="text" class="form-control" id="bill_address" name="bill_address" data-bvalidator="required">
+                  <label><?php echo e(Helper::translation(2003,$translate)); ?><span class="red">*</span></label>
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="bill_address" name="bill_address" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label><?php echo e(Helper::translation(2004,$translate)); ?> <span class="red">*</span></label>
-                  <input type="text" class="form-control" id="bill_city" name="bill_city" data-bvalidator="required">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="bill_city" name="bill_city" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(2005,$translate)); ?> <span class="red">*</span></label> 
-                  <input type="text" class="form-control" id="bill_state" name="bill_state" data-bvalidator="required">
+                  <label><?php echo e(Helper::translation(2005,$translate)); ?> <span class="red">*</span></label>
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="bill_state" name="bill_state" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label><?php echo e(Helper::translation(2006,$translate)); ?> <span class="red">*</span></label>
-                  <input type="text" class="form-control" id="bill_postcode" name="bill_postcode" data-bvalidator="required">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="bill_postcode" name="bill_postcode" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(2007,$translate)); ?> <span class="red">*</span></label> 
+                  <label><?php echo e(Helper::translation(2007,$translate)); ?> <span class="red">*</span></label>
                   <select class="form-control" name="bill_country" data-bvalidator="required">
                   <option value=""></option>
                   <?php $__currentLoopData = $allcountry; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <option value="<?php echo e($country->country_id); ?>"><?php echo e($country->country_name); ?></option>
+                  <option  <?php if(!empty($addressbooks)): ?> <?php echo e($addressbooks->bill_country ==$country->country_id ? 'selected' : ''); ?>  <?php endif; ?> value="<?php echo e($country->country_id); ?>"><?php echo e($country->country_name); ?></option>
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </select>
                 </div>
               </div>
            </div>
            <div class="col-md-6 mt-1 mb-1 pt-1 pb-1">
-               <h3><?php echo e(Helper::translation(2008,$translate)); ?> <span><input type="checkbox" name="enable_shipping" id="enable_shipping" value="1"></span></h3>
-               <div id="show_shipping">
+               <h3><?php echo e(Helper::translation(2008,$translate)); ?> <span><input <?php if(!empty($addressbooks)): ?> <?php echo e($addressbooks->enable_shipping == 1 ? 'checked' : ''); ?>  <?php endif; ?> type="checkbox" name="enable_shipping" id="enable_shipping" value="1"></span></h3>
+               <div id="show_shipping<?php echo e(!empty($addressbooks) ? ($addressbooks->enable_shipping == 1 ? '1':'' ) : ''); ?>">
          	   <div class="form-row mt-4 mb-4">
                 <div class="col">
                   <label><?php echo e(Helper::translation(1998,$translate)); ?><span class="red">*</span></label>
-                  <input type="text" class="form-control" id="ship_firstname" name="ship_firstname" data-bvalidator="required">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="ship_firstname" name="ship_firstname" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(1999,$translate)); ?> <span class="red">*</span></label> 
-                  <input type="text" class="form-control" id="ship_lastname" name="ship_lastname" data-bvalidator="required">
+                  <label><?php echo e(Helper::translation(1999,$translate)); ?> <span class="red">*</span></label>
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="ship_lastname" name="ship_lastname" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label><?php echo e(Helper::translation(2000,$translate)); ?></label>
-                  <input type="text" class="form-control" id="ship_companyname" name="ship_companyname">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="ship_companyname" name="ship_companyname">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(2001,$translate)); ?> <span class="red">*</span></label> 
-                  <input type="text" class="form-control" id="ship_email" name="ship_email" data-bvalidator="email,required">
+                  <label><?php echo e(Helper::translation(2001,$translate)); ?> <span class="red">*</span></label>
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="ship_email" name="ship_email" data-bvalidator="email,required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label><?php echo e(Helper::translation(2002,$translate)); ?> <span class="red">*</span></label>
-                  <input type="text" class="form-control" id="ship_phone" name="ship_phone" data-bvalidator="required">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="ship_phone" name="ship_phone" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(2003,$translate)); ?> <span class="red">*</span></label> 
-                  <input type="text" class="form-control" id="ship_address" name="ship_address" data-bvalidator="required">
+                  <label><?php echo e(Helper::translation(2003,$translate)); ?> <span class="red">*</span></label>
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="ship_address" name="ship_address" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label><?php echo e(Helper::translation(2004,$translate)); ?> <span class="red">*</span></label>
-                  <input type="text" class="form-control" id="ship_city" name="ship_city" data-bvalidator="required">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="ship_city" name="ship_city" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(2005,$translate)); ?> <span class="red">*</span></label> 
-                  <input type="text" class="form-control" id="ship_state" name="ship_state" data-bvalidator="required">
+                  <label><?php echo e(Helper::translation(2005,$translate)); ?> <span class="red">*</span></label>
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="ship_state" name="ship_state" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label><?php echo e(Helper::translation(2006,$translate)); ?> <span class="red">*</span></label>
-                  <input type="text" class="form-control" id="ship_postcode" name="ship_postcode" data-bvalidator="required">
+                  <input type="text" <?php if(!empty($addressbooks)): ?> value="<?php echo e($addressbooks->bill_firstname); ?>" <?php endif; ?> class="form-control" id="ship_postcode" name="ship_postcode" data-bvalidator="required">
                 </div>
                 <div class="col">
-                  <label><?php echo e(Helper::translation(2007,$translate)); ?> <span class="red">*</span></label> 
+                  <label><?php echo e(Helper::translation(2007,$translate)); ?> <span class="red">*</span></label>
                   <select class="form-control" name="ship_country" data-bvalidator="required">
                   <option value=""></option>
                   <?php $__currentLoopData = $allcountry; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -257,14 +260,26 @@
            <?php echo e(Helper::translation(1996,$translate)); ?>
 
            </div>
-        </div>    
-       <?php endif; ?>  
+        </div>
+       <?php endif; ?>
       </div>
     </main>
 <?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <?php echo $__env->make('javascript', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+<script>
+    <?php if(!empty($addressbooks)): ?>
+    <?php if($addressbooks->enable_shipping == 1): ?>
+
+    $('#show_shipping').show();
+
+    <?php endif; ?>
+    <?php endif; ?>
+</script>
 </body>
 </html>
 <?php else: ?>
 <?php echo $__env->make('503', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php endif; ?><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/checkout.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/checkout.blade.php ENDPATH**/ ?>

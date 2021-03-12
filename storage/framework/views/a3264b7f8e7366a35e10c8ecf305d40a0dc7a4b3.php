@@ -6,6 +6,8 @@
 <?php echo $__env->make('style', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </head>
 <body>
+
+
 <?php echo $__env->make('header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <section class="headerbg" style="background-image: url('<?php echo e(url('/')); ?>/public/storage/settings/<?php echo e($allsettings->site_header_background); ?>');">
       <div class="container text-left">
@@ -66,9 +68,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php 
+                <?php
                 $subtotal = 0;
-                $coupon_code = ""; 
+                $coupon_code = "";
                 $new_price = 0;
                 ?>
                 <?php $__currentLoopData = $cart['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cart): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -91,13 +93,13 @@
                             $price = $cart->discount_price;
                             $new_price += $cart->quantity * $cart->discount_price;
                             $coupon_code = $cart->coupon_code;
-                            
+
                           }
                           else
                           {
                             $price = $cart->price;
                             $new_price += $cart->quantity * $cart->price;
-                            
+
                           }
                         ?>
                         <?php
@@ -128,9 +130,9 @@
                         <td class="text-right"><h5><strong><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($subtotal); ?></strong></h5></td>
                     </tr>
                     <?php if($coupon_code != ""): ?>
-                    <?php 
+                    <?php
                     $coupon_discount = $subtotal - $new_price;
-                    $final = $new_price+$allsettings->site_processing_fee; 
+                    $final = $new_price+$allsettings->site_processing_fee;
                     ?>
                     <tr>
                         <td></td>
@@ -158,7 +160,7 @@
                         <td><h3><?php echo e(Helper::translation(1986,$translate)); ?></h3></td>
                         <td class="text-right"><h3><strong><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($final); ?></strong></h3></td>
                     </tr>
-                    
+
                     <tr>
                         <td></td>
                         <td></td>
@@ -176,7 +178,7 @@
                   <?php echo e(Helper::translation(1996,$translate)); ?>
 
                   </div>
-                </div>    
+                </div>
            <?php endif; ?>
          </div>
       </div>
@@ -187,4 +189,5 @@
 </html>
 <?php else: ?>
 <?php echo $__env->make('503', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php endif; ?><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/cart.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/cart.blade.php ENDPATH**/ ?>

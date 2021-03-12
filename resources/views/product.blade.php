@@ -33,10 +33,11 @@
        </script>
       </div>
       </div>
-      @endif 
+      @endif
       @endif
 	  <div class="row bg-white border-0 mt-3 mb-3">
       <div class="col-md-12 mt-3">
+
              @if ($message = Session::get('success'))
              <div class="alert alert-success" role="alert">
                 <span class="alert_icon lnr lnr-checkmark-circle"></span>
@@ -68,11 +69,11 @@
             @endif
             </div>
           <div class="col-md-6 mt-3 mb-3" id="slider">
-           <div class="item">            
+           <div class="item">
               <div class="clearfix">
                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                     @if($shop->product_image != "")
-                    <li data-thumb="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}"> 
+                    <li data-thumb="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}">
                         <a href="">
                         <img src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" />
                         </a>
@@ -82,7 +83,7 @@
                     @if($imagecount != 0)
                     @foreach($shop->productimages as $images)
                     <li data-thumb="{{ url('/') }}/public/storage/product/{{ $images->product_image }}">
-                        <a href=""> 
+                        <a href="">
                         <img src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" />
                         </a>
                     </li>
@@ -149,14 +150,14 @@
                 @endif
                 <span>( {{ $getreview }} {{ Helper::translation(2144,$translate).' )' }}</span>
             </span>
-            @if($shop->product_sku != "")<div class="mt-2">{{ Helper::translation(1929,$translate) }} : <span>{{ $shop->product_sku }}</span></div>@endif
+{{--            @if($shop->product_sku != "")<div class="mt-2">{{ Helper::translation(1929,$translate) }} : <span>{{ $shop->product_sku }}</span></div>@endif--}}
             @if($shop->product_type != 'digital')
             <div class="mt-2">{{ Helper::translation(2062,$translate) }} : @if($shop->product_stock != 0)<span class="theme-color">{{ Helper::translation(2063,$translate) }} ({{ $shop->product_stock }})</span>@else<span class="red-color">{{ Helper::translation(2064,$translate) }} ({{ $shop->product_stock }})</span>@endif</div>
             @endif
-            @php if($shop->product_condition == 'new'){ $badg = "badge badge-warning"; } else { $badg = "badge badge-secondary"; } @endphp
-            @if($shop->product_condition != "")<div class="mt-2">{{ Helper::translation(1950,$translate) }} : <span class="{{ $badg }}">{{ $shop->product_condition }}</span></div>@endif
-            @if($shop->product_brand != "")<div class="mt-2">{{ Helper::translation(1947,$translate) }} : <span class="badge badge-info">{{ $shop->brand_name }}</span></div>@endif
-            
+{{--            @php if($shop->product_condition == 'new'){ $badg = "badge badge-warning"; } else { $badg = "badge badge-secondary"; } @endphp--}}
+{{--            @if($shop->product_condition != "")<div class="mt-2">{{ Helper::translation(1950,$translate) }} : <span class="{{ $badg }}">{{ $shop->product_condition }}</span></div>@endif--}}
+{{--            @if($shop->product_brand != "")<div class="mt-2">{{ Helper::translation(1947,$translate) }} : <span class="badge badge-info">{{ $shop->brand_name }}</span></div>@endif--}}
+
             @if($shop->product_type != 'digital')
             @php $attri_value = 0; @endphp
             @if(!empty($shop->product_attribute))
@@ -169,7 +170,7 @@
             @if($i == 1)
             @php $attri_value += $product_value->attribute_value_price; @endphp
             @endif
-            @php $i++; @endphp        
+            @php $i++; @endphp
             @endif
             @endforeach
             @endforeach
@@ -183,9 +184,9 @@
             @php $attri_value = 0; @endphp
             @endif
             <?php /*?><div class="mt-5" id="start">
-            @if($shop->product_price != 0)<span @if($shop->product_offer_price != 0) class="fs16 offer-price red-color" @else class="fs32 display_result" @endif>{{ $allsettings->site_currency_symbol }}{{ $shop->product_price+$attri_value }}</span>@endif @if($shop->product_offer_price != 0)<span class="fs32 display_result">{{ $allsettings->site_currency_symbol }}{{ $shop->product_offer_price+$attri_value }}</span>@endif</div><?php */?> 
+            @if($shop->product_price != 0)<span @if($shop->product_offer_price != 0) class="fs16 offer-price red-color" @else class="fs32 display_result" @endif>{{ $allsettings->site_currency_symbol }}{{ $shop->product_price+$attri_value }}</span>@endif @if($shop->product_offer_price != 0)<span class="fs32 display_result">{{ $allsettings->site_currency_symbol }}{{ $shop->product_offer_price+$attri_value }}</span>@endif</div><?php */?>
             <div class="mt-5" id="start">
-            @if($shop->product_offer_price != 0)<span class="fs32 display_result">{{ $allsettings->site_currency_symbol }}{{ $shop->product_offer_price }}</span>@else<span class="fs32 display_result">{{ $allsettings->site_currency_symbol }}{{ $shop->product_price }}</span>@endif</div>     
+            @if($shop->product_offer_price != 0)<span class="fs32 display_result">{{ $allsettings->site_currency_symbol }}{{ $shop->product_offer_price }}</span>@else<span class="fs32 display_result">{{ $allsettings->site_currency_symbol }}{{ $shop->product_price }}</span>@endif</div>
             @if(!empty($shop->product_offer_price))
             <input type="hidden" name="foo" id="foo" data-price-effect="{{ $shop->product_offer_price }}" />
             @else
@@ -221,7 +222,7 @@
                                            </span>
                                           @else
                                           <input type="hidden" name="qty" value="1">
-                                          @endif 
+                                          @endif
                                            @if($shop->product_type != 'digital')
                                            @php $product_attr = explode(',',$shop->product_attribute); @endphp
                                            @if(count($attributer['display']) != 0)
@@ -240,14 +241,14 @@
                                            @endif
                                            @endif
                                           </div>
-              <div class="mt-2">{{ Helper::translation(1987,$translate) }} : <span><a href="{{ URL::to('/user') }}/{{ $seller->username }}" class="theme-color">{{ $seller->name }}</a></span></div> 
+              <div class="mt-2">{{ Helper::translation(1987,$translate) }} : <span><a href="{{ URL::to('/user') }}/{{ $seller->username }}" class="theme-color">{{ $seller->name }}</a></span></div>
               @if($shop->product_type != 'digital')<div class="mt-2">{{ Helper::translation(2094,$translate) }} : <span>{{ $shop->product_estimate_time }} {{ Helper::translation(2071,$translate) }}</span></div>@endif
               @if(Auth::guest())
               <div class="mt-3">
               @if($shop->product_video_url != '')
               <a class="bla-2 btn btn-danger float-left mr-1" href="{{ $shop->product_video_url }}"><i class="fa fa-file-video-o"></i> {{ Helper::translation(2147,$translate) }}</a>
               @endif
-              <a href="{{ URL::to('/login') }}" class="btn button-color float-left">{{ Helper::translation(2067,$translate) }}</a> 
+              <a href="{{ URL::to('/login') }}" class="btn button-color float-left">{{ Helper::translation(2067,$translate) }}</a>
               </div>
               @else
               @if($shop->product_stock != 0)
@@ -272,7 +273,7 @@
               @if($shop->product_video_url != '')
               <a class="bla-2 btn btn-danger float-left mr-1" href="{{ $shop->product_video_url }}"><i class="fa fa-file-video-o"></i> {{ Helper::translation(2147,$translate) }}</a>
               @endif
-              <a href="{{ URL::to('/edit-product') }}/{{ $shop->product_token }}" class="btn button-color float-left">{{ Helper::translation(2149,$translate) }}</a> 
+              <a href="{{ URL::to('/edit-product') }}/{{ $shop->product_token }}" class="btn button-color float-left">{{ Helper::translation(2149,$translate) }}</a>
               </div>
               @endif
               @endif
@@ -402,7 +403,7 @@
 				</div>
 		</div>
         </div>
-        @endforeach                 
+        @endforeach
           </div>
           <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
           @foreach($product_tag as $tags)
@@ -417,12 +418,12 @@
         </div>
       </div>
     </div>
-    @if(count($another['product']) != 0) 
+    @if(count($another['product']) != 0)
     <div class="col-md-12 mb-5">
         <h4 class="black mb-2 pb-2 text-center">{{ Helper::translation(2152,$translate) }}</h4>
                             <div class="row mt-3 pt-3" align="center">
                             @php $z = 1; @endphp
-                              @foreach($another['product'] as $product) 
+                              @foreach($another['product'] as $product)
                               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-2 pb-2">
                                    <div class="product-grid2">
                                     <div class="product-image2">
@@ -445,7 +446,7 @@
             @php if($product->product_condition == 'new'){ $badg = "badge badge-warning"; } else { $badg = "badge badge-secondary"; } @endphp
             @if($product->product_condition != "")<div class="mt-2">{{ Helper::translation(1950,$translate) }} : <span class="{{ $badg }}">{{ $product->product_condition }}</span></div>@endif
                                     <div class="mt-3">@if($product->product_price != 0)<span @if($product->product_offer_price != 0) class="fs16 offer-price red-color" @else class="fs32" @endif>{{ $allsettings->site_currency_symbol }}{{ $product->product_price }}</span>@endif @if($product->product_offer_price != 0)<span class="fs32">{{ $allsettings->site_currency_symbol }}{{ $product->product_offer_price }}</span>@endif</div>                                <p class="mt-3">
-                                    {{ $product->product_short_desc }} 
+                                    {{ $product->product_short_desc }}
                                     </p>
                                     <p><a href="{{ URL::to('/product') }}/{{ $product->product_slug }}" class="btn button-color">{{ Helper::translation(2065,$translate) }}</a></p>
                                     </div>
@@ -507,8 +508,8 @@
                                         </div>
                                         </div>
                                     </div>
-                                   @php $z++; @endphp      
-                            @endforeach  
+                                   @php $z++; @endphp
+                            @endforeach
                    </div>
              </div>
         @endif
@@ -524,7 +525,7 @@
        </script>
       </div>
       </div>
-      @endif 
+      @endif
      @endif
 </div>
 </main>
@@ -553,35 +554,35 @@ EffectElements.on('change', function() {
 	//$('#checkprice').val(btoa(PriceEffect));
 	$('#price').val(btoa(GetErr));
 });
-$(document).ready(function() { 
-   var EffectElementer = $('form input[data-price-effect], form select');       
+$(document).ready(function() {
+   var EffectElementer = $('form input[data-price-effect], form select');
     /*$("#qty").click(function(event) {*/
 	$("#qty").bind('keyup mouseup', function (event) {
 	    var PriceEffect = 0;
 		var GetErr = 0;
 		var FinalEffect = 0;
 		EffectElementer.each(function() {
-	    if ($(this).is('.attri_box')) { 
+	    if ($(this).is('.attri_box')) {
 		    $(this).children().each(function() { //Loop through the child elements (options)
-                    if ($(this).is(':selected')) { 
+                    if ($(this).is(':selected')) {
                     PriceEffect += parseFloat($(this).attr('data-price-effect')) * $("#qty").val();
 					GetErr += parseFloat($(this).attr('data-price-effect'));
-					
+
                     }
-					
+
             });
-			
+
         } else {
             PriceEffect += parseFloat($(this).attr('data-price-effect')) * $("#qty").val();
 			GetErr += parseFloat($(this).attr('data-price-effect'));
-			
-        } 
+
+        }
 		});
 		$('.display_result').text("{{ $allsettings->site_currency_symbol }}" + PriceEffect);
 		$('#price').val(btoa(GetErr));
-		
+
 	});
-});  
+});
 </script>
 </body>
 </html>

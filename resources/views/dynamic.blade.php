@@ -104,7 +104,8 @@ color:#ffffff !important;
 }
 .link-color
 {
-color:{{ $allsettings->site_theme_color }};
+{{--color:{{ $allsettings->site_theme_color }};--}}
+color:#530000;
 }
 .categorylist a:hover
 {
@@ -207,7 +208,8 @@ text-decoration:none;
 }
 #sidebar a
 {
-color:#FFFFFF;
+/*color:#FFFFFF;*/
+color:#530000;
 }
 #sidebar ul.components {
     padding: 20px 0;
@@ -271,7 +273,7 @@ color:#fff;
     margin-left: -1px;
     cursor: pointer;
     background: #fff;}
-	.jplist-label { 
+	.jplist-label {
     height: 36px !important;
     line-height: 38px !important;
 	border: 1px solid #54667a !important;
@@ -280,7 +282,7 @@ color:#fff;
     background: #fff !important;
 	border-radius:0px !important;
 	}
-.jplist-panel button { border-radius:0px !important; box-shadow:0px !important; text-shadow:none !important; margin:10px 5px 0 0 !important; }	
+.jplist-panel button { border-radius:0px !important; box-shadow:0px !important; text-shadow:none !important; margin:10px 5px 0 0 !important; }
 .jplist-panel .jplist-pagination .jplist-current{color: #fff; background:{{ $allsettings->site_button_color }} !important;}
 .jplist-panel .jplist-pagination .jplist-pagingprev,.jplist-panel .jplist-pagination .jplist-pagingmid,.jplist-panel .jplist-pagination .jplist-pagingnext{float:left}.jplist-panel .jplist-pagination .jplist-pagingprev button,.jplist-panel .jplist-pagination .jplist-pagingnext button{font-size:20px;}.jplist-one-page{display:none}.jplist-empty{display:none}
 .customlable

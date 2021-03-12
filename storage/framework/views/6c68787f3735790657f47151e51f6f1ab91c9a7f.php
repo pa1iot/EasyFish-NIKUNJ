@@ -33,10 +33,11 @@
        </script>
       </div>
       </div>
-      <?php endif; ?> 
+      <?php endif; ?>
       <?php endif; ?>
 	  <div class="row bg-white border-0 mt-3 mb-3">
       <div class="col-md-12 mt-3">
+
              <?php if($message = Session::get('success')): ?>
              <div class="alert alert-success" role="alert">
                 <span class="alert_icon lnr lnr-checkmark-circle"></span>
@@ -71,11 +72,11 @@
             <?php endif; ?>
             </div>
           <div class="col-md-6 mt-3 mb-3" id="slider">
-           <div class="item">            
+           <div class="item">
               <div class="clearfix">
                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                     <?php if($shop->product_image != ""): ?>
-                    <li data-thumb="<?php echo e(url('/')); ?>/public/storage/product/<?php echo e($shop->product_image); ?>"> 
+                    <li data-thumb="<?php echo e(url('/')); ?>/public/storage/product/<?php echo e($shop->product_image); ?>">
                         <a href="">
                         <img src="<?php echo e(url('/')); ?>/public/storage/product/<?php echo e($shop->product_image); ?>" />
                         </a>
@@ -85,7 +86,7 @@
                     <?php if($imagecount != 0): ?>
                     <?php $__currentLoopData = $shop->productimages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $images): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <li data-thumb="<?php echo e(url('/')); ?>/public/storage/product/<?php echo e($images->product_image); ?>">
-                        <a href=""> 
+                        <a href="">
                         <img src="<?php echo e(url('/')); ?>/public/storage/product/<?php echo e($images->product_image); ?>" />
                         </a>
                     </li>
@@ -153,14 +154,14 @@
                 <?php endif; ?>
                 <span>( <?php echo e($getreview); ?> <?php echo e(Helper::translation(2144,$translate).' )'); ?></span>
             </span>
-            <?php if($shop->product_sku != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1929,$translate)); ?> : <span><?php echo e($shop->product_sku); ?></span></div><?php endif; ?>
+
             <?php if($shop->product_type != 'digital'): ?>
             <div class="mt-2"><?php echo e(Helper::translation(2062,$translate)); ?> : <?php if($shop->product_stock != 0): ?><span class="theme-color"><?php echo e(Helper::translation(2063,$translate)); ?> (<?php echo e($shop->product_stock); ?>)</span><?php else: ?><span class="red-color"><?php echo e(Helper::translation(2064,$translate)); ?> (<?php echo e($shop->product_stock); ?>)</span><?php endif; ?></div>
             <?php endif; ?>
-            <?php if($shop->product_condition == 'new'){ $badg = "badge badge-warning"; } else { $badg = "badge badge-secondary"; } ?>
-            <?php if($shop->product_condition != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1950,$translate)); ?> : <span class="<?php echo e($badg); ?>"><?php echo e($shop->product_condition); ?></span></div><?php endif; ?>
-            <?php if($shop->product_brand != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1947,$translate)); ?> : <span class="badge badge-info"><?php echo e($shop->brand_name); ?></span></div><?php endif; ?>
-            
+
+
+
+
             <?php if($shop->product_type != 'digital'): ?>
             <?php $attri_value = 0; ?>
             <?php if(!empty($shop->product_attribute)): ?>
@@ -173,7 +174,7 @@
             <?php if($i == 1): ?>
             <?php $attri_value += $product_value->attribute_value_price; ?>
             <?php endif; ?>
-            <?php $i++; ?>        
+            <?php $i++; ?>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -187,9 +188,9 @@
             <?php $attri_value = 0; ?>
             <?php endif; ?>
             <?php /*?><div class="mt-5" id="start">
-            @if($shop->product_price != 0)<span @if($shop->product_offer_price != 0) class="fs16 offer-price red-color" @else class="fs32 display_result" @endif>{{ $allsettings->site_currency_symbol }}{{ $shop->product_price+$attri_value }}</span>@endif @if($shop->product_offer_price != 0)<span class="fs32 display_result">{{ $allsettings->site_currency_symbol }}{{ $shop->product_offer_price+$attri_value }}</span>@endif</div><?php */?> 
+            @if($shop->product_price != 0)<span @if($shop->product_offer_price != 0) class="fs16 offer-price red-color" @else class="fs32 display_result" @endif>{{ $allsettings->site_currency_symbol }}{{ $shop->product_price+$attri_value }}</span>@endif @if($shop->product_offer_price != 0)<span class="fs32 display_result">{{ $allsettings->site_currency_symbol }}{{ $shop->product_offer_price+$attri_value }}</span>@endif</div><?php */?>
             <div class="mt-5" id="start">
-            <?php if($shop->product_offer_price != 0): ?><span class="fs32 display_result"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($shop->product_offer_price); ?></span><?php else: ?><span class="fs32 display_result"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($shop->product_price); ?></span><?php endif; ?></div>     
+            <?php if($shop->product_offer_price != 0): ?><span class="fs32 display_result"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($shop->product_offer_price); ?></span><?php else: ?><span class="fs32 display_result"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($shop->product_price); ?></span><?php endif; ?></div>
             <?php if(!empty($shop->product_offer_price)): ?>
             <input type="hidden" name="foo" id="foo" data-price-effect="<?php echo e($shop->product_offer_price); ?>" />
             <?php else: ?>
@@ -225,7 +226,7 @@
                                            </span>
                                           <?php else: ?>
                                           <input type="hidden" name="qty" value="1">
-                                          <?php endif; ?> 
+                                          <?php endif; ?>
                                            <?php if($shop->product_type != 'digital'): ?>
                                            <?php $product_attr = explode(',',$shop->product_attribute); ?>
                                            <?php if(count($attributer['display']) != 0): ?>
@@ -244,14 +245,14 @@
                                            <?php endif; ?>
                                            <?php endif; ?>
                                           </div>
-              <div class="mt-2"><?php echo e(Helper::translation(1987,$translate)); ?> : <span><a href="<?php echo e(URL::to('/user')); ?>/<?php echo e($seller->username); ?>" class="theme-color"><?php echo e($seller->name); ?></a></span></div> 
+              <div class="mt-2"><?php echo e(Helper::translation(1987,$translate)); ?> : <span><a href="<?php echo e(URL::to('/user')); ?>/<?php echo e($seller->username); ?>" class="theme-color"><?php echo e($seller->name); ?></a></span></div>
               <?php if($shop->product_type != 'digital'): ?><div class="mt-2"><?php echo e(Helper::translation(2094,$translate)); ?> : <span><?php echo e($shop->product_estimate_time); ?> <?php echo e(Helper::translation(2071,$translate)); ?></span></div><?php endif; ?>
               <?php if(Auth::guest()): ?>
               <div class="mt-3">
               <?php if($shop->product_video_url != ''): ?>
               <a class="bla-2 btn btn-danger float-left mr-1" href="<?php echo e($shop->product_video_url); ?>"><i class="fa fa-file-video-o"></i> <?php echo e(Helper::translation(2147,$translate)); ?></a>
               <?php endif; ?>
-              <a href="<?php echo e(URL::to('/login')); ?>" class="btn button-color float-left"><?php echo e(Helper::translation(2067,$translate)); ?></a> 
+              <a href="<?php echo e(URL::to('/login')); ?>" class="btn button-color float-left"><?php echo e(Helper::translation(2067,$translate)); ?></a>
               </div>
               <?php else: ?>
               <?php if($shop->product_stock != 0): ?>
@@ -276,7 +277,7 @@
               <?php if($shop->product_video_url != ''): ?>
               <a class="bla-2 btn btn-danger float-left mr-1" href="<?php echo e($shop->product_video_url); ?>"><i class="fa fa-file-video-o"></i> <?php echo e(Helper::translation(2147,$translate)); ?></a>
               <?php endif; ?>
-              <a href="<?php echo e(URL::to('/edit-product')); ?>/<?php echo e($shop->product_token); ?>" class="btn button-color float-left"><?php echo e(Helper::translation(2149,$translate)); ?></a> 
+              <a href="<?php echo e(URL::to('/edit-product')); ?>/<?php echo e($shop->product_token); ?>" class="btn button-color float-left"><?php echo e(Helper::translation(2149,$translate)); ?></a>
               </div>
               <?php endif; ?>
               <?php endif; ?>
@@ -407,7 +408,7 @@
 				</div>
 		</div>
         </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                 
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
           <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
           <?php $__currentLoopData = $product_tag; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tags): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -422,12 +423,12 @@
         </div>
       </div>
     </div>
-    <?php if(count($another['product']) != 0): ?> 
+    <?php if(count($another['product']) != 0): ?>
     <div class="col-md-12 mb-5">
         <h4 class="black mb-2 pb-2 text-center"><?php echo e(Helper::translation(2152,$translate)); ?></h4>
                             <div class="row mt-3 pt-3" align="center">
                             <?php $z = 1; ?>
-                              <?php $__currentLoopData = $another['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                              <?php $__currentLoopData = $another['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-2 pb-2">
                                    <div class="product-grid2">
                                     <div class="product-image2">
@@ -450,7 +451,8 @@
             <?php if($product->product_condition == 'new'){ $badg = "badge badge-warning"; } else { $badg = "badge badge-secondary"; } ?>
             <?php if($product->product_condition != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1950,$translate)); ?> : <span class="<?php echo e($badg); ?>"><?php echo e($product->product_condition); ?></span></div><?php endif; ?>
                                     <div class="mt-3"><?php if($product->product_price != 0): ?><span <?php if($product->product_offer_price != 0): ?> class="fs16 offer-price red-color" <?php else: ?> class="fs32" <?php endif; ?>><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_price); ?></span><?php endif; ?> <?php if($product->product_offer_price != 0): ?><span class="fs32"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_offer_price); ?></span><?php endif; ?></div>                                <p class="mt-3">
-                                    <?php echo e($product->product_short_desc); ?> 
+                                    <?php echo e($product->product_short_desc); ?>
+
                                     </p>
                                     <p><a href="<?php echo e(URL::to('/product')); ?>/<?php echo e($product->product_slug); ?>" class="btn button-color"><?php echo e(Helper::translation(2065,$translate)); ?></a></p>
                                     </div>
@@ -512,8 +514,8 @@
                                         </div>
                                         </div>
                                     </div>
-                                   <?php $z++; ?>      
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+                                   <?php $z++; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                    </div>
              </div>
         <?php endif; ?>
@@ -529,7 +531,7 @@
        </script>
       </div>
       </div>
-      <?php endif; ?> 
+      <?php endif; ?>
      <?php endif; ?>
 </div>
 </main>
@@ -558,38 +560,39 @@ EffectElements.on('change', function() {
 	//$('#checkprice').val(btoa(PriceEffect));
 	$('#price').val(btoa(GetErr));
 });
-$(document).ready(function() { 
-   var EffectElementer = $('form input[data-price-effect], form select');       
+$(document).ready(function() {
+   var EffectElementer = $('form input[data-price-effect], form select');
     /*$("#qty").click(function(event) {*/
 	$("#qty").bind('keyup mouseup', function (event) {
 	    var PriceEffect = 0;
 		var GetErr = 0;
 		var FinalEffect = 0;
 		EffectElementer.each(function() {
-	    if ($(this).is('.attri_box')) { 
+	    if ($(this).is('.attri_box')) {
 		    $(this).children().each(function() { //Loop through the child elements (options)
-                    if ($(this).is(':selected')) { 
+                    if ($(this).is(':selected')) {
                     PriceEffect += parseFloat($(this).attr('data-price-effect')) * $("#qty").val();
 					GetErr += parseFloat($(this).attr('data-price-effect'));
-					
+
                     }
-					
+
             });
-			
+
         } else {
             PriceEffect += parseFloat($(this).attr('data-price-effect')) * $("#qty").val();
 			GetErr += parseFloat($(this).attr('data-price-effect'));
-			
-        } 
+
+        }
 		});
 		$('.display_result').text("<?php echo e($allsettings->site_currency_symbol); ?>" + PriceEffect);
 		$('#price').val(btoa(GetErr));
-		
+
 	});
-});  
+});
 </script>
 </body>
 </html>
 <?php else: ?>
 <?php echo $__env->make('503', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php endif; ?><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/product.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/product.blade.php ENDPATH**/ ?>

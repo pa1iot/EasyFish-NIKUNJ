@@ -24,7 +24,7 @@
             </div>
             <div class="col-sm-8">
                 <div class="page-header float-right">
-                    
+
                 </div>
             </div>
         </div>
@@ -55,32 +55,78 @@
                                             <th><?php echo e(Helper::translation(1964,$translate)); ?></th>
                                             <th><?php echo e(Helper::translation(2077,$translate)); ?></th>
                                             <th><?php echo e(Helper::translation(3621,$translate)); ?></th>
-                                            <th><?php echo e(Helper::translation(2109,$translate)); ?></th>
+                                            <th>Address </th>
+
                                             <th><?php echo e(Helper::translation(2091,$translate)); ?></th>
                                             <th><?php echo e(Helper::translation(2080,$translate)); ?></th>
-                                            <th><?php echo e(Helper::translation(3609,$translate)); ?></th>
-                                            <th><?php echo e(Helper::translation(3624,$translate)); ?></th>
+
+
+
+                                            <th>ProductName</th>
+                                            <th><?php echo e(Helper::translation(2109,$translate)); ?></th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php $no = 1; ?>
                                     <?php $__currentLoopData = $itemData['item']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php
+                                            $product = \ZigKart\Models\Product::getProductid($order->user_id,$order->ord_id);
+                                            $orderDetils = \ZigKart\Models\Product::getorderDetils($order->user_id,$order->ord_id);
+                                        ?>
+                                        <?php //print_r($order); ?>
+                                        <?php //print_r('<br>'); ?>
+                                        <?php //print_r('<br>'); ?>
+
                                         <tr>
                                             <td><?php echo e($no); ?></td>
                                             <td><?php echo e($order->purchase_token); ?> </td>
-                                            <td><a href="<?php echo e(URL::to('/user')); ?>/<?php echo e($order->username); ?>" target="_blank" class="blue-color"><?php echo e($order->username); ?></a></td>
-                                            <td><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($order->total); ?>  </td>
+                                            <td><a href="<?php echo e(URL::to('/user')); ?>/<?php echo e($order->username); ?>" target="_blank" class="blue-color"><?php echo e($order->name); ?></a></td>
+
+                                            <td>
+                                                        <?php if($order->enable_ship == 1): ?>
+                                                            <?php echo e($order->ship_address); ?>
+
+                                                            <?php echo e($order->ship_city); ?>
+
+                                                            <?php echo e($order->ship_state); ?>
+
+                                                            <?php echo e($order->ship_postcode); ?>
+
+                                                        <?php else: ?>
+                                                        <?php echo e($order->bill_address); ?>
+
+                                                        <?php echo e($order->bill_city); ?>
+
+                                                        <?php echo e($order->bill_state); ?>
+
+                                                        <?php echo e($order->bill_postcode); ?>
+
+                                                    <?php endif; ?>
+                                            </td>
+
                                             <td><?php echo e($order->payment_date); ?></td>
                                             <td><?php echo e(str_replace("-"," ",$order->payment_type)); ?></td>
-                                            <td><?php if($order->payment_token != ""): ?><?php echo e($order->payment_token); ?><?php else: ?> <span>---</span> <?php endif; ?></td>
-                                            <td><?php if(($order->payment_type == 'localbank' or  $order->payment_type == 'cash-on-delivery') && $order->payment_status == 'pending'): ?> <a href="orders/<?php echo e(base64_encode($order->purchase_token)); ?>/<?php echo e(base64_encode($order->payment_type)); ?>" class="blue-color"onClick="return confirm('Are you sure click to complete payment?');"><?php echo e(Helper::translation(3627,$translate)); ?></a> <?php else: ?> <span>---</span> <?php endif; ?></td>
-                                            
+
+
+                                            <td><?php echo e(!empty($product) ? $product->product_name : ''); ?><br>
+
+                                            </td>
+                                            <td>
+                                                <b>Quantity</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->quantity : ''); ?> <br>
+                                                <b>Price</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->price : ''); ?> <br>
+                                                <b>Discount</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->price - $orderDetils->discount_price : ''); ?> <br>
+                                                <b>ShippingPrice</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->shipping_price : ''); ?> <br>
+                                                <hr>
+                                                <?php echo e($allsettings->site_currency_symbol); ?><?php echo e($order->total); ?>
+
+                                            </td>
                                             <td><a href="order-details/<?php echo e($order->purchase_token); ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>&nbsp; <?php echo e(Helper::translation(3477,$translate)); ?></a></td>
                                         </tr>
                                         <?php $no++; ?>
-                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>     
+                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
+
                                 </table>
                                 </div>
                             </div>
@@ -92,7 +138,8 @@
     </div>
     <?php else: ?>
     <?php echo $__env->make('admin.denied', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <?php endif; ?> 
+    <?php endif; ?>
    <?php echo $__env->make('admin.javascript', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
-</html><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/admin/orders.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/admin/orders.blade.php ENDPATH**/ ?>

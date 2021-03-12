@@ -97,13 +97,13 @@
                                             </select>
                                             <input type="hidden" name="order_id[]" value="<?php echo e($order->ord_id); ?>">
                                             <input type="submit" class="btn btn-success btn-sm" value="Update">
-                                            </form>  
+                                            </form>
                                             <?php endif; ?>
                                             </td>
                                             <td><?php if($order->order_status == 'completed'): ?> <span class="badge badge-success">Completed</span> <?php else: ?> <span class="badge badge-danger">Pending</span> <?php endif; ?></td>
                                             <td>
                                             <?php if($order->payment_status == '' && $order->order_status == 'completed'): ?>
-                                            <a href="<?php echo e(URL::to('/admin/order-details')); ?>/<?php echo e($order->ord_id); ?>/vendor" class="btn btn-success btn-sm" title="payment released to vendor" onClick="return confirm('Are you sure you will payment released to vendor?');"><i class="fa fa-money"></i>&nbsp; <?php echo e(Helper::translation(3600,$translate)); ?></a> 
+                                            <a href="<?php echo e(URL::to('/admin/order-details')); ?>/<?php echo e($order->ord_id); ?>/vendor" class="btn btn-success btn-sm" title="payment released to vendor" onClick="return confirm('Are you sure you will payment released to vendor?');"><i class="fa fa-money"></i>&nbsp; <?php echo e(Helper::translation(3600,$translate)); ?></a>
                                             <a href="<?php echo e(URL::to('/admin/order-details')); ?>/<?php echo e($order->ord_id); ?>/buyer" class="btn btn-danger btn-sm" title="payment released to buyer" onClick="return confirm('Are you sure you will payment released to buyer?');"><i class="fa fa-close"></i>&nbsp; <?php echo e(Helper::translation(3606,$translate)); ?></a>
                                             <?php else: ?>
                                             <?php echo e($order->payment_status); ?>
@@ -112,7 +112,7 @@
                                             </td>
                                          </tr>
                                         <?php $no++; ?>
-                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                                 </div>
@@ -126,13 +126,14 @@
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-hover table-striped table-align-middle mb-0">
-                                
+
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <?php echo e(Helper::translation(2077,$translate)); ?> 
+                                            <?php echo e(Helper::translation(2077,$translate)); ?>
+
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->purchase_token); ?>
 
@@ -140,9 +141,10 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <?php echo e(Helper::translation(3609,$translate)); ?> 
+                                            <?php echo e(Helper::translation(3609,$translate)); ?>
+
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->payment_token); ?>
 
@@ -153,7 +155,7 @@
                                             <?php echo e(Helper::translation(2080,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e(str_replace("-"," ",$single_data->payment_type)); ?>
 
@@ -164,7 +166,7 @@
                                             <?php echo e(Helper::translation(2091,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->payment_date); ?>
 
@@ -175,7 +177,7 @@
                                             <?php echo e(Helper::translation(2090,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($allsettings->site_currency_symbol); ?><?php echo e($single_data->shipping_price); ?>
 
@@ -186,7 +188,7 @@
                                             <?php echo e(Helper::translation(3612,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($allsettings->site_currency_symbol); ?><?php echo e($single_data->processing_fee); ?>
 
@@ -197,7 +199,7 @@
                                             <?php echo e(Helper::translation(3615,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($allsettings->site_currency_symbol); ?><?php echo e($single_data->subtotal); ?>
 
@@ -208,7 +210,7 @@
                                             <?php echo e(Helper::translation(2093,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($allsettings->site_currency_symbol); ?><?php echo e($single_data->total); ?>
 
@@ -226,14 +228,14 @@
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-hover table-striped table-align-middle mb-0">
-                                
+
                                 <tbody>
                                     <tr>
                                         <td>
                                             <?php echo e(Helper::translation(1998,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->bill_firstname); ?>
 
@@ -244,7 +246,7 @@
                                             <?php echo e(Helper::translation(1999,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->bill_lastname); ?>
 
@@ -255,7 +257,7 @@
                                             <?php echo e(Helper::translation(2000,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->bill_companyname); ?>
 
@@ -266,7 +268,7 @@
                                             <?php echo e(Helper::translation(2014,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->bill_email); ?>
 
@@ -277,7 +279,7 @@
                                             <?php echo e(Helper::translation(2002,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->bill_phone); ?>
 
@@ -288,7 +290,7 @@
                                             <?php echo e(Helper::translation(2007,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($billcountry_name); ?>
 
@@ -299,7 +301,7 @@
                                             <?php echo e(Helper::translation(2003,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->bill_address); ?>
 
@@ -310,7 +312,7 @@
                                             <?php echo e(Helper::translation(2096,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->bill_city); ?>
 
@@ -321,7 +323,7 @@
                                             <?php echo e(Helper::translation(2005,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->bill_state); ?>
 
@@ -332,7 +334,7 @@
                                             <?php echo e(Helper::translation(2006,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->bill_postcode); ?>
 
@@ -350,14 +352,14 @@
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-hover table-striped table-align-middle mb-0">
-                                
+
                                 <tbody>
                                     <tr>
                                         <td>
                                             <?php echo e(Helper::translation(1998,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->ship_firstname); ?>
 
@@ -368,7 +370,7 @@
                                             <?php echo e(Helper::translation(1999,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->ship_lastname); ?>
 
@@ -379,7 +381,7 @@
                                             <?php echo e(Helper::translation(1999,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->ship_companyname); ?>
 
@@ -390,7 +392,7 @@
                                             <?php echo e(Helper::translation(2014,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->ship_email); ?>
 
@@ -401,7 +403,7 @@
                                             <?php echo e(Helper::translation(2002,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->ship_phone); ?>
 
@@ -412,7 +414,7 @@
                                             <?php echo e(Helper::translation(2007,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($shipcountry_name); ?>
 
@@ -423,7 +425,7 @@
                                             <?php echo e(Helper::translation(2003,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->ship_address); ?>
 
@@ -434,7 +436,7 @@
                                             <?php echo e(Helper::translation(2096,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->ship_city); ?>
 
@@ -445,7 +447,7 @@
                                             <?php echo e(Helper::translation(2005,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->ship_state); ?>
 
@@ -456,7 +458,7 @@
                                             <?php echo e(Helper::translation(2006,$translate)); ?>
 
                                         </td>
-                                        
+
                                         <td>
                                             <?php echo e($single_data->ship_postcode); ?>
 
@@ -474,24 +476,25 @@
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-hover table-striped table-align-middle mb-0">
-                                
+
                                 <tbody>
                                     <tr>
                                         <td>
                                            	<?php echo nl2br($single_data->other_notes); ?>
                                         </td>
                                     </tr>
-                                    
+
                                   </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                
+
                 </div>
             </div>
         </div>
       </div>
 <?php echo $__env->make('admin.javascript', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
-</html><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/admin/order-details.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/admin/order-details.blade.php ENDPATH**/ ?>

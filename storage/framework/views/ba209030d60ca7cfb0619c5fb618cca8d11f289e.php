@@ -9,14 +9,14 @@
     $(document).ready(function () {
         "use strict";
 		var options = {
-		
+
 		offset:              {x:5, y:-2},
 		position:            {x:'left', y:'center'},
         themes: {
             'red': {
                  showClose: true
             },
-	
+
         }
     };
     $('#login_form').bValidator(options);
@@ -41,11 +41,14 @@
         $("#enable_shipping").click(function () {
             if ($(this).is(":checked")) {
                 $("#show_shipping").show();
+                $("#show_shipping1").show();
                 } else {
                 $("#show_shipping").hide();
-                
+                $("#show_shipping1").hide();
+
             }
         });
+
     });
 </script>
 <!-------- Cart ---------->
@@ -114,9 +117,9 @@
 <script src="<?php echo e(url('vendor/tinymce/tinymce.min.js')); ?>"></script>
 <script>
   tinymce.init({
-    
-	selector: '#summary-ckeditor', 
-    
+
+	selector: '#summary-ckeditor',
+
 		plugins : 'advlist anchor autolinkcharmap code colorpicker contextmenu fullscreen hr image insertdatetime link lists media pagebreak preview print searchreplace tabfocus table textcolor',
 	toolbar: [
 		'newdocument | print preview | searchreplace | undo redo | link unlink anchor image media | alignleft aligncenter alignright alignjustify | code',
@@ -128,18 +131,18 @@
 	branding: false,
 	width: '100%',
 	height : "480"
-    
- 
-  
+
+
+
   });
 
 </script>
 <?php $__currentLoopData = $alllang['data']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <script type="text/javascript">
 tinymce.init({
-    
-	selector: '#summary-ckeditor<?php echo e($language->language_id); ?>', 
-    
+
+	selector: '#summary-ckeditor<?php echo e($language->language_id); ?>',
+
 		plugins : 'advlist anchor autolinkcharmap code colorpicker contextmenu fullscreen hr image insertdatetime link lists media pagebreak preview print searchreplace tabfocus table textcolor',
 	toolbar: [
 		'newdocument | print preview | searchreplace | undo redo | link unlink anchor image media | alignleft aligncenter alignright alignjustify | code',
@@ -151,11 +154,11 @@ tinymce.init({
 	branding: false,
 	width: '100%',
 	height : "480"
-    
- 
-  
+
+
+
   });
-</script>  
+</script>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
 <?php if($view_name == 'index'): ?>
@@ -182,16 +185,16 @@ tinymce.init({
                 },
                 success: function(data) {
                     response(data);
-                   
+
                 }
             });
         },
         minLength: 1,
-       
+
     });
 });
 $(function () {
-	     
+
         $("#product_allow_seo").change(function () {
             if ($(this).val() == "1") {
                 $("#ifseo").show();
@@ -199,7 +202,7 @@ $(function () {
                 $("#ifseo").hide();
             }
         });
-		
+
 		$("#flash_deals").change(function () {
             if ($(this).val() == "1") {
                 $("#ifdeal").show();
@@ -207,19 +210,19 @@ $(function () {
                 $("#ifdeal").hide();
             }
         });
-		
+
     });
 	$(function () {
-	    
+
         $("#product_type").change(function () {
-            if ($(this).val() == "physical") 
+            if ($(this).val() == "physical")
 			{
                 $("#ifphysical_external").show();
 				$("#ifphysical").show();
 				$("#ifdigital").hide();
 				$("#ifexternal").hide();
-            } 
-			else if($(this).val() == "external") 
+            }
+			else if($(this).val() == "external")
 			{
                  $("#ifphysical_external").show();
 				 $("#ifphysical").hide();
@@ -249,8 +252,8 @@ $(function () {
 <?php if(count($deal['product']) != 0): ?>
 <?php $__currentLoopData = $deal['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <script type="text/javascript">
-$(document).ready(function() { 
-    
+$(document).ready(function() {
+
 	$('.countdown-<?php echo e($product->product_token); ?>').downCount({
 		date: '<?php echo e(date("m/d/Y H:i:s", strtotime($product->flash_deal_end_date))); ?>',
   offset: +1
@@ -259,7 +262,7 @@ $(document).ready(function() {
 </script>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
-<!--- count down timer --> 
+<!--- count down timer -->
 <!--- brands -->
 <script type="text/javascript" src="<?php echo e(URL::to('resources/views/template/brands/script.js')); ?>"></script>
 <script id="rendered-js">
@@ -299,33 +302,33 @@ $(function(){
 <?php endif; ?>
 <!-- page loader -->
 <!-- share -->
-<script src="<?php echo e(URL::to('resources/views/template/share/share.js')); ?>"></script> 
+<script src="<?php echo e(URL::to('resources/views/template/share/share.js')); ?>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-        
+
 		$('.share-button').simpleSocialShare();
 
 	});
-</script> 
+</script>
 <!-- share -->
 <!-- pagination -->
 <script src="<?php echo e(URL::to('resources/views/template/pagination/pagination.js')); ?>"></script>
 <script type="text/javascript">
     $(document).ready(function() {
 	 $(this).cPager({
-            pageSize: <?php echo e($allsettings->post_per_page); ?>, 
-            pageid: "post-pager", 
+            pageSize: <?php echo e($allsettings->post_per_page); ?>,
+            pageid: "post-pager",
             itemClass: "li-item",
 			pageIndex: 1
- 
+
         });
 	$(this).cPager({
-            pageSize: <?php echo e($allsettings->product_per_page); ?>, 
-            pageid: "itempager", 
+            pageSize: <?php echo e($allsettings->product_per_page); ?>,
+            pageid: "itempager",
             itemClass: "prod-item",
 			pageIndex: 1
- 
-        });	
+
+        });
    });
 </script>
 <!--- pagination -->
@@ -347,7 +350,7 @@ $("#flash_deal_start_date").datetimepicker({
       var dt = new Date(selected);
       dt.setDate(dt.getDate() + 1);
  $("#flash_deal_end_date").datetimepicker("option", "minDate", dt);
-}                                 
+}
 });
   $("#flash_deal_end_date").datetimepicker({
     timeFormat: "hh:mm tt", minDate: 0, dateFormat: 'yy-mm-dd',
@@ -368,7 +371,7 @@ $("#flash_deal_start_date").datetimepicker({
 <script src="<?php echo e(URL::to('resources/views/template/filter/jplist.pagination-bundle.min.js')); ?>"></script>
 <script type="text/javascript">
         $('document').ready(function(){
-             
+
             $('#demo').jplist({
                 itemsBox: '.list'
                 ,itemPath: '.list-item'
@@ -382,7 +385,7 @@ $("#flash_deal_start_date").datetimepicker({
 <script src="<?php echo e(URL::to('resources/views/template/product-carousel/js/lightslider.js')); ?>"></script>
 <script>
     $(document).ready(function() {
-	         
+
 			 $('#image-gallery').lightSlider({
                 gallery:true,
                 item:1,
@@ -393,7 +396,7 @@ $("#flash_deal_start_date").datetimepicker({
                 loop:true,
                 onSliderLoad: function() {
                     $('#image-gallery').removeClass('cS-hidden');
-                }  
+                }
             });
 		});
 </script>
@@ -413,8 +416,8 @@ $("#ifstripe").hide();
 $("#ifpaystack").hide();
 $("#iflocalbank").hide();
         $("input[name='withdrawal']").click(function () {
-		
-            if ($("#withdrawal-paypal").is(":checked")) 
+
+            if ($("#withdrawal-paypal").is(":checked"))
 			{
 			   $("#ifpaypal").show();
 			   $("#ifstripe").hide();
@@ -460,7 +463,7 @@ $("#iflocalbank").hide();
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
- 
+
   ga('create', '<?php echo e($allsettings->google_analytics); ?>', 'auto');
   ga('send', 'pageview');
 </script>
@@ -468,4 +471,7 @@ $("#iflocalbank").hide();
 <!-- google analytics -->
 <!-- cookie -->
 <script type="text/javascript" src="<?php echo e(asset('resources/views/template/cookie/cookiealert.js')); ?>"></script>
-<!-- cookie --><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/javascript.blade.php ENDPATH**/ ?>
+<!-- cookie -->
+
+
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/javascript.blade.php ENDPATH**/ ?>

@@ -54,27 +54,63 @@
                                             <th>{{ Helper::translation(1964,$translate) }}</th>
                                             <th>{{ Helper::translation(2077,$translate) }}</th>
                                             <th>{{ Helper::translation(3621,$translate) }}</th>
-                                            <th>{{ Helper::translation(2109,$translate) }}</th>
+                                            <th>Address </th>
+
                                             <th>{{ Helper::translation(2091,$translate) }}</th>
                                             <th>{{ Helper::translation(2080,$translate) }}</th>
-                                            <th>{{ Helper::translation(3609,$translate) }}</th>
-                                            <th>{{ Helper::translation(3624,$translate) }}</th>
+{{--                                            <th>{{ Helper::translation(3609,$translate) }}</th>--}}
+{{--                                            <th>{{ Helper::translation(3624,$translate) }}</th>--}}
+
+                                            <th>ProductName</th>
+                                            <th>{{ Helper::translation(2109,$translate) }}</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     @php $no = 1; @endphp
                                     @foreach($itemData['item'] as $order)
+                                        @php
+                                            $product = \ZigKart\Models\Product::getProductid($order->user_id,$order->ord_id);
+                                            $orderDetils = \ZigKart\Models\Product::getorderDetils($order->user_id,$order->ord_id);
+                                        @endphp
+                                        <?php //print_r($order); ?>
+                                        <?php //print_r('<br>'); ?>
+                                        <?php //print_r('<br>'); ?>
+
                                         <tr>
                                             <td>{{ $no }}</td>
                                             <td>{{ $order->purchase_token }} </td>
-                                            <td><a href="{{ URL::to('/user') }}/{{ $order->username }}" target="_blank" class="blue-color">{{ $order->username }}</a></td>
-                                            <td>{{ $allsettings->site_currency_symbol }}{{ $order->total }}  </td>
+                                            <td><a href="{{ URL::to('/user') }}/{{ $order->username }}" target="_blank" class="blue-color">{{ $order->name }}</a></td>
+
+                                            <td>
+                                                        @if($order->enable_ship == 1)
+                                                            {{$order->ship_address}}
+                                                            {{$order->ship_city}}
+                                                            {{$order->ship_state}}
+                                                            {{$order->ship_postcode}}
+                                                        @else
+                                                        {{$order->bill_address}}
+                                                        {{$order->bill_city}}
+                                                        {{$order->bill_state}}
+                                                        {{$order->bill_postcode}}
+                                                    @endif
+                                            </td>
+
                                             <td>{{ $order->payment_date }}</td>
                                             <td>{{ str_replace("-"," ",$order->payment_type) }}</td>
-                                            <td>@if($order->payment_token != ""){{ $order->payment_token }}@else <span>---</span> @endif</td>
-                                            <td>@if(($order->payment_type == 'localbank' or  $order->payment_type == 'cash-on-delivery') && $order->payment_status == 'pending') <a href="orders/{{ base64_encode($order->purchase_token) }}/{{ base64_encode($order->payment_type) }}" class="blue-color"onClick="return confirm('Are you sure click to complete payment?');">{{ Helper::translation(3627,$translate) }}</a> @else <span>---</span> @endif</td>
+{{--                                            <td>@if($order->payment_token != ""){{ $order->payment_token }}@else <span>---</span> @endif</td>--}}
+{{--                                            <td>@if(($order->payment_type == 'localbank' or  $order->payment_type == 'cash-on-delivery') && $order->payment_status == 'pending') <a href="orders/{{ base64_encode($order->purchase_token) }}/{{ base64_encode($order->payment_type) }}" class="blue-color"onClick="return confirm('Are you sure click to complete payment?');">{{ Helper::translation(3627,$translate) }}</a> @else <span>---</span> @endif</td>--}}
+                                            <td>{{!empty($product) ? $product->product_name : ''}}<br>
 
+                                            </td>
+                                            <td>
+                                                <b>Quantity</b> : {{!empty($orderDetils) ? $orderDetils->quantity : ''}} <br>
+                                                <b>Price</b> : {{!empty($orderDetils) ? $orderDetils->price : ''}} <br>
+                                                <b>Discount</b> : {{!empty($orderDetils) ? $orderDetils->price - $orderDetils->discount_price : ''}} <br>
+                                                <b>ShippingPrice</b> : {{!empty($orderDetils) ? $orderDetils->shipping_price : ''}} <br>
+                                                <hr>
+                                                {{ $allsettings->site_currency_symbol }}{{ $order->total }}
+                                            </td>
                                             <td><a href="order-details/{{ $order->purchase_token }}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>&nbsp; {{ Helper::translation(3477,$translate) }}</a></td>
                                         </tr>
                                         @php $no++; @endphp
