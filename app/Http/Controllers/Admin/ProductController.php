@@ -349,9 +349,6 @@ class ProductController extends Controller
 
 	public function view_orders()
 	{
-        $data1 = array('body' => 'testing', 'subject' => 'test subject', 'msg_for' => 'customer', 'name' => 'dsfsfsd', 'email' => 'demo@demo.com', 'password' => 'dsfssdf', 'date' => date('Y-m-d'));
-        Mail::to('nikchauhan2010@gmail.com')->send(new \ZigKart\Mail\EmailNotify($data1));
-
 	   $itemData['item'] = Product::getorderProduct();
 	   $data = array('itemData' => $itemData);
 	   return view('admin.orders')->with($data);
@@ -562,21 +559,21 @@ class ProductController extends Controller
 								];
 
 
-                        Mail::to($admin_email)->send(new \ZigKart\Mail\EmailNotify($data_record));
-                        Mail::to($email)->send(new \ZigKart\Mail\EmailNotify($data_record));
+//                        Mail::to($admin_email)->send(new \ZigKart\Mail\EmailNotify($data_record));
+//                        Mail::to($email)->send(new \ZigKart\Mail\EmailNotify($data_record));
 
 
-//								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
-//										$message->to($admin_email,$admin_name)
-//												->subject('New Order Received');
-//										$message->from($admin_email,$admin_name);
-//									});
-//
-//								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
-//										$message->to($email, $name)
-//												->subject('New Order Received');
-//										$message->from($admin_email,$admin_name);
-//									});
+								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
+										$message->to($admin_email,$admin_name)
+												->subject('New Order Received');
+										$message->from($admin_email,$admin_name);
+									});
+
+								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
+										$message->to($email, $name)
+												->subject('New Order Received');
+										$message->from($admin_email,$admin_name);
+									});
 
 			return redirect()->back()->with('success', 'Payment details has been completed');
 

@@ -48,7 +48,7 @@
                             </div>
                             <div class="card-body">
                               <div class="table-responsive">
-                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <table id="bootstrap-data-table-export1" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>{{ Helper::translation(1964,$translate) }}</th>

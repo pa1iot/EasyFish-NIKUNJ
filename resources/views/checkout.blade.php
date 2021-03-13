@@ -62,43 +62,43 @@
                 </div>
                 <div class="col">
                   <label>{{ Helper::translation(1999,$translate) }}<span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="bill_lastname" name="bill_lastname" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_lastname}}" @endif class="form-control" id="bill_lastname" name="bill_lastname" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label>{{ Helper::translation(2000,$translate) }}</label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="bill_companyname" name="bill_companyname">
+                  <input type="hidden" @if(!empty($addressbooks)) value="{{$addressbooks->bill_companyname}}" @endif class="form-control" id="bill_companyname" name="bill_companyname">
                 </div>
                 <div class="col">
                   <label>{{ Helper::translation(2001,$translate) }}<span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="bill_email" name="bill_email" data-bvalidator="email,required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_email}}" @endif class="form-control" id="bill_email" name="bill_email" data-bvalidator="email,required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label>{{ Helper::translation(2002,$translate) }}<span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="bill_phone" name="bill_phone" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_phone}}" @endif class="form-control" id="bill_phone" name="bill_phone" data-bvalidator="required">
                 </div>
                 <div class="col">
                   <label>{{ Helper::translation(2003,$translate) }}<span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="bill_address" name="bill_address" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_address}}" @endif class="form-control" id="bill_address" name="bill_address" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label>{{ Helper::translation(2004,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="bill_city" name="bill_city" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_city}}" @endif class="form-control" id="bill_city" name="bill_city" data-bvalidator="required">
                 </div>
                 <div class="col">
                   <label>{{ Helper::translation(2005,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="bill_state" name="bill_state" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_state}}" @endif class="form-control" id="bill_state" name="bill_state" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label>{{ Helper::translation(2006,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="bill_postcode" name="bill_postcode" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_postcode}}" @endif class="form-control" id="bill_postcode" name="bill_postcode" data-bvalidator="required">
                 </div>
                 <div class="col">
                   <label>{{ Helper::translation(2007,$translate) }} <span class="red">*</span></label>
@@ -117,54 +117,55 @@
          	   <div class="form-row mt-4 mb-4">
                 <div class="col">
                   <label>{{ Helper::translation(1998,$translate) }}<span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="ship_firstname" name="ship_firstname" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->ship_firstname}}" @endif class="form-control" id="ship_firstname" name="ship_firstname" data-bvalidator="required">
                 </div>
                 <div class="col">
                   <label>{{ Helper::translation(1999,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="ship_lastname" name="ship_lastname" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->ship_lastname}}" @endif class="form-control" id="ship_lastname" name="ship_lastname" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
-                <div class="col">
+                  <div class="col">
                   <label>{{ Helper::translation(2000,$translate) }}</label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="ship_companyname" name="ship_companyname">
+                  <input type="hidden" @if(!empty($addressbooks)) value="{{$addressbooks->ship_companyname}}" @endif class="form-control" id="ship_companyname" name="ship_companyname">
                 </div>
+
                 <div class="col">
                   <label>{{ Helper::translation(2001,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="ship_email" name="ship_email" data-bvalidator="email,required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->ship_email}}" @endif class="form-control" id="ship_email" name="ship_email" data-bvalidator="email,required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label>{{ Helper::translation(2002,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="ship_phone" name="ship_phone" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->ship_phone}}" @endif class="form-control" id="ship_phone" name="ship_phone" data-bvalidator="required">
                 </div>
                 <div class="col">
                   <label>{{ Helper::translation(2003,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="ship_address" name="ship_address" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->ship_address}}" @endif class="form-control" id="ship_address" name="ship_address" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label>{{ Helper::translation(2004,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="ship_city" name="ship_city" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->ship_city}}" @endif class="form-control" id="ship_city" name="ship_city" data-bvalidator="required">
                 </div>
                 <div class="col">
                   <label>{{ Helper::translation(2005,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="ship_state" name="ship_state" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->ship_state}}" @endif class="form-control" id="ship_state" name="ship_state" data-bvalidator="required">
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
                 <div class="col">
                   <label>{{ Helper::translation(2006,$translate) }} <span class="red">*</span></label>
-                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_firstname}}" @endif class="form-control" id="ship_postcode" name="ship_postcode" data-bvalidator="required">
+                  <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->ship_postcode}}" @endif class="form-control" id="ship_postcode" name="ship_postcode" data-bvalidator="required">
                 </div>
                 <div class="col">
                   <label>{{ Helper::translation(2007,$translate) }} <span class="red">*</span></label>
                   <select class="form-control" name="ship_country" data-bvalidator="required">
                   <option value=""></option>
                   @foreach($allcountry as $country)
-                  <option value="{{ $country->country_id }}">{{ $country->country_name }}</option>
+                  <option @if(!empty($addressbooks)) {{$addressbooks->ship_country ==$country->country_id ? 'selected' : '' }}  @endif value="{{ $country->country_id }}">{{ $country->country_name }}</option>
                   @endforeach
                   </select>
                 </div>
