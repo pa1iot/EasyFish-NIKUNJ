@@ -1,4 +1,4 @@
-<script type="text/javascript" src="<?php echo e(URL::to('resources/views/template/js/jquery.min.js')); ?>"></script>
+ l<script type="text/javascript" src="<?php echo e(URL::to('resources/views/template/js/jquery.min.js')); ?>"></script>
 <script src="<?php echo e(URL::to('resources/views/template/js/bootstrap.min.js')); ?>"></script>
 <script src="<?php echo e(URL::to('resources/views/template/js/bootstrap.js')); ?>"></script>
 <script src="<?php echo e(asset('resources/views/template/validate/jquery.bvalidator.min.js')); ?>"></script>
@@ -9,14 +9,14 @@
     $(document).ready(function () {
         "use strict";
 		var options = {
-		
+
 		offset:              {x:5, y:-2},
 		position:            {x:'left', y:'center'},
         themes: {
             'red': {
                  showClose: true
             },
-	
+
         }
     };
     $('#login_form').bValidator(options);
@@ -42,7 +42,7 @@
                 $("#show_shipping").show();
                 } else {
                 $("#show_shipping").hide();
-                
+
             }
         });
     });
@@ -68,7 +68,7 @@ $(function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
- 
+
   ga('create', '<?php echo e($allsettings->google_analytics); ?>', 'auto');
   ga('send', 'pageview');
 </script>
@@ -76,4 +76,5 @@ $(function(){
 <!-- google analytics -->
 <!-- cookie -->
 <script type="text/javascript" src="<?php echo e(asset('resources/views/template/cookie/cookiealert.js')); ?>"></script>
-<!-- cookie --><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/script.blade.php ENDPATH**/ ?>
+<!-- cookie -->
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/script.blade.php ENDPATH**/ ?>

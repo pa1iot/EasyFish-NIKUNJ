@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kolkata',
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
     */
 
     'locale' => 'en',
-	
+
 	'locales' => ['en', 'es', 'fr'],
 
     /*
@@ -248,7 +248,7 @@ return [
 		'PDF' => Barryvdh\DomPDF\Facade::class,
 		'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
 		'Currency'=> AkibTanjim\Currency\Facades\CurrencyConverter::class,
-		
+
 
     ],
 

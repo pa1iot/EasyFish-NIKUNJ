@@ -332,19 +332,19 @@
 {{--                                                        </select>--}}
 {{--                                                    </div>--}}
 
-                                                    <div class="form-group">
-                                                        <label for="site_title"
-                                                               class="control-label mb-1"> {{ Helper::translation(1946,$translate) }}
-                                                            <span class="require">*</span></label>
-                                                        <select name="product_type" id="product_type"
-                                                                class="form-control" data-bvalidator="required">
-                                                            <option value=""></option>
-                                                            @foreach($product_type as $type)
-                                                                <option value="{{ $type }}"
-                                                                        @if($edit['product']->product_type == $type) selected @endif>{{ $type }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label for="site_title"--}}
+{{--                                                               class="control-label mb-1"> {{ Helper::translation(1946,$translate) }}--}}
+{{--                                                            <span class="require">*</span></label>--}}
+{{--                                                        <select name="product_type" id="product_type"--}}
+{{--                                                                class="form-control" data-bvalidator="required">--}}
+{{--                                                            <option value=""></option>--}}
+{{--                                                            @foreach($product_type as $type)--}}
+{{--                                                                <option value="{{ $type }}"--}}
+{{--                                                                        @if($edit['product']->product_type == $type) selected @endif>{{ $type }}</option>--}}
+{{--                                                            @endforeach--}}
+{{--                                                        </select>--}}
+{{--                                                    </div>--}}
 
 
                                                     <div id="ifphysical_external"
@@ -368,29 +368,29 @@
                                                                    class="form-control" data-bvalidator="digit,min[1]"
                                                                    value="{{ $edit['product']->product_estimate_time }}"><small>Days</small>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="site_title" class="control-label mb-1">Condition
-                                                                <span class="require">*</span></label>
-                                                            <select name="product_condition" class="form-control"
-                                                                    data-bvalidator="required">
-                                                                <option value=""></option>
-                                                                <option value="new"
-                                                                        @if($edit['product']->product_condition == 'new') selected @endif>{{ Helper::translation(1951,$translate) }}</option>
-                                                                <option value="used"
-                                                                        @if($edit['product']->product_condition == 'used') selected @endif>{{ Helper::translation(1952,$translate) }}</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="site_title"
-                                                                   class="control-label mb-1">{{ Helper::translation(1947,$translate) }}</label>
-                                                            <select name="product_brand" class="form-control">
-                                                                <option value=""></option>
-                                                                @foreach($brand['view'] as $brand)
-                                                                    <option value="{{ $brand->brand_id }}"
-                                                                            @if($edit['product']->product_brand == $brand->brand_id) selected @endif>{{ $brand->brand_name }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <label for="site_title" class="control-label mb-1">Condition--}}
+{{--                                                                <span class="require">*</span></label>--}}
+{{--                                                            <select name="product_condition" class="form-control"--}}
+{{--                                                                    data-bvalidator="required">--}}
+{{--                                                                <option value=""></option>--}}
+{{--                                                                <option value="new"--}}
+{{--                                                                        @if($edit['product']->product_condition == 'new') selected @endif>{{ Helper::translation(1951,$translate) }}</option>--}}
+{{--                                                                <option value="used"--}}
+{{--                                                                        @if($edit['product']->product_condition == 'used') selected @endif selected>{{ Helper::translation(1952,$translate) }}</option>--}}
+{{--                                                            </select>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <label for="site_title"--}}
+{{--                                                                   class="control-label mb-1">{{ Helper::translation(1947,$translate) }}</label>--}}
+{{--                                                            <select name="product_brand" class="form-control">--}}
+{{--                                                                <option value=""></option>--}}
+{{--                                                                @foreach($brand['view'] as $brand)--}}
+{{--                                                                    <option value="{{ $brand->brand_id }}"--}}
+{{--                                                                            @if($edit['product']->product_brand == $brand->brand_id) selected @endif>{{ $brand->brand_name }}</option>--}}
+{{--                                                                @endforeach--}}
+{{--                                                            </select>--}}
+{{--                                                        </div>--}}
                                                         <div class="form-group">
                                                             <label for="name"
                                                                    class="control-label mb-1">{{ Helper::translation(1953,$translate) }}</label>

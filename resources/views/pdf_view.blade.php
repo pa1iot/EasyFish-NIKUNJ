@@ -2,10 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  <title>{{ $purchase_token }} - {{ $allsettings->site_title }}</title>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
- <meta name="viewport" content="width=device-width, initial-scale=1"> 
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" type="text/css" href="{{ URL::to('resources/views/template/css/bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::to('resources/views/template/css/stylesheet.css') }}">
+   
 </head>
 <body>
 <!-- Container -->
@@ -47,7 +49,7 @@
       {{ $allsettings->office_phone }}
       </address>
     </div>
-   </div> 
+   </div>
    <div class="row align-items-center mt-3">
    <table class="table">
   <thead class="grey bg-light-2 text-center">
@@ -71,7 +73,7 @@
       <a href="{{ url('/product') }}/{{ $product->product_slug }}">
       <br/>
       @if($product->product_image != '')
-      <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}"  class="img-thumb" alt="{{ $product->product_name }}"/>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="img-thumb" alt="{{ $product->product_name }}"/>  
+      <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}"  class="img-thumb" alt="{{ $product->product_name }}"/>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="img-thumb" alt="{{ $product->product_name }}"/>
       @endif
       </a></td>
       <td>{{ $product->product_attribute_values }}</td>
@@ -79,7 +81,7 @@
       <td>{{ $product->quantity }} X {{ $allsettings->site_currency_symbol }}{{ $product->price }}</td>
     </tr>
     @php $no++; @endphp
-    @endforeach 
+    @endforeach
     <tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2090,$translate) }}</strong></td>
       <td class="bg-light-2">{{ $allsettings->site_currency_symbol }}{{ $purchase->shipping_price }}</td>

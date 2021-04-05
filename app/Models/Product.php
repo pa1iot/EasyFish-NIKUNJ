@@ -557,9 +557,19 @@ class Product extends Model
 
 	public static function checkCoupon($coupon)
    {
-    $today_date = date('Y-m-d h:i a');
-    $get=DB::table('coupon')->where('coupon_start_date','<=',$today_date)->where('coupon_end_date','>=',$today_date)->where('coupon_code','=',$coupon)->where('coupon_status','=',1)->get();
-    $value = $get->count();
+//    $today_date = date('Y-m-d h:i a');
+    $today_date = date('Y-m-d h:i').':00';
+//    print_r($today_date);
+//       DB::enableQueryLog(); // Enable query log
+
+
+       // $get=DB::table('coupon')->where('coupon_start_date','<=',$today_date)->where('coupon_end_date','>=',$today_date)->where('coupon_code','=',$coupon)->where('coupon_status','=',1)->get();
+        $get=DB::select("SELECT count(*) as count FROM `coupon` WHERE `coupon_start_date` <= '".$today_date."' AND `coupon_end_date` >= '".$today_date."' and `coupon_code`='".$coupon."' and `coupon_status`= 1");
+       // Your Eloquent query executed by using get()
+      //print_r("SELECT * FROM `coupon` WHERE `coupon_start_date` <= '".$today_date."' AND `coupon_end_date` >= '".$today_date."' and `coupon_code`='".$coupon."' and `coupon_status`= 1");
+        // dd($get);
+//       dd(DB::getQueryLog());
+    $value = !empty($get[0]) ? $get[0]->count :0;
     return $value;
 
    }
@@ -765,6 +775,29 @@ class Product extends Model
 
   }
 
+    public static function getorderProductwithFilter($postcode)
+    {
+
+        $value=DB::table('product_checkout')
+            ->join('users','users.id','product_checkout.user_id')
+            ->where('product_checkout.bill_postcode', $postcode)
+            ->orderBy('product_checkout.cid', 'desc')->get();
+        return $value;
+
+    }
+
+    public static function getorderProductByDelivery()
+    {
+
+        $value=DB::table('product_checkout')
+            ->join('product_orders','product_orders.ord_id','product_checkout.ord_id')
+            ->join('users','users.id','product_orders.deliveryboy_user_id')
+            ->orderBy('product_checkout.cid', 'desc')
+            ->get();
+        return $value;
+
+    }
+
   public static function adminorderItem($token)
   {
 
@@ -921,6 +954,7 @@ class Product extends Model
   {
 
     $value=DB::table('product')->get();
+//    $value=DB::table('product')->get(['product_id','user_id','product_token','product_name','product_sku','product_slug','product_category','product_short_desc','product_price','product_offer_price','product_image','product_estimate_time','product_type','product_stock','product_date','product_status','language_code']);
 	return $value;
 
   }
@@ -954,6 +988,47 @@ class Product extends Model
     {
 
         $value=DB::table('product_orders')->where('user_id','=',$user_id)->where('ord_id',$oid)->first();
+
+        return $value;
+
+    }
+
+    //new
+
+    public static function getTotalOrder($user_id)
+    {
+
+        $value=DB::table('product_orders')->where('deliveryboy_user_id','=',$user_id)
+            ->count();
+
+        return $value;
+
+    }
+
+    public static function updateOrderStatus($user_id,$ord_id,$data)
+    {
+
+        if($data['delivery_status'] == 5)
+        {
+            $data['order_status']='completed';
+            $data['order_tracking']='Delivered';
+        }
+        $value=DB::table('product_orders')
+            ->where('deliveryboy_user_id','=',$user_id)
+            ->where('ord_id','=',$ord_id)
+            ->update($data);
+
+        return $value;
+
+    }
+
+    public static function updateAllOrderStatus($user_id,$delivery_status,$data)
+    {
+
+        $value=DB::table('product_orders')
+            ->where('deliveryboy_user_id','=',$user_id)
+            ->where('delivery_status','=',$delivery_status)
+            ->update($data);
 
         return $value;
 

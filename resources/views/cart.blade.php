@@ -59,6 +59,7 @@
                         <th>{{ Helper::translation(1984,$translate) }}</th>
                         <th>{{ Helper::translation(1985,$translate) }}</th>
                         <th class="text-center">{{ Helper::translation(1934,$translate) }}</th>
+{{--                        <th class="text-center">Quantity x Price</th>--}}
                         <th class="text-center">{{ Helper::translation(1986,$translate) }}</th>
                         <th></th>
                     </tr>
@@ -79,7 +80,7 @@
                             @endif
                             <div class="media-body">
                                 <h4><a href="{{ url('/product') }}/{{ $cart->product_slug }}">{{ $cart->product_name }}</a></h4>
-                                <span>{{ Helper::translation(1987,$translate) }}: </span><span><a href="{{ url('/user') }}/{{ $cart->username }}" class="text-success">{{ $cart->name }}</a></span>
+{{--                                <span>{{ Helper::translation(1987,$translate) }}: </span><span><a href="{{ url('/user') }}/{{ $cart->username }}" class="text-success">{{ $cart->name }}</a></span>--}}
                                 <div class="mt-2">{{ $cart->product_attribute_values }}</div>
                             </div>
                         </div></td>
@@ -103,7 +104,7 @@
                         $subtotal += $total;
                         @endphp
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        {{ $cart->quantity }}
+                        {{ $cart->quantity }}   <span class="pull-right">x</span>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">@if($cart->discount_price != 0)<strong>{{ $allsettings->site_currency_symbol }}{{ $price }}</strong>@endif <strong @if($cart->discount_price != 0) class="cross-line" @endif>{{ $allsettings->site_currency_symbol }}{{ $cart->price }}</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>{{ $allsettings->site_currency_symbol }}{{ $total }}</strong></td>

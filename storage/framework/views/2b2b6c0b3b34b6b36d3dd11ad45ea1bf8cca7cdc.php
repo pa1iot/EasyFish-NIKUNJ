@@ -72,9 +72,14 @@
                         <label for="inputAddressLine1"><?php echo e(Helper::translation(2014,$translate)); ?> <span class="required">*</span></label>
                         <input type="text" class="form-control" id="email" name="email" value="<?php echo e($edit['profile']->email); ?>" data-bvalidator="required,email">
                     </div>
+
+
+
+
+
                     <div class="col-sm-6">
-                        <label for="inputAddressLine2"><?php echo e(Helper::translation(2102,$translate)); ?></label>
-                        <input type="text" class="form-control" id="password" name="password">
+                        <label for="inputState"><?php echo e(Helper::translation(2002,$translate)); ?> <span class="required">*</span></label>
+                        <input type="text" required class="form-control" id="user_phone" name="user_phone" value="<?php echo e($edit['profile']->user_phone); ?>">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -95,45 +100,42 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="inputContactNumber"><?php echo e(Helper::translation(2106,$translate)); ?></label>
-                        <input type="file" class="form-control" id="user_banner" name="user_banner">
-                        <?php if($edit['profile']->user_banner != ""): ?>
-                        <img src="<?php echo e(url('/')); ?>/public/storage/users/<?php echo e($edit['profile']->user_banner); ?>" alt="<?php echo e($edit['profile']->name); ?>" class="img-thumb">
-                        <?php else: ?>
-                        <img src="<?php echo e(url('/')); ?>/public/img/no-image.jpg" alt="<?php echo e($edit['profile']->name); ?>" class="img-thumb">
-                        <?php endif; ?>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="inputState"><?php echo e(Helper::translation(2107,$translate)); ?></label>
-                        <input type="file" class="form-control" id="user_photo" name="user_photo">
-                        <?php if($edit['profile']->user_photo != ""): ?>
-                        <img src="<?php echo e(url('/')); ?>/public/storage/users/<?php echo e($edit['profile']->user_photo); ?>" alt="<?php echo e($edit['profile']->name); ?>" class="img-thumb">
-                        <?php else: ?>
-                        <img src="<?php echo e(url('/')); ?>/public/img/no-image.jpg" alt="<?php echo e($edit['profile']->name); ?>" class="img-thumb">
-                        <?php endif; ?>
-                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputContactNumber"><?php echo e(Helper::translation(2003,$translate)); ?></label>
                         <input type="text" class="form-control" id="user_address" name="user_address" value="<?php echo e($edit['profile']->user_address); ?>">
                     </div>
-                    <div class="col-sm-6">
-                        <label for="inputState"><?php echo e(Helper::translation(2002,$translate)); ?></label>
-                        <input type="text" class="form-control" id="user_phone" name="user_phone" value="<?php echo e($edit['profile']->user_phone); ?>">
-                    </div>
+
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="inputContactNumber"><?php echo e(Helper::translation(2108,$translate)); ?></label>
-                        <textarea name="user_about" id="summary-ckeditor" rows="6" class="form-control"><?php echo e(html_entity_decode($edit['profile']->user_about)); ?></textarea>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="inputState"><?php echo e(Helper::translation(2851,$translate)); ?></label>
-                        <input type="text" class="form-control" id="affiliate_url" name="affiliate_url" value="<?php echo e(url('/')); ?>/?ref=<?php echo e($edit['profile']->id); ?>" readonly>
-                        <small>(<?php echo e(Helper::translation(2854,$translate)); ?>)</small>
-                    </div>
+
+
+
+
+
+
+
+
+
                 </div>
                 <input type="hidden" name="save_password" value="<?php echo e($edit['profile']->password); ?>">
                 <input type="hidden" name="edit_id" value="<?php echo e($edit['profile']->user_token); ?>">
@@ -155,4 +157,5 @@
 </html>
 <?php else: ?>
 <?php echo $__env->make('503', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php endif; ?><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/my-profile.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/my-profile.blade.php ENDPATH**/ ?>

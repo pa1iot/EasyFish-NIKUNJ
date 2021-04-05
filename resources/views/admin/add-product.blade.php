@@ -147,13 +147,13 @@
                                                                class="form-control" data-bvalidator="required">
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label for="name"
-                                                               class="control-label mb-1">{{ Helper::translation(1929,$translate) }}
-                                                            <span class="require">*</span></label>
-                                                        <input id="product_sku" name="product_sku" type="text"
-                                                               class="form-control" data-bvalidator="required">
-                                                    </div>
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label for="name"--}}
+{{--                                                               class="control-label mb-1">{{ Helper::translation(1929,$translate) }}--}}
+{{--                                                            <span class="require">*</span></label>--}}
+{{--                                                        <input id="product_sku" name="product_sku" type="text"--}}
+{{--                                                               class="form-control" data-bvalidator="required">--}}
+{{--                                                    </div>--}}
                                                     <div class="form-group">
                                                         <label for="site_title"
                                                                class="control-label mb-1"> {{ Helper::translation(1932,$translate) }}
@@ -313,14 +313,14 @@
 {{--                                                                      id="product_return_policy" rows="6"--}}
 {{--                                                                      class="form-control noscroll_textarea"></textarea>--}}
 {{--                                                        </div>--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <label for="name"--}}
-{{--                                                                   class="control-label mb-1">{{ Helper::translation(1949,$translate) }}</label>--}}
-{{--                                                            <input id="product_estimate_time"--}}
-{{--                                                                   name="product_estimate_time" type="text"--}}
-{{--                                                                   class="form-control" data-bvalidator="digit,min[1]">--}}
-{{--                                                            <small>Days</small>--}}
-{{--                                                        </div>--}}
+                                                        <div class="form-group">
+                                                            <label for="name"
+                                                                   class="control-label mb-1">{{ Helper::translation(1949,$translate) }}</label>
+                                                            <input id="product_estimate_time"
+                                                                   name="product_estimate_time" type="text"
+                                                                   class="form-control" data-bvalidator="digit,min[1]">
+                                                            <small>Days</small>
+                                                        </div>
 {{--                                                        <div class="form-group">--}}
 {{--                                                            <label for="site_title"--}}
 {{--                                                                   class="control-label mb-1">{{ Helper::translation(1950,$translate) }}--}}

@@ -2,16 +2,79 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b472460-0c50-461c-bd85-9e0416642cf5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ecomm_multi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ecomm_multi.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImportExportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImportExportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/MembersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MembersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CouponController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CouponController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ImportProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ImportProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Members.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Members.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/add-administrator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/add-administrator.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/add-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/add-product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/edit-administrator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/edit-administrator.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/edit-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/edit-product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/navigation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/order-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order-details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/orders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/template/assets/js/init-scripts/data-table/datatables-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/template/assets/js/init-scripts/data-table/datatables-init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/javascript.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/javascript.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/my-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/my-profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/my-purchase-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/my-purchase-details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pdf_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pdf_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/script.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/script.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/0585813c54d4642fe213ca12aedcd899e3949729.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/102d57af3943eb3064dd73e6ae616d76400f1c62.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/1fc73117ff19946cfe2eb20b3da50b100067979f.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/2b2b6c0b3b34b6b36d3dd11ad45ea1bf8cca7cdc.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/2b2b6c0b3b34b6b36d3dd11ad45ea1bf8cca7cdc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/3506a1d5bc440c498660eaf5f009fd571f822ec6.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/3506a1d5bc440c498660eaf5f009fd571f822ec6.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/4e735ca3f80449f133889b237957e4a002de5672.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/50f946fb4e4bdc5a46db0997bdab12647963f888.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/514f0bef7c8810299260f0c30a2ada287565a3ef.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/514f0bef7c8810299260f0c30a2ada287565a3ef.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/57a581b590af52c3cce016be8b3cd6459c8a7424.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/57a581b590af52c3cce016be8b3cd6459c8a7424.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/60abf3fe475d0a6596d91c4833de34ee28ee6546.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/68218d7aa289a00506e37c86f6cc2c99edd0cba8.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/68218d7aa289a00506e37c86f6cc2c99edd0cba8.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/68e412f21217a4fab53db48fe242611a28c4fe0a.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/6c68787f3735790657f47151e51f6f1ab91c9a7f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/6c68787f3735790657f47151e51f6f1ab91c9a7f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/8e356c44bf438b3d74c01eca068a9089c748ac36.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/9989c560335508d79b7bf7d1524ff0cffdb5507a.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/9efd8f87b714804f22eaa74823e4bfab188ddee1.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/9efd8f87b714804f22eaa74823e4bfab188ddee1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/a3264b7f8e7366a35e10c8ecf305d40a0dc7a4b3.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/a3264b7f8e7366a35e10c8ecf305d40a0dc7a4b3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/ad550124f80ad51ee72e60eea68122f6f0978546.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/b17ed6ab363b2a80a7fac553b8ea9749a0ba2b8d.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/b17ed6ab363b2a80a7fac553b8ea9749a0ba2b8d.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/ba209030d60ca7cfb0619c5fb618cca8d11f289e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/ba209030d60ca7cfb0619c5fb618cca8d11f289e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/bd1318fe270dc6badebe37a25258ffa2acd83ff9.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/bd1318fe270dc6badebe37a25258ffa2acd83ff9.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/c757915adbef9d93e07ec35b8ea9b35b399fa092.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/c88c5f786967a1cf83025f4b836a1f2112d975d2.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/c88c5f786967a1cf83025f4b836a1f2112d975d2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-08-08.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/ca0afed76b60bff2789b0f3c93934f8544fc0d40.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/d3e1ff35a9b9c8c019b9d5c6341f07baae9547f2.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/d3e1ff35a9b9c8c019b9d5c6341f07baae9547f2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/f14e113c98efa53e40f9d93dff4c26d3dcbbd48e.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-08-10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-08-27.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-10-13.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-10-15.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-11-09.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-11-21.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +246,9 @@
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/vendor/league/flysystem-aws-s3-v3" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pJ0A89upmGmBwSRpm305mL7znp" />
@@ -195,7 +261,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rythusenatree" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
@@ -231,7 +297,20 @@
       <workItem from="1615011146380" duration="5456000" />
       <workItem from="1615460058231" duration="10165000" />
       <workItem from="1615528818923" duration="17755000" />
-      <workItem from="1615610277221" duration="4110000" />
+      <workItem from="1615610277221" duration="5365000" />
+      <workItem from="1615626455586" duration="51000" />
+      <workItem from="1615720021045" duration="1271000" />
+      <workItem from="1615958103662" duration="17166000" />
+      <workItem from="1616044102193" duration="28960000" />
+      <workItem from="1616129907549" duration="11757000" />
+      <workItem from="1616145354841" duration="18056000" />
+      <workItem from="1616221982216" duration="67000" />
+      <workItem from="1616387453301" duration="21923000" />
+      <workItem from="1616566536771" duration="5673000" />
+      <workItem from="1617276733001" duration="796000" />
+      <workItem from="1617342657685" duration="1852000" />
+      <workItem from="1617601353070" duration="2911000" />
+      <workItem from="1617609290929" duration="783000" />
     </task>
     <servers />
   </component>
@@ -239,13 +318,17 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1615553492967">
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616401451933">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1615553492967" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1615530866413">
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1616401451933" />
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1617344381306">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1615530866413" />
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1617344381306" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1616406478939">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1616406478939" />
   </component>
 </project>

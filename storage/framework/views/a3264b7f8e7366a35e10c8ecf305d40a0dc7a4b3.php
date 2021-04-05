@@ -63,6 +63,7 @@
                         <th><?php echo e(Helper::translation(1984,$translate)); ?></th>
                         <th><?php echo e(Helper::translation(1985,$translate)); ?></th>
                         <th class="text-center"><?php echo e(Helper::translation(1934,$translate)); ?></th>
+
                         <th class="text-center"><?php echo e(Helper::translation(1986,$translate)); ?></th>
                         <th></th>
                     </tr>
@@ -83,7 +84,7 @@
                             <?php endif; ?>
                             <div class="media-body">
                                 <h4><a href="<?php echo e(url('/product')); ?>/<?php echo e($cart->product_slug); ?>"><?php echo e($cart->product_name); ?></a></h4>
-                                <span><?php echo e(Helper::translation(1987,$translate)); ?>: </span><span><a href="<?php echo e(url('/user')); ?>/<?php echo e($cart->username); ?>" class="text-success"><?php echo e($cart->name); ?></a></span>
+
                                 <div class="mt-2"><?php echo e($cart->product_attribute_values); ?></div>
                             </div>
                         </div></td>
@@ -107,8 +108,7 @@
                         $subtotal += $total;
                         ?>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <?php echo e($cart->quantity); ?>
-
+                        <?php echo e($cart->quantity); ?>   <span class="pull-right">x</span>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><?php if($cart->discount_price != 0): ?><strong><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($price); ?></strong><?php endif; ?> <strong <?php if($cart->discount_price != 0): ?> class="cross-line" <?php endif; ?>><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($cart->price); ?></strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($total); ?></strong></td>

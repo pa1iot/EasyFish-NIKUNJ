@@ -20,7 +20,7 @@
             </div>
          </div>
          </form>
-      </div> 
+      </div>
      <div class="col-lg-5 col-md-5 col-sm-4 mt-2 pt-1 mb-1">
       <nav class="pull-right" id="nav-menu-container">
         <ul class="nav-menu">
@@ -44,13 +44,13 @@
           @endif
           @if(Auth::guest())
           <li><a href="{{ url('/login') }}" class="btn login-btn">{{ Helper::translation(2041,$translate) }}</a></li>
-          @else 
+          @else
           <li class="menu-has-children"><a href="javascript:void(0)">{{ Helper::translation(2042,$translate) }}</a>
             <ul>
               @if(Auth::user()->user_type == 'customer')
               <li><a href="{{ url('/my-profile') }}">{{ Helper::translation(2043,$translate) }}</a></li>
               <li><a href="{{ url('/my-purchase') }}">{{ Helper::translation(2044,$translate) }}</a></li>
-              <li><a href="{{ url('/my-wallet') }}">{{ Helper::translation(2045,$translate) }}</a></li>
+{{--              <li><a href="{{ url('/my-wallet') }}">{{ Helper::translation(2045,$translate) }}</a></li>--}}
               @endif
               @if(Auth::user()->user_type == 'vendor')
               <li><a href="{{ url('/my-profile') }}">{{ Helper::translation(2043,$translate) }}</a></li>
@@ -60,7 +60,7 @@
               <li><a href="{{ url('/my-coupon') }}">{{ Helper::translation(2047,$translate) }}</a></li>
               <li><a href="{{ url('/my-orders') }}">{{ Helper::translation(2026,$translate) }}</a></li>
               <li><a href="{{ url('/my-purchase') }}">{{ Helper::translation(2044,$translate) }}</a></li>
-              <li><a href="{{ url('/my-wallet') }}">{{ Helper::translation(2045,$translate) }}</a></li>
+{{--              <li><a href="{{ url('/my-wallet') }}">{{ Helper::translation(2045,$translate) }}</a></li>--}}
               @endif
               <li><a href="{{ url('/logout') }}">{{ Helper::translation(2048,$translate) }}</a></li>
             </ul>
@@ -84,7 +84,7 @@
                     <button class="btn button-color d-inline-block d-lg-none ml-auto mmiddle pull-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                  </div> 
+                  </div>
                   <div class="col-lg-4 col-md-12 col-sm-12">
                    <div class="collapse navbar-collapse" id="navbarSupportedContent2">
                         <ul class="nav navbar-nav">
@@ -107,7 +107,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/track-order') }}">{{ Helper::translation(2052,$translate) }}</a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/wishlist') }}">{{ Helper::translation(2053,$translate) }}</a>
                             </li>
@@ -122,7 +122,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/track-order') }}">{{ Helper::translation(2052,$translate) }}</a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/wishlist') }}">{{ Helper::translation(2053,$translate) }}</a>
                             </li>
@@ -133,7 +133,7 @@
                             <li class="nav-item"><a href="{{ url('/cart') }}" class="nav-link"><i class="fa fa-shopping-cart"></i> {{ Helper::translation(1983,$translate) }} <span class="cart-badge">{{ $cart_count }}</span></a></li>
                         </ul>
                     </div>
-                   </div> 
+                   </div>
                  </div>
             </nav>
             <nav id="sidebar">
@@ -156,11 +156,11 @@
                     </a>
                     @if(count($menu->subcategory) != 0)
                     <ul class="collapse list-unstyled" id="menu-{{ $menu->cat_id }}">
-                    @foreach($menu->subcategory as $sub_category)  
+                    @foreach($menu->subcategory as $sub_category)
                         <li>
                             <a href="{{ URL::to('/shop/subcategory') }}/{{$sub_category->subcategory_slug}}">{{ $sub_category->subcategory_name }}</a>
                         </li>
-                    @endforeach    
+                    @endforeach
                     </ul>
                     @endif
                 </li>

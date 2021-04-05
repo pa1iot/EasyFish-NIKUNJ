@@ -1,5 +1,7 @@
 <?php
 
+Route::get('updateorders', 'Admin\DeliveryController@updateorders');
+
 
 Route::group(['middleware' => ['XSS','web']], function () {
 
@@ -19,6 +21,17 @@ Route::get('/download/{url}/{title}/{mime}/{ext}/{size}', 'CommonController@view
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'CommonController@autoComplete'));
+
+
+
+//OTP Route
+    Route::post('SubmitLogin', 'Auth\LoginController@SubmitLogin')->name('SubmitLogin');
+    Route::post('SubmitVerifyOTP', 'Auth\LoginController@SubmitVerifyOTP')->name('SubmitVerifyOTP');
+    Route::post('SubmitVerifyOTPLogin', 'Auth\LoginController@SubmitVerifyOTPLogin')->name('SubmitVerifyOTPLogin');
+    Route::post('resendotp', 'Auth\LoginController@resendotp')->name('resendotp');
+
+
+
 Auth::routes();
 
 Route::get('/logout', 'Admin\CommonController@logout');
@@ -56,26 +69,26 @@ Route::post('/edit-product', ['as' => 'edit-product','uses'=>'ProductController@
 
 
 /* attribute type */
-	
+
 Route::get('/attribute-type', 'AttributeController@attribute_type');
 Route::get('/add-attribute-type', 'AttributeController@add_attribute_type')->name('add-attribute-type');
 Route::post('/add-attribute-type', 'AttributeController@save_attribute_type');
 Route::get('/attribute-type/{attribute_id}', 'AttributeController@delete_attribute');
 Route::get('/edit-attribute-type/{attribute_id}', 'AttributeController@edit_attribute_type')->name('edit-attribute-type');
 Route::post('/edit-attribute-type', ['as' => 'edit-attribute-type','uses'=>'AttributeController@update_attribute_type']);
-	
+
 /* attribute type */
 
 
 /* attribute value */
-	
+
 Route::get('/attribute-value', 'AttributeController@attribute_value');
 Route::get('/add-attribute-value', 'AttributeController@add_attribute_value')->name('add-attribute-value');
 Route::post('/add-attribute-value', 'AttributeController@save_attribute_value');
 Route::get('/attribute-value/{attribute_value_id}', 'AttributeController@delete_attribute_value');
 Route::get('/edit-attribute-value/{attribute_value_id}', 'AttributeController@edit_attribute_value')->name('edit-attribute-value');
 Route::post('/edit-attribute-value', ['as' => 'edit-attribute-value','uses'=>'AttributeController@update_attribute_value']);
-	
+
 /* attribute value */
 
 
@@ -228,7 +241,7 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 
     Route::group(['middleware' => ['is_admin', 'XSS']], function () {
     Route::get('/admin', 'Admin\AdminController@admin');
-	
+
 	/* administrator */
 	Route::get('/admin/administrator', 'Admin\MembersController@administrator');
 	Route::get('/admin/add-administrator', 'Admin\MembersController@add_administrator')->name('admin.add-administrator');
@@ -237,7 +250,7 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 	Route::get('/admin/edit-administrator/{token}', 'Admin\MembersController@edit_administrator')->name('admin.edit-administrator');
 	Route::post('/admin/edit-administrator', ['as' => 'admin.edit-administrator','uses'=>'Admin\MembersController@update_administrator']);
 	/* administrator */
-	
+
 	/* customer */
 	Route::get('/admin/customer', 'Admin\MembersController@customer');
 	Route::get('/admin/add-customer', 'Admin\MembersController@add_customer')->name('admin.add-customer');
@@ -246,8 +259,8 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 	Route::get('/admin/edit-customer/{token}', 'Admin\MembersController@edit_customer')->name('admin.edit-customer');
 	Route::post('/admin/edit-customer', ['as' => 'admin.edit-customer','uses'=>'Admin\MembersController@update_customer']);
 	/* customer */
-	
-	
+
+
 	/* vendor */
 	Route::get('/admin/vendor', 'Admin\MembersController@vendor');
 	Route::get('/admin/add-vendor', 'Admin\MembersController@add_vendor')->name('admin.add-vendor');
@@ -256,8 +269,8 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 	Route::get('/admin/edit-vendor/{token}', 'Admin\MembersController@edit_vendor')->name('admin.edit_vendor');
 	Route::post('/admin/edit-vendor', ['as' => 'admin.edit-vendor','uses'=>'Admin\MembersController@update_customer']);
 	/* vendor */
-	
-	
+
+
 	/* country */
 	Route::get('/admin/country-settings', 'Admin\SettingsController@country_settings');
 	Route::get('/admin/add-country', 'Admin\SettingsController@add_country')->name('admin.add-country');
@@ -267,111 +280,111 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 	Route::post('/admin/edit-country', ['as' => 'admin.edit-country','uses'=>'Admin\SettingsController@update_country']);
     /* country */
 
-		
+
 	/* edit profile */
-	
+
 	Route::get('/admin/edit-profile', 'Admin\MembersController@edit_profile');
 	Route::post('/admin/edit-profile', ['as' => 'admin.edit-profile','uses'=>'Admin\MembersController@update_profile']);
 	/* edit profile */
-	
-	
+
+
 	/* general settings */
-	
+
 	Route::get('/admin/general-settings', 'Admin\SettingsController@general_settings');
 	Route::post('/admin/general-settings', ['as' => 'admin.general-settings','uses'=>'Admin\SettingsController@update_general_settings']);
-		
+
 	/* general settings */
-	
-	
+
+
 	/* media settings */
-	
+
 	Route::get('/admin/media-settings', 'Admin\SettingsController@media_settings');
 	Route::post('/admin/media-settings', ['as' => 'admin.media-settings','uses'=>'Admin\SettingsController@update_media_settings']);
-		
+
 	/* media settings */
-	
-	
+
+
 	/* email settings */
-	
+
 	Route::get('/admin/email-settings', 'Admin\SettingsController@email_settings');
 	Route::post('/admin/email-settings', ['as' => 'admin.email-settings','uses'=>'Admin\SettingsController@update_email_settings']);
-	
+
 	/* email settings */
-	
+
 	/* currency settings */
 	Route::get('/admin/currency-settings', 'Admin\SettingsController@currency_settings');
 	Route::post('/admin/currency-settings', ['as' => 'admin.currency-settings','uses'=>'Admin\SettingsController@update_currency_settings']);
 	/* currency settings */
-	
-	
+
+
 	/* preferred settings */
 	Route::get('/admin/preferred-settings', 'Admin\SettingsController@preferred_settings');
 	Route::post('/admin/preferred-settings', ['as' => 'admin.preferred-settings','uses'=>'Admin\SettingsController@update_preferred_settings']);
 	/* preferred settings */
-	
-	
-	
-	
+
+
+
+
 	/* social settings */
-	
+
 	Route::get('/admin/social-settings', 'Admin\SettingsController@social_settings');
 	Route::post('/admin/social-settings', ['as' => 'admin.social-settings','uses'=>'Admin\SettingsController@update_social_settings']);
-	
+
 	/* social settings */
-	
-	
+
+
 	/* color settings */
-	
+
 	Route::get('/admin/color-settings', 'Admin\SettingsController@color_settings');
 	Route::post('/admin/color-settings', ['as' => 'admin.color-settings','uses'=>'Admin\SettingsController@update_color_settings']);
-	
+
 	/* color settings */
-	
-	
-	
+
+
+
 	/* payment settings */
-	
+
 	Route::get('/admin/payment-settings', 'Admin\SettingsController@payment_settings');
 	Route::post('/admin/payment-settings', ['as' => 'admin.payment-settings','uses'=>'Admin\SettingsController@update_payment_settings']);
-	
+
 	/* payment settings */
-	
-	
-	
-	
+
+
+
+
 	/* footer section layout */
-	
+
 	Route::get('/admin/footer-section', 'Admin\SettingsController@footer_section');
 	Route::post('/admin/footer-section', ['as' => 'admin.footer-section','uses'=>'Admin\SettingsController@update_footer_section']);
-	
+
 	/* footer section  layout */
-	
-	
+
+
 	/* ads section */
-	
+
 	Route::get('/admin/ads', 'Admin\SettingsController@ads_section');
 	Route::post('/admin/ads', ['as' => 'admin.ads','uses'=>'Admin\SettingsController@update_ads_section']);
-	
+
 	/* ads section */
-	
-	
+
+
 	/* homepage section */
-	
+
 	Route::get('/admin/home-section', 'Admin\SettingsController@home_section');
 	Route::post('/admin/home-section', ['as' => 'admin.home-section','uses'=>'Admin\SettingsController@update_home_section']);
-	
+
 	/* homepage section */
-	
-	
+
+
 	/* demo mode */
 	Route::post('/admin/demo-mode', ['as' => 'admin.demo-mode','uses'=>'Admin\SettingsController@update_demo_mode']);
 	Route::get('/admin/demo-mode', 'Admin\SettingsController@demo_mode');
 	/* demo mode */
-	
-	
-	
+
+
+
 	/* category */
-	
+
 	Route::get('/admin/category', 'Admin\CategoryController@category');
 	Route::get('/admin/add-category', 'Admin\CategoryController@add_category')->name('admin.add-category');
 	Route::post('/admin/add-category', 'Admin\CategoryController@save_category');
@@ -379,8 +392,8 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 	Route::get('/admin/edit-category/{cat_id}', 'Admin\CategoryController@edit_category')->name('admin.edit-category');
 	Route::post('/admin/edit-category', ['as' => 'admin.edit-category','uses'=>'Admin\CategoryController@update_category']);
 	/* category */
-	
-	
+
+
 	/* subcategory */
 	Route::get('/admin/sub-category', 'Admin\CategoryController@subcategory');
 	Route::get('/admin/add-subcategory', 'Admin\CategoryController@add_subcategory')->name('admin.add-subcategory');
@@ -389,21 +402,21 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 	Route::get('/admin/edit-subcategory/{cat_id}', 'Admin\CategoryController@edit_subcategory')->name('admin.edit-subcategory');
 	Route::post('/admin/edit-subcategory', ['as' => 'admin.edit-subcategory','uses'=>'Admin\CategoryController@update_subcategory']);
 	/* subcategory */
-	
-	
-	
+
+
+
 	/* brands */
-	
+
 	Route::get('/admin/brands', 'Admin\ProductController@view_brands');
 	Route::get('/admin/add-brand', 'Admin\ProductController@add_brand')->name('admin.add-brand');
 	Route::post('/admin/add-brand', 'Admin\ProductController@save_brand');
 	Route::get('/admin/brands/{brand_id}', 'Admin\ProductController@delete_brand');
 	Route::get('/admin/edit-brand/{brand_id}', 'Admin\ProductController@edit_brand')->name('admin.edit-brand');
 	Route::post('/admin/edit-brand', ['as' => 'admin.edit-brand','uses'=>'Admin\ProductController@update_brand']);
-	
+
 	/* brands */
-	
-	
+
+
 	/* coupon */
 	Route::get('/admin/coupons', 'Admin\CouponController@view_coupon');
 	Route::get('/admin/add-coupon', 'Admin\CouponController@add_coupon')->name('admin.add-coupon');
@@ -412,35 +425,35 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 	Route::get('/admin/edit-coupon/{coupon_id}', 'Admin\CouponController@edit_coupon')->name('admin.edit-coupon');
 	Route::post('/admin/edit-coupon', ['as' => 'admin.edit-coupon','uses'=>'Admin\CouponController@update_coupon']);
 	/* coupon */
-	
-	
+
+
 	/* attribute type */
-	
+
 	Route::get('/admin/attribute-type', 'Admin\AttributeController@attribute_type');
 	Route::get('/admin/add-attribute-type', 'Admin\AttributeController@add_attribute_type')->name('admin.add-attribute-type');
 	Route::post('/admin/add-attribute-type', 'Admin\AttributeController@save_attribute_type');
 	Route::get('/admin/attribute-type/{attribute_id}', 'Admin\AttributeController@delete_attribute');
 	Route::get('/admin/edit-attribute-type/{attribute_id}', 'Admin\AttributeController@edit_attribute_type')->name('admin.edit-attribute-type');
 	Route::post('/admin/edit-attribute-type', ['as' => 'admin.edit-attribute-type','uses'=>'Admin\AttributeController@update_attribute_type']);
-	
+
 	/* attribute type */
-	
-	
-	
+
+
+
 	/* attribute value */
-	
+
 	Route::get('/admin/attribute-value', 'Admin\AttributeController@attribute_value');
 	Route::get('/admin/add-attribute-value', 'Admin\AttributeController@add_attribute_value')->name('admin.add-attribute-value');
 	Route::post('/admin/add-attribute-value', 'Admin\AttributeController@save_attribute_value');
 	Route::get('/admin/attribute-value/{attribute_value_id}', 'Admin\AttributeController@delete_attribute_value');
 	Route::get('/admin/edit-attribute-value/{attribute_value_id}', 'Admin\AttributeController@edit_attribute_value')->name('admin.edit-attribute-value');
 	Route::post('/admin/edit-attribute-value', ['as' => 'admin.edit-attribute-value','uses'=>'Admin\AttributeController@update_attribute_value']);
-	
+
 	/* attribute value */
-	
-	
+
+
 	/* products */
-	
+
 	Route::get('/admin/products', 'Admin\ProductController@view_products');
 	Route::get('/admin/add-product', 'Admin\ProductController@add_product')->name('admin.add-product');
 	Route::post('/admin/add-product', 'Admin\ProductController@save_product');
@@ -448,118 +461,121 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 	Route::get('/admin/edit-product/{dropimg}/{img_id}', 'Admin\ProductController@delete_single_image');
 	Route::get('/admin/edit-product/{product_token}', 'Admin\ProductController@edit_product')->name('admin.edit_product');
 	Route::post('/admin/edit-product', ['as' => 'admin.edit-product','uses'=>'Admin\ProductController@update_product']);
-	
+
 	/* products */
-	
+
 	/* product import & export */
 	Route::get('/admin/products-import-export', 'Admin\ImportExportController@view_products_import_export');
 	Route::post('/admin/products-import-export', ['as' => 'admin.products-import-export','uses'=>'Admin\ImportExportController@products_import']);
 	Route::get('/admin/products-import-export/{type}', 'Admin\ImportExportController@download_products_export');
 	/* product import & export */
-	
-	
+
+
 	/* orders */
-	
+
 	Route::get('/admin/orders', 'Admin\ProductController@view_orders');
+	Route::get('/admin/assign-orders', 'Admin\ProductController@assign_orders');
+	Route::get('/admin/assign-orders/{id}', 'Admin\ProductController@assign_orders_with_filter');
+	Route::post('/admin/save-assign-orders', 'Admin\ProductController@save_assign_orders');
 	Route::get('/admin/order-details/{token}', 'Admin\ProductController@view_order_single');
 	Route::get('/admin/order-details/{ord_id}/{user_type}', 'Admin\ProductController@view_payment_approval');
 	Route::get('/admin/orders/{ord_id}/{payment_type}', 'Admin\ProductController@complete_orders');
 	Route::post('/admin/order-track', ['as' => 'admin.order-track','uses'=>'Admin\ProductController@order_track']);
 	/* orders */
-	
+
 	/* rating */
-	
+
 	Route::get('/admin/rating', 'Admin\ProductController@view_rating');
 	Route::get('/admin/rating/{rating_id}', 'Admin\ProductController@rating_delete');
 	/* rating */
-	
+
 	/* refund request */
 	Route::get('/admin/refund', 'Admin\ProductController@view_refund');
 	Route::get('/admin/refund/{ord_id}/{refund_id}/{user_type}', 'Admin\ProductController@view_payment_refund');
 	/* refund request */
-	
-	
+
+
 	/* withdrawal */
-	
+
 	Route::get('/admin/withdrawal', 'Admin\ProductController@view_withdrawal');
 	Route::get('/admin/withdrawal/{wd_id}/{wd_user_id}', 'Admin\ProductController@view_withdrawal_update');
 	/* withdrawal */
-	
-	
+
+
 	/* blog */
-	
+
 	Route::get('/admin/blog-category', 'Admin\BlogController@blog_category');
 	Route::get('/admin/add-blog-category', 'Admin\BlogController@add_blog_category')->name('admin.add-blog-category');
 	Route::post('/admin/add-blog-category', 'Admin\BlogController@save_blog_category');
 	Route::get('/admin/blog-category/{blog_cat_id}', 'Admin\BlogController@delete_blog_category');
 	Route::get('/admin/edit-blog-category/{blog_cat_id}', 'Admin\BlogController@edit_blog_category')->name('admin.edit-blog-category');
 	Route::post('/admin/edit-blog-category', ['as' => 'admin.edit-blog-category','uses'=>'Admin\BlogController@update_blog_category']);
-	
+
 	/* blog */
-	
-	
-	
+
+
+
 	/* post */
-	
+
 	Route::get('/admin/post', 'Admin\BlogController@posts');
 	Route::get('/admin/add-post', 'Admin\BlogController@add_post')->name('admin.add-post');
 	Route::post('/admin/add-post', 'Admin\BlogController@save_post');
 	Route::get('/admin/post/{post_id}', 'Admin\BlogController@delete_post');
 	Route::get('/admin/edit-post/{post_id}', 'Admin\BlogController@edit_post')->name('admin.edit-post');
 	Route::post('/admin/edit-post', ['as' => 'admin.edit-post','uses'=>'Admin\BlogController@update_post']);
-	
+
 	/* post */
-	
-	
+
+
 	/* comment */
 	Route::get('/admin/comment/{post_id}', 'Admin\BlogController@comments');
 	Route::get('/admin/comment/{delete}/{comment_id}', 'Admin\BlogController@delete_comment');
 	Route::get('/admin/comment/update-status/{status}/{comment_id}', 'Admin\BlogController@comment_status');
 	/* comment */
-	
-	
-	
-	
+
+
+
+
 	/* pages */
-	
+
 	Route::get('/admin/pages', 'Admin\PagesController@pages');
 	Route::get('/admin/add-page', 'Admin\PagesController@add_page')->name('admin.add-page');
 	Route::post('/admin/add-page', 'Admin\PagesController@save_page');
 	Route::get('/admin/pages/{page_id}', 'Admin\PagesController@delete_pages');
 	Route::get('/admin/edit-page/{page_id}', 'Admin\PagesController@edit_page')->name('admin.edit-page');
 	Route::post('/admin/edit-page', ['as' => 'admin.edit-page','uses'=>'Admin\PagesController@update_page']);
-	
+
 	/* pages */
-	
-	
+
+
 	/* slideshow */
-	
+
 	Route::get('/admin/slideshow', 'Admin\SlideshowController@slideshow');
 	Route::get('/admin/add-slideshow', 'Admin\SlideshowController@add_slideshow')->name('admin.add-slideshow');
 	Route::post('/admin/add-slideshow', 'Admin\SlideshowController@save_slideshow');
 	Route::get('/admin/slideshow/{slide_id}', 'Admin\SlideshowController@delete_slideshow');
 	Route::get('/admin/edit-slideshow/{slide_id}', 'Admin\SlideshowController@edit_slideshow')->name('admin.edit-slideshow');
 	Route::post('/admin/edit-slideshow', ['as' => 'admin.edit-slideshow','uses'=>'Admin\SlideshowController@update_slideshow']);
-	
+
 	/* slideshow */
-	
-			
+
+
 	/* contact */
 	Route::get('/admin/contact', 'Admin\CommonController@view_contact');
 	Route::get('/admin/contact/{id}', 'Admin\CommonController@view_contact_delete');
 	Route::get('/admin/add-contact', 'Admin\CommonController@view_add_contact');
 	Route::post('/admin/add-contact', ['as' => 'admin.add-contact','uses'=>'Admin\CommonController@update_contact']);
 	/* contact */
-	
-	
+
+
 	/* newsletter */
 	Route::get('/admin/newsletter', 'Admin\CommonController@view_newsletter');
 	Route::get('/admin/newsletter/{id}', 'Admin\CommonController@view_newsletter_delete');
 	Route::get('/admin/send-updates', 'Admin\CommonController@view_send_updates');
 	Route::post('/admin/send-updates', ['as' => 'admin.send-updates','uses'=>'Admin\CommonController@send_updates']);
 	/* newsletter */
-	
-	
+
+
 	/* languages */
 	Route::get('/admin/languages', 'Admin\LanguageController@view_languages');
 	Route::get('/admin/add-language', 'Admin\LanguageController@add_language')->name('admin.add-language');
@@ -568,18 +584,43 @@ Route::get('/newsletter', 'CommonController@view_newsletter');
 	Route::get('/admin/edit-language/{language_id}', 'Admin\LanguageController@edit_language')->name('admin.edit-language');
 	Route::post('/admin/edit-language', ['as' => 'admin.edit-language','uses'=>'Admin\LanguageController@update_language']);
 	/* languages */
-	
-	
+
+
 	/* edit keywords */
 	Route::get('/admin/add-keywords', 'Admin\LanguageController@add_keywords');
 	Route::post('/admin/add-keywords', ['as' => 'admin.add-keywords','uses'=>'Admin\LanguageController@insert_keywords']);
 	Route::get('/admin/edit-keywords/{code}', 'Admin\LanguageController@edit_keywords');
 	Route::post('/admin/edit-keywords', ['as' => 'admin.edit-keywords','uses'=>'Admin\LanguageController@save_keywords']);
 	/* edit keywords */
-	
-	
-	
+
+
+        /* deliveryboy */
+        Route::get('/admin/delivery', 'Admin\DeliveryController@administrator');
+        Route::get('/admin/add-deliveryboy', 'Admin\DeliveryController@add_administrator')->name('admin.add-deliveryboy');
+
+        Route::post('/admin/add-deliveryboy', 'Admin\DeliveryController@save_administrator');
+
+        Route::get('/admin/deliveryboy/{token}', 'Admin\DeliveryController@delete_administrator');
+
+        Route::get('/admin/edit-deliveryboy/{token}', 'Admin\DeliveryController@edit_administrator')->name('admin.edit-deliveryboy');
+
+        Route::post('/admin/edit-deliveryboy', ['as' => 'admin.edit-deliveryboy','uses'=>'Admin\DeliveryController@update_administrator']);
+        /* deliveryboy */
+
+
+
 });
 
 
 /* admin panel */
+Route::group(['middleware' => ['is_deliveryboy']], function () {
+
+    Route::get('/deliveryboy/dashboard', 'Admin\DeliveryBoyController@admin');
+    Route::get('/deliveryboy/assign-orders', 'Admin\DeliveryBoyController@assign_orders');
+//    Route::post('/deliveryboy/update-orders', 'Admin\DeliveryBoyController@update_orders');
+    Route::get('/deliveryboy/{status}/{ord_id}', 'Admin\DeliveryBoyController@orders');
+});
+
+//Route::get('/deliveryboy/update-orders', ['as' => 'deliveryboy.update-orders','uses'=>'Admin\DeliveryController@update_orders']);
+
+

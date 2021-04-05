@@ -456,6 +456,8 @@ class ProductController extends Controller
 
 	public function update_checkout(Request $request)
 	{
+
+	    //print_r($request->all());exit();
 	   $translate = $this->lang_text();
 	   $allsettings = Settings::allSettings();
 	   $user_id = Auth::user()->id;
@@ -487,7 +489,7 @@ class ProductController extends Controller
 	   // addressbook
 
         if(!empty($enable_shipping)){
-
+            DB::table('address_books')->where('user_id',$user_id)->delete();
           //  $addrebook_data1 = array_merge($addrebook_data1,$addrebook_data2);
             $addressbook = DB::table('address_books')->insert([
                 'user_id'=>$user_id,
@@ -516,6 +518,7 @@ class ProductController extends Controller
 
         }
         else{
+            DB::table('address_books')->where('user_id',$user_id)->delete();
             $addressbook = DB::table('address_books')->insert([
                 'user_id'=>$user_id,
                 'bill_firstname'=>$bill_firstname,
@@ -534,9 +537,6 @@ class ProductController extends Controller
 
 
 
-
-
-
 	   $other_notes = $request->input('other_notes');
 	   $payment_method = $request->input('payment_method');
 	   $purchase_token = rand(1111111,9999999);
@@ -548,10 +548,16 @@ class ProductController extends Controller
 	   $total = $request->input('total');
 	   $product_id = $request->input('product_id');
 	   $product_names = $request->input('product_names');
-	   $payment_status = 'pending';
+//	   $payment_status = 'pending';
+	   $payment_status = 'placed';
 	   $cart['product'] = Product::viewOrder($user_id,$translate);
 	   $ship_rate = 0;
 	   $single_rate = "";
+
+
+
+
+
 	   foreach($cart['product'] as $cart)
 	   {
 	      $shop_country = $cart->user_country;
@@ -567,7 +573,6 @@ class ProductController extends Controller
 							        $ship_rate += $cart->product_global_shipping_fee;
 								    $single_rate .= $cart->product_global_shipping_fee.',';
 							   }
-
 
 		  }
 		  else
@@ -592,6 +597,8 @@ class ProductController extends Controller
 	   $single_rates = rtrim($single_rate,",");
 	   $codes = explode(",",$order_id);
 		$names = explode(",",$single_rates);
+
+
 		$separate = "";
 		foreach( $codes as $index => $code )
 		{
@@ -605,20 +612,60 @@ class ProductController extends Controller
 		$order_id_shipping = rtrim($separate,',');
 		$check_checkout = Product::checkCheckout($token);
 		$total_price = $total + $ship_rate;
+
+
 		if($check_checkout == 0)
 		{
-		   $save_data = array('purchase_token' => $purchase_token, 'token' => $token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes, 'payment_status' => $payment_status);
+		   $save_data = array('purchase_token' => $purchase_token,
+               'token' => $token,
+               'ord_id' => $order_id,
+               'shipping_separate' => $single_rates,
+               'order_id_shipping' => $order_id_shipping,
+               'user_id' => $user_id, 'shipping_price' => $ship_rate,
+               'processing_fee' => $processing_fee,
+               'subtotal' => $sub_total,
+               'total' => $total_price,
+               'payment_type' => $payment_method,
+               'payment_date' => $payment_date,
+               'bill_firstname' => $bill_firstname,
+               'bill_lastname' => $bill_lastname,
+               'bill_companyname' => $bill_companyname,
+               'bill_email' => $bill_email,
+               'bill_phone' => $bill_phone,
+               'bill_country' => $bill_country,
+               'bill_address' => $bill_address,
+               'bill_city' => $bill_city, 'bill_state' => $bill_state,
+               'bill_postcode' => $bill_postcode,
+               'enable_ship' => $enable_shipping,
+               'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode,
+               'other_notes' => $other_notes,
+               'payment_status' => $payment_status);
 
 		 Product::saveCheckout($save_data);
 
 		}
 		else
 		{
-		   $update_data = array('purchase_token' => $purchase_token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes);
+		   $update_data = array('purchase_token' => $purchase_token, 'ord_id' => $order_id,
+               'shipping_separate' => $single_rates,
+               'order_id_shipping' => $order_id_shipping,
+               'user_id' => $user_id,
+               'shipping_price' => $ship_rate, 'processing_fee' => $processing_fee,
+               'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method,
+               'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname,
+               'bill_companyname' => $bill_companyname, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone,
+               'bill_country' => $bill_country, 'bill_address' => $bill_address, 'bill_city' => $bill_city,
+               'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping,
+               'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname,
+               'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone,
+               'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city,
+               'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode,
+               'other_notes' => $other_notes);
 
 		   Product::updateCheckout($token,$update_data);
 		}
-		$uporder = array('purchase_token' => $purchase_token);
+		$uporder = array('purchase_token' => $purchase_token  ,'order_status'=> 'placed','payment_type'=>$payment_method);
+//        ,'order_status'=> 'placed'
 		Product::upOrders($user_id,$uporder);
 		/* settings */
 
@@ -662,7 +709,20 @@ class ProductController extends Controller
 	      Product::upAdditional($aid,$additional);
 	   }
 
-	   $record = array('total_price' => $total_price, 'purchase_token' => $purchase_token, 'payment_method' => $payment_method, 'product_names' => $product_names, 'ship_rate' => $ship_rate, 'sub_total' => $sub_total, 'paypal_url' => $paypal_url, 'paypal_email' => $paypal_email, 'site_currency' => $site_currency, 'website_url' => $website_url, 'stripe_mode' => $stripe_mode, 'stripe_publish_key' => $stripe_publish_key, 'two_checkout_private' => $two_checkout_private, 'two_checkout_account' => $two_checkout_account, 'two_checkout_mode' => $two_checkout_mode, 'token' => $token, 'two_checkout_publishable' => $two_checkout_publishable);
+	   $record = array('total_price' => $total_price, 'purchase_token' => $purchase_token,
+           'payment_method' => $payment_method,
+           'product_names' => $product_names,
+           'ship_rate' => $ship_rate,
+           'sub_total' => $sub_total,
+           'paypal_url' => $paypal_url, 'paypal_email' => $paypal_email,
+           'site_currency' => $site_currency,
+           'website_url' => $website_url,
+           'stripe_mode' => $stripe_mode,
+           'stripe_publish_key' => $stripe_publish_key,
+           'two_checkout_private' => $two_checkout_private,
+           'two_checkout_account' => $two_checkout_account,
+           'two_checkout_mode' => $two_checkout_mode,
+           'token' => $token, 'two_checkout_publishable' => $two_checkout_publishable);
        return view('order-confirm')->with($record);
 
 
@@ -1271,8 +1331,6 @@ class ProductController extends Controller
 	   $coupon_key = uniqid();
 	   $check_coupon = Product::checkCoupon($coupon);
 
-
-
 	   if($check_coupon == 1)
 	   {
 	      $single = Product::singleCoupon($coupon);
@@ -1362,7 +1420,12 @@ class ProductController extends Controller
 	  $updata = array('quantity' => $product_quantity, 'product_attribute' => $product_attribute, 'product_attribute_values' => $product_attribute_values, 'price' => $product_price);
 	  if($product_stock >= $product_quantity && $product_quantity > 0)
 	  {
+
+	    //  print_r($request->all());
 	     $check_order = Product::checkOrder($user_id,$product_token);
+         // print_r($request->all());
+         // print_r($check_order);
+         // exit();
 		 if($check_order == 0)
 		 {
 		    Product::saveOrder($savedata);

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -6,15 +7,15 @@
 <html class="no-js" lang="en">
 <!--<![endif]-->
 <head>
-<?php echo $__env->make('admin.stylesheet', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('admin.stylesheet', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </head>
 <body>
 <?php echo $__env->make('admin.navigation', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- Right Panel -->
-    <?php if(in_array('products',$avilable)): ?>
+<?php if(in_array('products',$avilable)): ?>
     <div id="right-panel" class="right-panel">
-       <?php echo $__env->make('admin.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-       <div class="breadcrumbs">
+        <?php echo $__env->make('admin.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
@@ -29,13 +30,13 @@
             </div>
         </div>
         <?php if(session('success')): ?>
-        <div class="col-sm-12">
+            <div class="col-sm-12">
                 <div class="alert  alert-success alert-dismissible fade show" role="alert">
                     <?php echo e(session('success')); ?>
 
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
         <?php endif; ?>
@@ -48,52 +49,54 @@
                                 <strong class="card-title"><?php echo e(Helper::translation(3618,$translate)); ?></strong>
                             </div>
                             <div class="card-body">
-                              <div class="table-responsive">
-                                <table id="bootstrap-data-table-export1" class="table table-striped table-bordered">
-                                    <thead>
+                                <div class="table-responsive">
+                                    <table id="bootstrap-data-table-export1" class="table table-striped table-bordered">
+                                        <thead>
                                         <tr>
                                             <th><?php echo e(Helper::translation(1964,$translate)); ?></th>
                                             <th><?php echo e(Helper::translation(2077,$translate)); ?></th>
-                                            <th><?php echo e(Helper::translation(3621,$translate)); ?></th>
+                                            <th><?php echo e(Helper::translation(2220,$translate)); ?></th>
                                             <th>Address </th>
 
                                             <th><?php echo e(Helper::translation(2091,$translate)); ?></th>
                                             <th><?php echo e(Helper::translation(2080,$translate)); ?></th>
-
-
+                                            
+                                            
 
                                             <th>ProductName</th>
                                             <th><?php echo e(Helper::translation(2109,$translate)); ?></th>
                                             <th>Action</th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php $no = 1; ?>
-                                    <?php $__currentLoopData = $itemData['item']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <?php
-                                            $product = \ZigKart\Models\Product::getProductid($order->user_id,$order->ord_id);
-                                            $orderDetils = \ZigKart\Models\Product::getorderDetils($order->user_id,$order->ord_id);
-                                        ?>
-                                        <?php //print_r($order); ?>
-                                        <?php //print_r('<br>'); ?>
-                                        <?php //print_r('<br>'); ?>
+                                        </thead>
+                                        <tbody>
+                                        <?php $no = 1; ?>
+                                        <?php $__currentLoopData = $itemData['item']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php
+                                                $product = \ZigKart\Models\Product::getProductid($order->user_id,$order->ord_id);
+                                                $orderDetils = \ZigKart\Models\Product::getorderDetils($order->user_id,$order->ord_id);
+                                            ?>
 
-                                        <tr>
-                                            <td><?php echo e($no); ?></td>
-                                            <td><?php echo e($order->purchase_token); ?> </td>
-                                            <td><a href="<?php echo e(URL::to('/user')); ?>/<?php echo e($order->username); ?>" target="_blank" class="blue-color"><?php echo e($order->name); ?></a></td>
+                                            <tr>
+                                                <td><?php echo e($no); ?></td>
+                                                <td><?php echo e($order->purchase_token); ?> </td>
+                                                <td>
+                                                    <a href="<?php echo e(URL::to('/user')); ?>/<?php echo e($order->username); ?>" target="_blank" class="blue-color"><?php echo e($order->name); ?></a>
+                                                   <br> | <?php echo e($order->user_phone); ?> |
+                                                    <br> <?php echo e($order->email); ?>
 
-                                            <td>
-                                                        <?php if($order->enable_ship == 1): ?>
-                                                            <?php echo e($order->ship_address); ?>
+                                                </td>
 
-                                                            <?php echo e($order->ship_city); ?>
+                                                <td>
+                                                    <?php if($order->enable_ship == 1): ?>
+                                                        <?php echo e($order->ship_address); ?>
 
-                                                            <?php echo e($order->ship_state); ?>
+                                                        <?php echo e($order->ship_city); ?>
 
-                                                            <?php echo e($order->ship_postcode); ?>
+                                                        <?php echo e($order->ship_state); ?>
 
-                                                        <?php else: ?>
+                                                        <?php echo e($order->ship_postcode); ?>
+
+                                                    <?php else: ?>
                                                         <?php echo e($order->bill_address); ?>
 
                                                         <?php echo e($order->bill_city); ?>
@@ -103,31 +106,31 @@
                                                         <?php echo e($order->bill_postcode); ?>
 
                                                     <?php endif; ?>
-                                            </td>
+                                                </td>
 
-                                            <td><?php echo e($order->payment_date); ?></td>
-                                            <td><?php echo e(str_replace("-"," ",$order->payment_type)); ?></td>
+                                                <td><?php echo e($order->payment_date); ?></td>
+                                                <td><?php echo e(str_replace("-"," ",$order->payment_type)); ?></td>
+                                                
+                                                
+                                                <td><?php echo e(!empty($product) ? $product->product_name : ''); ?><br>
 
+                                                </td>
+                                                <td>
+                                                    <b>Quantity</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->quantity : ''); ?> <br>
+                                                    <b>Price</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->price : ''); ?> <br>
+                                                    <b>Discount</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->price - $orderDetils->discount_price : ''); ?> <br>
+                                                    <b>ShippingPrice</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->shipping_price : ''); ?> <br>
+                                                    <hr>
+                                                    <?php echo e($allsettings->site_currency_symbol); ?><?php echo e($order->total); ?>
 
-                                            <td><?php echo e(!empty($product) ? $product->product_name : ''); ?><br>
+                                                </td>
+                                                <td><a href="order-details/<?php echo e($order->purchase_token); ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>&nbsp; <?php echo e(Helper::translation(3477,$translate)); ?></a></td>
+                                            </tr>
+                                            <?php $no++; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </tbody>
 
-                                            </td>
-                                            <td>
-                                                <b>Quantity</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->quantity : ''); ?> <br>
-                                                <b>Price</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->price : ''); ?> <br>
-                                                <b>Discount</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->price - $orderDetils->discount_price : ''); ?> <br>
-                                                <b>ShippingPrice</b> : <?php echo e(!empty($orderDetils) ? $orderDetils->shipping_price : ''); ?> <br>
-                                                <hr>
-                                                <?php echo e($allsettings->site_currency_symbol); ?><?php echo e($order->total); ?>
-
-                                            </td>
-                                            <td><a href="order-details/<?php echo e($order->purchase_token); ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>&nbsp; <?php echo e(Helper::translation(3477,$translate)); ?></a></td>
-                                        </tr>
-                                        <?php $no++; ?>
-                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </tbody>
-
-                                </table>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -136,10 +139,10 @@
             </div>
         </div>
     </div>
-    <?php else: ?>
+<?php else: ?>
     <?php echo $__env->make('admin.denied', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <?php endif; ?>
-   <?php echo $__env->make('admin.javascript', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php endif; ?>
+<?php echo $__env->make('admin.javascript', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 </html>
 <?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/admin/orders.blade.php ENDPATH**/ ?>

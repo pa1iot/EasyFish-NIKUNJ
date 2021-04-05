@@ -12,24 +12,25 @@ use Maatwebsite\Excel\Concerns\ToModel;
 class ImportProduct implements ToModel
 {
 
-  
-   
-	
+
+
+
    public function model(array $row)
     {
-	     
-	    
+//        print_r($row);exit();
+
            $data = Product::findProduct($row[2],$row[36]);
+//           $data = Product::findProduct($row[2],$row[36]);
            if (empty($data)) {
 		              if(!empty($row[10])){ $offer_price = $row[10]; } else { $offer_price = 0; }
-					  if(!empty($row[30])){ $flash_deals = $row[30]; } else { $flash_deals = 0; }
+					//  if(!empty($row[30])){ $flash_deals = $row[30]; } else { $flash_deals = 0; }
 					  if(!empty($row[37]))
 					  {
-					   $product_page_parent = $row[37]; 
-					  } 
-					  else 
+					   $product_page_parent = $row[37];
+					  }
+					  else
 					  {
-					   $product_page_parent = 0; 
+					   $product_page_parent = 0;
 					  }
 					  if(!empty($row[14])){ $product_allow_seo = $row[14]; } else { $product_allow_seo = 0; }
 					  if(!empty($row[18])){ $product_condition = $row[18]; } else { $product_condition = ""; }
@@ -37,7 +38,7 @@ class ImportProduct implements ToModel
 					  if(!empty($row[26])){ $product_global_shipping_fee = $row[26]; } else { $product_global_shipping_fee = 0; }
 					  if(!empty($row[21])){ $product_featured = $row[21]; } else { $product_featured = 0; }
 					  return new Import([
-					   'user_id'    => $row[1], 
+					   'user_id'    => $row[1],
 					   'product_token' => $row[2],
 					   'product_name' => $row[3],
 					   'product_sku' => $row[4],
@@ -76,18 +77,27 @@ class ImportProduct implements ToModel
 					   'product_page_parent' => $product_page_parent,
 					   'product_drop_status' => $row[38],
 					]);
-					
-					
-					
-		  
-              } 
-     
-	    
-	
-        
+
+
+
+
+              }
+
+
+
+
     }
-   
-   
-  
-  
+
+    public function generateRandomString($length = 25) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+
+
 }

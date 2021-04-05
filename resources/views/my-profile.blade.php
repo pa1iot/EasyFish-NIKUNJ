@@ -68,9 +68,14 @@
                         <label for="inputAddressLine1">{{ Helper::translation(2014,$translate) }} <span class="required">*</span></label>
                         <input type="text" class="form-control" id="email" name="email" value="{{ $edit['profile']->email }}" data-bvalidator="required,email">
                     </div>
+{{--                    <div class="col-sm-6">--}}
+{{--                        <label for="inputAddressLine2">{{ Helper::translation(2102,$translate) }}</label>--}}
+{{--                        <input type="text" class="form-control" id="password" name="password">--}}
+{{--                    </div>--}}
+
                     <div class="col-sm-6">
-                        <label for="inputAddressLine2">{{ Helper::translation(2102,$translate) }}</label>
-                        <input type="text" class="form-control" id="password" name="password">
+                        <label for="inputState">{{ Helper::translation(2002,$translate) }} <span class="required">*</span></label>
+                        <input type="text" required class="form-control" id="user_phone" name="user_phone" value="{{ $edit['profile']->user_phone }}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -91,45 +96,42 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="inputContactNumber">{{ Helper::translation(2106,$translate) }}</label>
-                        <input type="file" class="form-control" id="user_banner" name="user_banner">
-                        @if($edit['profile']->user_banner != "")
-                        <img src="{{ url('/') }}/public/storage/users/{{ $edit['profile']->user_banner }}" alt="{{ $edit['profile']->name }}" class="img-thumb">
-                        @else
-                        <img src="{{ url('/') }}/public/img/no-image.jpg" alt="{{ $edit['profile']->name }}" class="img-thumb">
-                        @endif
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="inputState">{{ Helper::translation(2107,$translate) }}</label>
-                        <input type="file" class="form-control" id="user_photo" name="user_photo">
-                        @if($edit['profile']->user_photo != "")
-                        <img src="{{ url('/') }}/public/storage/users/{{ $edit['profile']->user_photo }}" alt="{{ $edit['profile']->name }}" class="img-thumb">
-                        @else
-                        <img src="{{ url('/') }}/public/img/no-image.jpg" alt="{{ $edit['profile']->name }}" class="img-thumb">
-                        @endif
-                    </div>
+{{--                    <div class="col-sm-6">--}}
+{{--                        <label for="inputContactNumber">{{ Helper::translation(2106,$translate) }}</label>--}}
+{{--                        <input type="file" class="form-control" id="user_banner" name="user_banner">--}}
+{{--                        @if($edit['profile']->user_banner != "")--}}
+{{--                        <img src="{{ url('/') }}/public/storage/users/{{ $edit['profile']->user_banner }}" alt="{{ $edit['profile']->name }}" class="img-thumb">--}}
+{{--                        @else--}}
+{{--                        <img src="{{ url('/') }}/public/img/no-image.jpg" alt="{{ $edit['profile']->name }}" class="img-thumb">--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
+{{--                    <div class="col-sm-6">--}}
+{{--                        <label for="inputState">{{ Helper::translation(2107,$translate) }}</label>--}}
+{{--                        <input type="file" class="form-control" id="user_photo" name="user_photo">--}}
+{{--                        @if($edit['profile']->user_photo != "")--}}
+{{--                        <img src="{{ url('/') }}/public/storage/users/{{ $edit['profile']->user_photo }}" alt="{{ $edit['profile']->name }}" class="img-thumb">--}}
+{{--                        @else--}}
+{{--                        <img src="{{ url('/') }}/public/img/no-image.jpg" alt="{{ $edit['profile']->name }}" class="img-thumb">--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputContactNumber">{{ Helper::translation(2003,$translate) }}</label>
                         <input type="text" class="form-control" id="user_address" name="user_address" value="{{ $edit['profile']->user_address }}">
                     </div>
-                    <div class="col-sm-6">
-                        <label for="inputState">{{ Helper::translation(2002,$translate) }}</label>
-                        <input type="text" class="form-control" id="user_phone" name="user_phone" value="{{ $edit['profile']->user_phone }}">
-                    </div>
+
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="inputContactNumber">{{ Helper::translation(2108,$translate) }}</label>
-                        <textarea name="user_about" id="summary-ckeditor" rows="6" class="form-control">{{ html_entity_decode($edit['profile']->user_about) }}</textarea>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="inputState">{{ Helper::translation(2851,$translate) }}</label>
-                        <input type="text" class="form-control" id="affiliate_url" name="affiliate_url" value="{{ url('/') }}/?ref={{ $edit['profile']->id }}" readonly>
-                        <small>({{ Helper::translation(2854,$translate) }})</small>
-                    </div>
+{{--                    <div class="col-sm-6">--}}
+{{--                        <label for="inputContactNumber">{{ Helper::translation(2108,$translate) }}</label>--}}
+{{--                        <textarea name="user_about" id="summary-ckeditor" rows="6" class="form-control">{{ html_entity_decode($edit['profile']->user_about) }}</textarea>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-sm-6">--}}
+{{--                        <label for="inputState">{{ Helper::translation(2851,$translate) }}</label>--}}
+{{--                        <input type="text" class="form-control" id="affiliate_url" name="affiliate_url" value="{{ url('/') }}/?ref={{ $edit['profile']->id }}" readonly>--}}
+{{--                        <small>({{ Helper::translation(2854,$translate) }})</small>--}}
+{{--                    </div>--}}
                 </div>
                 <input type="hidden" name="save_password" value="{{ $edit['profile']->password }}">
                 <input type="hidden" name="edit_id" value="{{ $edit['profile']->user_token }}">

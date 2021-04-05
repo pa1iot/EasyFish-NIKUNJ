@@ -42,9 +42,11 @@
             if ($(this).is(":checked")) {
                 $("#show_shipping").show();
                 $("#show_shipping1").show();
+                $(".billing_address_div").hide();
                 } else {
                 $("#show_shipping").hide();
                 $("#show_shipping1").hide();
+                $(".billing_address_div").show();
 
             }
         });

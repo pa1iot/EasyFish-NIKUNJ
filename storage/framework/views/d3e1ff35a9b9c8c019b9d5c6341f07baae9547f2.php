@@ -21,7 +21,7 @@
             </div>
          </div>
          </form>
-      </div> 
+      </div>
      <div class="col-lg-5 col-md-5 col-sm-4 mt-2 pt-1 mb-1">
       <nav class="pull-right" id="nav-menu-container">
         <ul class="nav-menu">
@@ -45,13 +45,13 @@
           <?php endif; ?>
           <?php if(Auth::guest()): ?>
           <li><a href="<?php echo e(url('/login')); ?>" class="btn login-btn"><?php echo e(Helper::translation(2041,$translate)); ?></a></li>
-          <?php else: ?> 
+          <?php else: ?>
           <li class="menu-has-children"><a href="javascript:void(0)"><?php echo e(Helper::translation(2042,$translate)); ?></a>
             <ul>
               <?php if(Auth::user()->user_type == 'customer'): ?>
               <li><a href="<?php echo e(url('/my-profile')); ?>"><?php echo e(Helper::translation(2043,$translate)); ?></a></li>
               <li><a href="<?php echo e(url('/my-purchase')); ?>"><?php echo e(Helper::translation(2044,$translate)); ?></a></li>
-              <li><a href="<?php echo e(url('/my-wallet')); ?>"><?php echo e(Helper::translation(2045,$translate)); ?></a></li>
+
               <?php endif; ?>
               <?php if(Auth::user()->user_type == 'vendor'): ?>
               <li><a href="<?php echo e(url('/my-profile')); ?>"><?php echo e(Helper::translation(2043,$translate)); ?></a></li>
@@ -61,7 +61,7 @@
               <li><a href="<?php echo e(url('/my-coupon')); ?>"><?php echo e(Helper::translation(2047,$translate)); ?></a></li>
               <li><a href="<?php echo e(url('/my-orders')); ?>"><?php echo e(Helper::translation(2026,$translate)); ?></a></li>
               <li><a href="<?php echo e(url('/my-purchase')); ?>"><?php echo e(Helper::translation(2044,$translate)); ?></a></li>
-              <li><a href="<?php echo e(url('/my-wallet')); ?>"><?php echo e(Helper::translation(2045,$translate)); ?></a></li>
+
               <?php endif; ?>
               <li><a href="<?php echo e(url('/logout')); ?>"><?php echo e(Helper::translation(2048,$translate)); ?></a></li>
             </ul>
@@ -85,7 +85,7 @@
                     <button class="btn button-color d-inline-block d-lg-none ml-auto mmiddle pull-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                  </div> 
+                  </div>
                   <div class="col-lg-4 col-md-12 col-sm-12">
                    <div class="collapse navbar-collapse" id="navbarSupportedContent2">
                         <ul class="nav navbar-nav">
@@ -108,7 +108,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo e(url('/track-order')); ?>"><?php echo e(Helper::translation(2052,$translate)); ?></a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo e(url('/wishlist')); ?>"><?php echo e(Helper::translation(2053,$translate)); ?></a>
                             </li>
@@ -123,7 +123,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo e(url('/track-order')); ?>"><?php echo e(Helper::translation(2052,$translate)); ?></a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo e(url('/wishlist')); ?>"><?php echo e(Helper::translation(2053,$translate)); ?></a>
                             </li>
@@ -134,7 +134,7 @@
                             <li class="nav-item"><a href="<?php echo e(url('/cart')); ?>" class="nav-link"><i class="fa fa-shopping-cart"></i> <?php echo e(Helper::translation(1983,$translate)); ?> <span class="cart-badge"><?php echo e($cart_count); ?></span></a></li>
                         </ul>
                     </div>
-                   </div> 
+                   </div>
                  </div>
             </nav>
             <nav id="sidebar">
@@ -157,15 +157,16 @@
                     </a>
                     <?php if(count($menu->subcategory) != 0): ?>
                     <ul class="collapse list-unstyled" id="menu-<?php echo e($menu->cat_id); ?>">
-                    <?php $__currentLoopData = $menu->subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>  
+                    <?php $__currentLoopData = $menu->subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li>
                             <a href="<?php echo e(URL::to('/shop/subcategory')); ?>/<?php echo e($sub_category->subcategory_slug); ?>"><?php echo e($sub_category->subcategory_name); ?></a>
                         </li>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                     <?php endif; ?>
                 </li>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </ul>
         </div>
-</header><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/header.blade.php ENDPATH**/ ?>
+</header>
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/header.blade.php ENDPATH**/ ?>

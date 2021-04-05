@@ -20,6 +20,7 @@ use Mail;
 use Purifier;
 use ZigKart\Models\Languages;
 use Illuminate\Support\Str;
+use DB;
 
 class ProductController extends Controller
 {
@@ -354,6 +355,48 @@ class ProductController extends Controller
 	   return view('admin.orders')->with($data);
 	}
 
+    public function assign_orders()
+    {
+        $itemData['item'] = Product::getorderProduct();
+        $itemData['deliveryboy'] = \ZigKart\User::where('user_type','deliveryboy')->where('drop_status','no')->get();
+        $itemData['postcodes'] = DB::table('product_checkout')->groupby('bill_postcode')->get();
+        $data = array('itemData' => $itemData);
+
+//        print_r($data);exit();
+        return view('admin.assign-orders')->with($data);
+    }
+
+    public function assign_orders_with_filter($id)
+    {
+        $itemData['item'] = Product::getorderProductwithFilter($id);
+        $itemData['deliveryboy'] = \ZigKart\User::where('user_type','deliveryboy')->where('drop_status','no')->get();
+        $itemData['postcodes'] = DB::table('product_checkout')->groupby('bill_postcode')->get();
+        $data = array('itemData' => $itemData);
+
+//        print_r($data);exit();
+        return view('admin.assign-orders')->with($data);
+    }
+
+    public function save_assign_orders(Request $request)
+    {
+        //print_r($request->all());
+
+        $deliveryboy_id = $request->deliveryboy_user_id;
+        $order_assign_arr = $request->assign_arr;
+
+
+        if(!empty($order_assign_arr)){
+            foreach ($order_assign_arr as $value)
+            {
+                DB::table('product_orders')->where('ord_id',$value)->update(['deliveryboy_user_id'=>$deliveryboy_id,'delivery_status'=>1]);
+            }
+            return redirect('admin/assign-orders')->with('success', 'Order assign successfully.');
+        }
+
+
+        return redirect('admin/assign-orders');
+    }
+
 
 	public function view_payment_refund($ord_id,$refund_id,$user_type)
 	{
@@ -600,6 +643,11 @@ class ProductController extends Controller
 
 	public function view_order_single($token)
 	{
+
+//	    $this->emailsend(base64_encode($token),base64_encode('completed'));
+//	    print_r('email check');exit();
+
+
 	  $itemData['item'] = Product::adminorderItem($token);
 	  $single_data = Product::getCheckout($token);
 	  if($single_data->bill_country != "")
@@ -757,7 +805,9 @@ class ProductController extends Controller
 		 //$product_condition = $data['product_condition'];
 		 //$product_tags = $data['product_tags'];
 		// $product_featured = $data['product_featured'];
-		 $product_type = $data['product_type'];
+//		 $product_type = $data['product_type'];
+            $product_type = 'physical';
+
 		 if($product_type != 'digital')
 		 {
 		 $product_stock = $data['product_stock'];
@@ -795,7 +845,7 @@ class ProductController extends Controller
 		 //$flash_deals = $data['flash_deals'];
 		 $flash_deal_start_date = $data['flash_deal_start_date'];
 		 $flash_deal_end_date = $data['flash_deal_end_date'];
-		 $product_brand = $data['product_brand'];
+//		 $product_brand = $data['product_brand'];
          if ($request->hasFile('product_image'))
 		   {
 		    Product::dropProductimg($product_token);
@@ -851,7 +901,7 @@ class ProductController extends Controller
 			{
 
 
-			  $data = array('user_id' => $user_id, 'product_name' => $productname, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshortdesc, 'product_desc' => htmlentities($productdesc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price, 'product_image' => $product_image, 'product_return_policy' => " ", 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => " ", 'product_tags' => " ", 'product_featured' => "", 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => "", 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand, 'language_code' => $code);
+			  $data = array('user_id' => $user_id, 'product_name' => $productname, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshortdesc, 'product_desc' => htmlentities($productdesc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price, 'product_image' => $product_image, 'product_return_policy' => " ", 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => " ", 'product_tags' => " ", 'product_featured' => "", 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => "", 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => "", 'language_code' => $code);
              Product::updateproductData($product_id,$data);
 
 			}
@@ -1178,7 +1228,8 @@ class ProductController extends Controller
 		 }
 		 $product_slug = $this->brand_slug($data['product_slug']);
 
-		 $product_sku = $data['product_sku'];
+		// $product_sku = $data['product_sku'];
+		 $product_sku = $data['product_slug'];
 		 if(!empty($data['product_category']))
 	     {
 
@@ -1539,6 +1590,57 @@ class ProductController extends Controller
 	   return view('admin.refund')->with($data);
 	}
 	/* products */
+
+    // New email
+
+    public function emailsend($ord_id,$pay_type)
+    {
+        $ord_token = base64_decode($ord_id);
+        $payment_type = base64_decode($pay_type);
+        $sid = 1;
+        $setting['setting'] = Settings::editGeneral($sid);
+
+       // print_r($setting);exit();
+
+        $user_details = Product::getCheckout($ord_token);
+
+
+        $order_id = $ord_token;
+        $name = $user_details->name;
+        $email = $user_details->email;
+        $phone = $user_details->user_phone;
+        $amount = $user_details->total;
+        $url = URL::to("/");
+        $site_logo=$url.'/public/storage/settings/'.$setting['setting']->site_logo;
+        $site_name = $setting['setting']->site_title;
+        $admin_name = $setting['setting']->sender_name;
+        $admin_email = $setting['setting']->sender_email;
+        $site_currency = $setting['setting']->site_currency_symbol;
+
+        $data_record = [
+            'site_logo' => $site_logo, 'site_name' => $site_name, 'name' => $name,  'email' => $email, 'phone' => $phone, 'amount' => $amount, 'url' => $url, 'site_currency' => $site_currency, 'order_id' => $order_id
+        ];
+        //print_r($data_record);exit();
+
+//                        Mail::to($admin_email)->send(new \ZigKart\Mail\EmailNotify($data_record));
+//                        Mail::to($email)->send(new \ZigKart\Mail\EmailNotify($data_record));
+
+
+        Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
+            $message->to($admin_email,$admin_name)
+                ->subject('New Order Received');
+            $message->from($admin_email,$admin_name);
+        });
+
+        print_r($data_record);exit();
+
+        Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
+            $message->to($email, $name)
+                ->subject('New Order Received');
+            $message->from($admin_email,$admin_name);
+        });
+
+    }
 
 
 }

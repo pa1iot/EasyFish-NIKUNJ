@@ -66,7 +66,7 @@
                                             <th>{{ Helper::translation(2109,$translate) }}<br/><small class="red-color">({{ Helper::translation(3591,$translate) }})</small></th>
                                             <th>{{ Helper::translation(2098,$translate) }}</th>
                                             <th>{{ Helper::translation(2082,$translate) }}</th>
-                                            <th>{{ Helper::translation(3594,$translate) }}</th>
+{{--                                            <th>{{ Helper::translation(3594,$translate) }}</th>--}}
                                           </tr>
                                     </thead>
                                     <tbody>
@@ -99,14 +99,14 @@
                                             @endif
                                             </td>
                                             <td>@if($order->order_status == 'completed') <span class="badge badge-success">Completed</span> @else <span class="badge badge-danger">Pending</span> @endif</td>
-                                            <td>
-                                            @if($order->payment_status == '' && $order->order_status == 'completed')
-                                            <a href="{{ URL::to('/admin/order-details') }}/{{ $order->ord_id }}/vendor" class="btn btn-success btn-sm" title="payment released to vendor" onClick="return confirm('Are you sure you will payment released to vendor?');"><i class="fa fa-money"></i>&nbsp; {{ Helper::translation(3600,$translate) }}</a>
-                                            <a href="{{ URL::to('/admin/order-details') }}/{{ $order->ord_id }}/buyer" class="btn btn-danger btn-sm" title="payment released to buyer" onClick="return confirm('Are you sure you will payment released to buyer?');"><i class="fa fa-close"></i>&nbsp; {{ Helper::translation(3606,$translate) }}</a>
-                                            @else
-                                            {{ $order->payment_status }}
-                                            @endif
-                                            </td>
+{{--                                            <td>--}}
+{{--                                            @if($order->payment_status == '' && $order->order_status == 'completed')--}}
+{{--                                            <a href="{{ URL::to('/admin/order-details') }}/{{ $order->ord_id }}/vendor" class="btn btn-success btn-sm" title="payment released to vendor" onClick="return confirm('Are you sure you will payment released to vendor?');"><i class="fa fa-money"></i>&nbsp; {{ Helper::translation(3600,$translate) }}</a>--}}
+{{--                                            <a href="{{ URL::to('/admin/order-details') }}/{{ $order->ord_id }}/buyer" class="btn btn-danger btn-sm" title="payment released to buyer" onClick="return confirm('Are you sure you will payment released to buyer?');"><i class="fa fa-close"></i>&nbsp; {{ Helper::translation(3606,$translate) }}</a>--}}
+{{--                                            @else--}}
+{{--                                            {{ $order->payment_status }}--}}
+{{--                                            @endif--}}
+{{--                                            </td>--}}
                                          </tr>
                                         @php $no++; @endphp
                                    @endforeach
@@ -229,15 +229,15 @@
                                             {{ $single_data->bill_lastname }}
                                         </td>
                                     </tr>
-                                   <tr>
-                                        <td>
-                                            {{ Helper::translation(2000,$translate) }}
-                                        </td>
+{{--                                   <tr>--}}
+{{--                                        <td>--}}
+{{--                                            {{ Helper::translation(2000,$translate) }}--}}
+{{--                                        </td>--}}
 
-                                        <td>
-                                            {{ $single_data->bill_companyname }}
-                                        </td>
-                                    </tr>
+{{--                                        <td>--}}
+{{--                                            {{ $single_data->bill_companyname }}--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
                                     <tr>
                                         <td>
                                             {{ Helper::translation(2014,$translate) }}
@@ -333,15 +333,15 @@
                                             {{ $single_data->ship_lastname }}
                                         </td>
                                     </tr>
-                                   <tr>
-                                        <td>
-                                            {{ Helper::translation(1999,$translate) }}
-                                        </td>
+{{--                                   <tr>--}}
+{{--                                        <td>--}}
+{{--                                            {{ Helper::translation(1999,$translate) }}--}}
+{{--                                        </td>--}}
 
-                                        <td>
-                                            {{ $single_data->ship_companyname }}
-                                        </td>
-                                    </tr>
+{{--                                        <td>--}}
+{{--                                            {{ $single_data->ship_companyname }}--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
                                     <tr>
                                         <td>
                                             {{ Helper::translation(2014,$translate) }}

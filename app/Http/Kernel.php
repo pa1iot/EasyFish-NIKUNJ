@@ -64,7 +64,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 		'is_admin' => \ZigKart\Http\Middleware\IsAdmin::class,
 		'XSS' => \ZigKart\Http\Middleware\XSS::class,
-		
+		'is_deliveryboy' => \ZigKart\Http\Middleware\IsDeliveryboy::class,
+
     ];
 
     /**
@@ -81,6 +82,6 @@ class Kernel extends HttpKernel
         \Illuminate\Session\Middleware\AuthenticateSession::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
         \Illuminate\Auth\Middleware\Authorize::class,
-		
+
     ];
 }

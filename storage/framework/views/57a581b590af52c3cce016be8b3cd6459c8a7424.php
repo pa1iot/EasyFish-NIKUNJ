@@ -26,7 +26,7 @@
        </script>
       </div>
       </div>
-      <?php endif; ?> 
+      <?php endif; ?>
       <?php endif; ?>
       <div class="row">
            <div class="col-md-3">
@@ -41,8 +41,8 @@
                         <div class="col-lg-12 categorybox">
                         <div>
                             <?php $__currentLoopData = $categories['display']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php 
-                            if($translate == 'en'){ $menu_cat = $menu->cat_id;  } else { $menu_cat = $menu->category_page_parent;  } 
+                            <?php
+                            if($translate == 'en'){ $menu_cat = $menu->cat_id;  } else { $menu_cat = $menu->category_page_parent;  }
                             ?>
                             <input type="checkbox" name="category[]" value="cat-<?php echo e($menu_cat); ?>"> <?php echo e($menu->category_name); ?><br/>
                                <?php if(count($menu->subcategory) != 0): ?>
@@ -70,35 +70,34 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card shadow-sm bg-white border-0 mb-3 rounded-0">
-                    <h5 class="card-header bg-white link-color"><?php echo e(Helper::translation(1950,$translate)); ?></h5>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <div>
-                            <input type="checkbox" name="condition" value="new"> <?php echo e(Helper::translation(1951,$translate)); ?><br/>
-                            <input type="checkbox" name="condition" value="used"> <?php echo e(Helper::translation(1952,$translate)); ?>
 
-                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card shadow-sm bg-white border-0 mb-3 rounded-0">
-                    <h5 class="card-header bg-white link-color"><?php echo e(Helper::translation(1946,$translate)); ?></h5>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <div>
-                            <input type="checkbox" name="product_type" value="physical"> <?php echo e(Helper::translation(2165,$translate)); ?><br/>
-                            <input type="checkbox" name="product_type" value="external"> <?php echo e(Helper::translation(2166,$translate)); ?><br/>
-                            <input type="checkbox" name="product_type" value="digital"> <?php echo e(Helper::translation(2167,$translate)); ?><br/>
-                           </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                   <?php if(count($attributer['display']) != 0): ?>
                   <?php $__currentLoopData = $attributer['display']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attribute): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <div class="card shadow-sm bg-white border-0 mb-3 rounded-0">
@@ -110,8 +109,8 @@
                         <?php $__currentLoopData = $attribute->newattributevalue; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product_value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($translate == 'en') { $value_id = $product_value->attribute_value_id; } else { $value_id = $product_value->attrivalue_page_parent; } ?>
                             <input type="checkbox" name="attribute[]" value="<?php echo e($value_id); ?>"> <?php echo e($product_value->attribute_value); ?><br/>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
-                        </div>   
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </div>
                         </div>
                       </div>
                     </div>
@@ -132,17 +131,17 @@
                             (adsbygoogle = window.adsbygoogle || []).push({});
                             </script>
                         </div>
-                 </div> 
-                 <?php endif; ?>      
+                 </div>
+                 <?php endif; ?>
                  <?php endif; ?>
                  </form>
          	</div>
-            
+
             <div class="col-md-9">
               <div class="mt-1 mb-1 pt-1 pb-1">
                   <div class="row" align="center">
                            <?php $z = 1; ?>
-                              <?php $__currentLoopData = $shop['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                              <?php $__currentLoopData = $shop['product']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-2 pb-2 prod-item">
                                    <div class="product-grid2">
                                     <div class="product-image2">
@@ -165,7 +164,8 @@
             <?php if($product->product_condition == 'new'){ $badg = "badge badge-warning"; } else { $badg = "badge badge-secondary"; } ?>
             <?php if($product->product_condition != ""): ?><div class="mt-2"><?php echo e(Helper::translation(1950,$translate)); ?> : <span class="<?php echo e($badg); ?>"><?php echo e($product->product_condition); ?></span></div><?php endif; ?>
                                     <div class="mt-3"><?php if($product->product_price != 0): ?><span <?php if($product->product_offer_price != 0): ?> class="fs16 offer-price red-color" <?php else: ?> class="fs32" <?php endif; ?>><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_price); ?></span><?php endif; ?> <?php if($product->product_offer_price != 0): ?><span class="fs32"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_offer_price); ?></span><?php endif; ?></div>                                <p class="mt-3">
-                                    <?php echo e($product->product_short_desc); ?> 
+                                    <?php echo e($product->product_short_desc); ?>
+
                                     </p>
                                     <p><a href="<?php echo e(URL::to('/product')); ?>/<?php echo e($product->product_slug); ?>" class="btn button-color"><?php echo e(Helper::translation(2065,$translate)); ?></a></p>
                                     </div>
@@ -226,7 +226,7 @@
                                             <span class="price like"><?php if($product->product_offer_price != 0): ?><span class="linethrow"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_price); ?></span><?php endif; ?> <?php if($product->product_offer_price != 0): ?><span class="like"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_offer_price); ?></span><?php else: ?><span class="like"><?php echo e($allsettings->site_currency_symbol); ?><?php echo e($product->product_price); ?></span><?php endif; ?></span>
                                         </div>
                                         <p class="d-none">
-                                        <?php 
+                                        <?php
                                         $var=explode(',',$product->product_category);
                                         ?>
                                         <?php $__currentLoopData = $var; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -243,7 +243,7 @@
                                         </p>
                                         </div>
                                     </div>
-                                   <?php $z++; ?>      
+                                   <?php $z++; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </div>
                           <div class="text-right">
@@ -263,7 +263,7 @@
        </script>
       </div>
       </div>
-      <?php endif; ?> 
+      <?php endif; ?>
       <?php endif; ?>
       </div>
     </main>
@@ -273,4 +273,5 @@
 </html>
 <?php else: ?>
 <?php echo $__env->make('503', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php endif; ?><?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/shop.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php /**PATH C:\xampp\htdocs\ecomm_multi\resources\views/shop.blade.php ENDPATH**/ ?>

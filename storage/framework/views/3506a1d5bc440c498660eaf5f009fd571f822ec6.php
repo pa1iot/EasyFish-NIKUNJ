@@ -67,7 +67,7 @@
                                             <th><?php echo e(Helper::translation(2109,$translate)); ?><br/><small class="red-color">(<?php echo e(Helper::translation(3591,$translate)); ?>)</small></th>
                                             <th><?php echo e(Helper::translation(2098,$translate)); ?></th>
                                             <th><?php echo e(Helper::translation(2082,$translate)); ?></th>
-                                            <th><?php echo e(Helper::translation(3594,$translate)); ?></th>
+
                                           </tr>
                                     </thead>
                                     <tbody>
@@ -101,15 +101,14 @@
                                             <?php endif; ?>
                                             </td>
                                             <td><?php if($order->order_status == 'completed'): ?> <span class="badge badge-success">Completed</span> <?php else: ?> <span class="badge badge-danger">Pending</span> <?php endif; ?></td>
-                                            <td>
-                                            <?php if($order->payment_status == '' && $order->order_status == 'completed'): ?>
-                                            <a href="<?php echo e(URL::to('/admin/order-details')); ?>/<?php echo e($order->ord_id); ?>/vendor" class="btn btn-success btn-sm" title="payment released to vendor" onClick="return confirm('Are you sure you will payment released to vendor?');"><i class="fa fa-money"></i>&nbsp; <?php echo e(Helper::translation(3600,$translate)); ?></a>
-                                            <a href="<?php echo e(URL::to('/admin/order-details')); ?>/<?php echo e($order->ord_id); ?>/buyer" class="btn btn-danger btn-sm" title="payment released to buyer" onClick="return confirm('Are you sure you will payment released to buyer?');"><i class="fa fa-close"></i>&nbsp; <?php echo e(Helper::translation(3606,$translate)); ?></a>
-                                            <?php else: ?>
-                                            <?php echo e($order->payment_status); ?>
 
-                                            <?php endif; ?>
-                                            </td>
+
+
+
+
+
+
+
                                          </tr>
                                         <?php $no++; ?>
                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -252,17 +251,15 @@
 
                                         </td>
                                     </tr>
-                                   <tr>
-                                        <td>
-                                            <?php echo e(Helper::translation(2000,$translate)); ?>
 
-                                        </td>
 
-                                        <td>
-                                            <?php echo e($single_data->bill_companyname); ?>
 
-                                        </td>
-                                    </tr>
+
+
+
+
+
+
                                     <tr>
                                         <td>
                                             <?php echo e(Helper::translation(2014,$translate)); ?>
@@ -376,17 +373,15 @@
 
                                         </td>
                                     </tr>
-                                   <tr>
-                                        <td>
-                                            <?php echo e(Helper::translation(1999,$translate)); ?>
 
-                                        </td>
 
-                                        <td>
-                                            <?php echo e($single_data->ship_companyname); ?>
 
-                                        </td>
-                                    </tr>
+
+
+
+
+
+
                                     <tr>
                                         <td>
                                             <?php echo e(Helper::translation(2014,$translate)); ?>

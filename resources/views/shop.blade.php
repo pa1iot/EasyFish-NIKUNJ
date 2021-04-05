@@ -26,7 +26,7 @@
        </script>
       </div>
       </div>
-      @endif 
+      @endif
       @endif
       <div class="row">
            <div class="col-md-3">
@@ -40,8 +40,8 @@
                         <div class="col-lg-12 categorybox">
                         <div>
                             @foreach($categories['display'] as $menu)
-                            @php 
-                            if($translate == 'en'){ $menu_cat = $menu->cat_id;  } else { $menu_cat = $menu->category_page_parent;  } 
+                            @php
+                            if($translate == 'en'){ $menu_cat = $menu->cat_id;  } else { $menu_cat = $menu->category_page_parent;  }
                             @endphp
                             <input type="checkbox" name="category[]" value="cat-{{ $menu_cat }}"> {{ $menu->category_name }}<br/>
                                @if(count($menu->subcategory) != 0)
@@ -69,34 +69,34 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card shadow-sm bg-white border-0 mb-3 rounded-0">
-                    <h5 class="card-header bg-white link-color">{{ Helper::translation(1950,$translate) }}</h5>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <div>
-                            <input type="checkbox" name="condition" value="new"> {{ Helper::translation(1951,$translate) }}<br/>
-                            <input type="checkbox" name="condition" value="used"> {{ Helper::translation(1952,$translate) }}
-                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card shadow-sm bg-white border-0 mb-3 rounded-0">
-                    <h5 class="card-header bg-white link-color">{{ Helper::translation(1946,$translate) }}</h5>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <div>
-                            <input type="checkbox" name="product_type" value="physical"> {{ Helper::translation(2165,$translate) }}<br/>
-                            <input type="checkbox" name="product_type" value="external"> {{ Helper::translation(2166,$translate) }}<br/>
-                            <input type="checkbox" name="product_type" value="digital"> {{ Helper::translation(2167,$translate) }}<br/>
-                           </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </div>
+{{--                  <div class="card shadow-sm bg-white border-0 mb-3 rounded-0">--}}
+{{--                    <h5 class="card-header bg-white link-color">{{ Helper::translation(1950,$translate) }}</h5>--}}
+{{--                    <div class="card-body">--}}
+{{--                      <div class="row">--}}
+{{--                        <div class="col-lg-12">--}}
+{{--                          <div>--}}
+{{--                            <input type="checkbox" name="condition" value="new"> {{ Helper::translation(1951,$translate) }}<br/>--}}
+{{--                            <input type="checkbox" name="condition" value="used"> {{ Helper::translation(1952,$translate) }}--}}
+{{--                           </div>--}}
+{{--                        </div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                  <div class="card shadow-sm bg-white border-0 mb-3 rounded-0">--}}
+{{--                    <h5 class="card-header bg-white link-color">{{ Helper::translation(1946,$translate) }}</h5>--}}
+{{--                    <div class="card-body">--}}
+{{--                      <div class="row">--}}
+{{--                        <div class="col-lg-12">--}}
+{{--                          <div>--}}
+{{--                            <input type="checkbox" name="product_type" value="physical"> {{ Helper::translation(2165,$translate) }}<br/>--}}
+{{--                            <input type="checkbox" name="product_type" value="external"> {{ Helper::translation(2166,$translate) }}<br/>--}}
+{{--                            <input type="checkbox" name="product_type" value="digital"> {{ Helper::translation(2167,$translate) }}<br/>--}}
+{{--                           </div>--}}
+{{--                        </div>--}}
+{{--                        --}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
                   @if(count($attributer['display']) != 0)
                   @foreach($attributer['display'] as $attribute)
                   <div class="card shadow-sm bg-white border-0 mb-3 rounded-0">
@@ -108,8 +108,8 @@
                         @foreach($attribute->newattributevalue as $product_value)
                         @php if($translate == 'en') { $value_id = $product_value->attribute_value_id; } else { $value_id = $product_value->attrivalue_page_parent; } @endphp
                             <input type="checkbox" name="attribute[]" value="{{ $value_id }}"> {{ $product_value->attribute_value }}<br/>
-                        @endforeach 
-                        </div>   
+                        @endforeach
+                        </div>
                         </div>
                       </div>
                     </div>
@@ -130,17 +130,17 @@
                             (adsbygoogle = window.adsbygoogle || []).push({});
                             </script>
                         </div>
-                 </div> 
-                 @endif      
+                 </div>
+                 @endif
                  @endif
                  </form>
          	</div>
-            
+
             <div class="col-md-9">
               <div class="mt-1 mb-1 pt-1 pb-1">
                   <div class="row" align="center">
                            @php $z = 1; @endphp
-                              @foreach($shop['product'] as $product) 
+                              @foreach($shop['product'] as $product)
                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-2 pb-2 prod-item">
                                    <div class="product-grid2">
                                     <div class="product-image2">
@@ -163,7 +163,7 @@
             @php if($product->product_condition == 'new'){ $badg = "badge badge-warning"; } else { $badg = "badge badge-secondary"; } @endphp
             @if($product->product_condition != "")<div class="mt-2">{{ Helper::translation(1950,$translate) }} : <span class="{{ $badg }}">{{ $product->product_condition }}</span></div>@endif
                                     <div class="mt-3">@if($product->product_price != 0)<span @if($product->product_offer_price != 0) class="fs16 offer-price red-color" @else class="fs32" @endif>{{ $allsettings->site_currency_symbol }}{{ $product->product_price }}</span>@endif @if($product->product_offer_price != 0)<span class="fs32">{{ $allsettings->site_currency_symbol }}{{ $product->product_offer_price }}</span>@endif</div>                                <p class="mt-3">
-                                    {{ $product->product_short_desc }} 
+                                    {{ $product->product_short_desc }}
                                     </p>
                                     <p><a href="{{ URL::to('/product') }}/{{ $product->product_slug }}" class="btn button-color">{{ Helper::translation(2065,$translate) }}</a></p>
                                     </div>
@@ -224,7 +224,7 @@
                                             <span class="price like">@if($product->product_offer_price != 0)<span class="linethrow">{{ $allsettings->site_currency_symbol }}{{ $product->product_price }}</span>@endif @if($product->product_offer_price != 0)<span class="like">{{ $allsettings->site_currency_symbol }}{{ $product->product_offer_price }}</span>@else<span class="like">{{ $allsettings->site_currency_symbol }}{{ $product->product_price }}</span>@endif</span>
                                         </div>
                                         <p class="d-none">
-                                        @php 
+                                        @php
                                         $var=explode(',',$product->product_category);
                                         @endphp
                                         @foreach($var as $row)
@@ -241,7 +241,7 @@
                                         </p>
                                         </div>
                                     </div>
-                                   @php $z++; @endphp      
+                                   @php $z++; @endphp
                             @endforeach
                           </div>
                           <div class="text-right">
@@ -261,7 +261,7 @@
        </script>
       </div>
       </div>
-      @endif 
+      @endif
       @endif
       </div>
     </main>

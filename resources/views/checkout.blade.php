@@ -54,6 +54,7 @@
           @php $addressbooks = DB::table('address_books')->where('user_id',Auth::user()->id)->orderBy('id','desc')->first(); @endphp
          <div class="row">
            <div class="col-md-6 mt-1 mb-1 pt-1 pb-1">
+           <div class="billing_address_div">
                <h3>{{ Helper::translation(1997,$translate) }}</h3>
          	   <div class="form-row mt-4 mb-4">
                 <div class="col">
@@ -66,10 +67,8 @@
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
-                <div class="col">
-                  <label>{{ Helper::translation(2000,$translate) }}</label>
-                  <input type="hidden" @if(!empty($addressbooks)) value="{{$addressbooks->bill_companyname}}" @endif class="form-control" id="bill_companyname" name="bill_companyname">
-                </div>
+
+
                 <div class="col">
                   <label>{{ Helper::translation(2001,$translate) }}<span class="red">*</span></label>
                   <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->bill_email}}" @endif class="form-control" id="bill_email" name="bill_email" data-bvalidator="email,required">
@@ -109,10 +108,26 @@
                   @endforeach
                   </select>
                 </div>
+
+                  <div class="col">
+                      {{--                  <label>{{ Helper::translation(2000,$translate) }}</label>--}}
+                      <input type="hidden" @if(!empty($addressbooks)) value="{{$addressbooks->bill_companyname}}" @endif class="form-control" id="bill_companyname" name="bill_companyname">
+                  </div>
+
+              </div>
               </div>
            </div>
            <div class="col-md-6 mt-1 mb-1 pt-1 pb-1">
-               <h3>{{ Helper::translation(2008,$translate) }} <span><input @if(!empty($addressbooks)) {{$addressbooks->enable_shipping == 1 ? 'checked' : '' }}  @endif type="checkbox" name="enable_shipping" id="enable_shipping" value="1"></span></h3>
+               <h3>
+{{--                   {{ Helper::translation(2008,$translate) }} --}}
+                   <span>Add New Address
+{{--                       <input @if(!empty($addressbooks)) {{$addressbooks->enable_shipping == 1 ? 'checked' : '' }}  @endif type="checkbox"  name="enable_shipping" id="enable_shipping" value="1">--}}
+                   </span>
+                   <label class="btn btn-primary">
+                       Add New <input @if(!empty($addressbooks)) {{$addressbooks->enable_shipping == 1 ? 'checked' : '' }}  @endif type="checkbox"  name="enable_shipping" id="enable_shipping" value="1">
+                   </label>
+               </h3>
+
                <div id="show_shipping{{!empty($addressbooks) ? ($addressbooks->enable_shipping == 1 ? '1':'' ) : ''}}">
          	   <div class="form-row mt-4 mb-4">
                 <div class="col">
@@ -125,10 +140,7 @@
                 </div>
               </div>
               <div class="form-row mt-3 mb-3">
-                  <div class="col">
-                  <label>{{ Helper::translation(2000,$translate) }}</label>
-                  <input type="hidden" @if(!empty($addressbooks)) value="{{$addressbooks->ship_companyname}}" @endif class="form-control" id="ship_companyname" name="ship_companyname">
-                </div>
+
 
                 <div class="col">
                   <label>{{ Helper::translation(2001,$translate) }} <span class="red">*</span></label>
@@ -160,7 +172,8 @@
                   <label>{{ Helper::translation(2006,$translate) }} <span class="red">*</span></label>
                   <input type="text" @if(!empty($addressbooks)) value="{{$addressbooks->ship_postcode}}" @endif class="form-control" id="ship_postcode" name="ship_postcode" data-bvalidator="required">
                 </div>
-                <div class="col">
+
+                  <div class="col">
                   <label>{{ Helper::translation(2007,$translate) }} <span class="red">*</span></label>
                   <select class="form-control" name="ship_country" data-bvalidator="required">
                   <option value=""></option>
@@ -169,6 +182,11 @@
                   @endforeach
                   </select>
                 </div>
+
+                  <div class="col">
+{{--                      <label>{{ Helper::translation(2000,$translate) }}</label>--}}
+                      <input type="hidden" @if(!empty($addressbooks)) value="{{$addressbooks->ship_companyname}}" @endif class="form-control" id="ship_companyname" name="ship_companyname">
+                  </div>
               </div>
               </div>
               <div class="form-row mt-4 mb-4">
